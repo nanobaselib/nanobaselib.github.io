@@ -1,77 +1,113 @@
 <!doctype html>
 <html lang="en">
-  <head>
-  	<title>NanoSeqLib</title>
+<head>
+    <title>NanoBaseLib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-		
-    <div class="wrapper d-flex align-items-stretch">
-	<nav id="sidebar">
-	  <div class="img bg-wrap text-center py-3" style="background-image: url(images/R.jfif);">
-	  	<div class="user-logo"><div class="img" style="background-image: url(images/logo_rename_white.svg);"></div></div>
-	  </div>
-          <ul class="list-unstyled components mb-5">
-          <li class="active">
-            <a href="index.html"><span class="fa fa-home mr-3"></span> Project </a>
-          </li>
-          <li>
-              <a href="dataset.html"><span class="fa fa-cloud-download mr-3 notif"></span> Dataset</a>
-          </li>
-          <li>
-            <a href="basecall.html"> <span class="fa fa-bar-chart mr-3 notif"></span> Base-calling</a>
-          </li>
-          <li>
-            <a href="ploya.html"><span class="fa fa-scissors mr-3"></span> PolyA Estamation</a>
-          </li>
-          <li>
-            <a href="modify.html"><span class="fa fa-hourglass-half mr-3"></span> Modification Dection</a>
-          </li>
-          <li>
-            <a href="segment.html"><span class="fa fa-align-left mr-3"></span> Segmentation </a>
-          </li>
-	  <li>
-            <a href="software.html"><span class="fa fa-github mr-3"></span> Software </a>
-          </li>
-          <li>
-            <a href="about.html"><span class="fa fa-info-circle mr-3"></span> About </a>
-          </li>
-        </ul>
-    	</nav>
-	    
-      <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
-		<center>
-		<img src="images/logo_rename_color.svg" width="50%" alt="Nanopore Sequencing" />
-                <h1 class="mb-4" style="font-family:Georgia">A Multi-Task Benchmark Dataset for Nanopore Sequencing</h1>
-		</center>
-		<p>NanoBaseLib is a multi-task benchmark dataset for Nanopore sequencing.</p>
-                <br/>
-		<br/>
-		<h2 class="mb-4">Principle of nanopore sequencing</h2>	 
-		<center>
-		<img src="images/nano1.jpg" width="65%"/>
-		</center>
-		<br/>
-		<br/>
-		<h2 class="mb-4">Beyond sequencing: machine learning powers biological discovery</h2>	
-                <img src="images/intro.svg" width="90%" alt="Nanopore Sequencing" />
-	        <center> <p>&copy; 2024. All rights reserved.</p> </center>
-    </div>
- </div>	
+</head>
+<body>	
+	<div class="wrapper d-flex align-items-stretch">
+		<nav id="sidebar">
+	  	        <div class="img bg-wrap text-center py-3" style="background-image: url(images/bg.avif);">
+	  			    <div class="user-logo">
+	  				    <div class="img" style="background-image: url(images/logo_small.svg);"></div>
+	  			     </div>
+	  	        </div>
+                <ul class="list-unstyled components mb-5">
+                    <li class="active">
+                        <a href="index.html"><span class="fa fa-home mr-3"></span> Home </a>
+                    </li>
+                    <li>
+                        <a href="dataset.html"><span class="fa fa-cloud-download mr-3 notif"></span> Dataset </a>
+                    </li>
+					<li>
+                        <a href="pipeline.html"><span class="fa fa-sort-amount-desc mr-3"></span>  Pipeline </a>
+                    </li>
+                    <li>
+                        <a href="basecall.html"> <span class="fa fa-bar-chart mr-3 notif"></span> Base Calling </a>
+                    </li>
+                    <li>
+                        <a href="ploya.html"><span class="fa fa-scissors mr-3"></span> PolyA Dection </a>
+                    </li>
+                    <li>
+                        <a href="mod.html"><span class="fa fa-hourglass-half mr-3"></span> Modification Dection </a>
+                    </li>
+                    <li>
+                        <a href="segment.html"><span class="fa fa-align-left mr-3"></span> Segmentation </a>
+                    </li>
+                    <li>
+                        <a href="software.html"><span class="fa fa-github mr-3"></span> Software </a>
+                    </li>
+                    <li>
+                        <a href="about.html"><span class="fa fa-info-circle mr-3"></span> About </a>
+                    </li>
+                </ul>
 
+    	</nav>
+
+        <!-- Page Content Start  -->
+        <div id="content" class="p-4 p-md-5 pt-5" style="font-family:Georgia">
+		<center>
+		    <img src="images/logo_rename.svg" width="40%" alt="Nanopore Sequencing" />
+            <h1 class="mb-4" style="font-family:Georgia">A Multi-task Benchmark Dataset for Nanopore Sequencing</h1>
+		</center>
+		<table class="noBorder">
+	        <tr>
+			    <th>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  </th>
+                <th>  <i class="fa fa-hand-o-right fa-2x"> </i>  </th>
+			    <th>  <h5 style="font-family:Georgia" > &nbsp; <i> NanoBaseLib </i> is a <span style="color: red;">comprehensive dataset</span> integrating 16 public datasets with over 30 million reads. </h5> </th>
+			</tr>
+			<tr>
+			    <th>  </th>
+                <th>  <i class="fa fa-hand-o-right fa-2x"> </i>  </th>
+			    <th>  <h5 style="font-family:Georgia"> &nbsp; <i> NanoBaseLib </i> is a <span style="color: red;">benchmark platform</span> covering 4 critical tasks. </h5> </th>
+			</tr>
+			<tr>
+			    <th> </th>
+                <th>  <i class="fa fa-hand-o-right fa-2x"> </i>  </th>
+			    <th>  <h5 style="font-family:Georgia"> &nbsp; <i> NanoBaseLib </i> is a <span style="color: red;">sofeware package</span> designed to incorporate new datasets efficiently. </h5> </th>
+			</tr>
+		</table>
+
+		<br/>
+		<br/>
+		<h2 style="font-family:Georgia">Principle of Nanopore sequencing</h2>	
+		
+		<div class="justify">
+		    <img src="images/nano1.jpg" width="40%" align="right" />
+            Nanopore sequencing technology measures the current signal by translocating a DNA/RNA molecule through a nanoscale pore anchored on a lipid membrane, as illustrated in Fig. 1. The shape, size, and chemical properties of nucleotides in the pore jointly determine the current signals, which are collected and utilized to infer the nucleotide sequence using computational methods (e.g., seq2seq deep learning models). There are multiple nucleotides (usually 5) in the pore, which we term as kmer (e.g., 5mer). The inferred $k$mers are assembled into a DNA/RNA sequence computationally, which completes the sequencing process. 
+		
+		    Nanopore sequencing technology measures the current signal by translocating a DNA/RNA molecule through a nanoscale pore anchored on a lipid membrane, as illustrated in Fig. 1. The shape, size, and chemical properties of nucleotides in the pore jointly determine the current signals, which are collected and utilized to infer the nucleotide sequence using computational methods (e.g., seq2seq deep learning models). There are multiple nucleotides (usually 5) in the pore, which we term as kmer (e.g., 5mer). The inferred $k$mers are assembled into a DNA/RNA sequence computationally, which completes the sequencing process. 
+		    
+			Nanopore sequencing technology measures the current signal by translocating a DNA/RNA molecule through a nanoscale pore anchored on a lipid membrane, as illustrated in Fig. 1. The shape, size, and chemical properties of nucleotides in the pore jointly determine the current signals, which are collected and utilized to infer the nucleotide sequence using computational methods (e.g., seq2seq deep learning models). There are multiple nucleotides (usually 5) in the pore, which we term as kmer (e.g., 5mer). The inferred $k$mers are assembled into a DNA/RNA sequence computationally, which completes the sequencing process. 
+		
+		</div>
+		<br/>
+		<h2 style="font-family:Georgia">Beyond sequencing: machine learning powers biological discovery</h2>	
+		<br/>
+		<center>
+		    <img src="images/intro.png" width="85%" alt="Nanopore Sequencing" />
+		</center>
+        
+		<br/>
+		
+		<h2 style="font-family:Georgia">Oxford Nanopore Technologies sequencing</h2>	
+		
+		</br>
+	    <center> <p>&copy; 2024. All rights reserved.</p> </center>
+		<!-- Page Content End -->
+	    </div>
+	
+	</div>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-	
-    <footer>
+	<footer>
     </footer>
-
 </body>
 </html>

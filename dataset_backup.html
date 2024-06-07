@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>NanoBaseLib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="img bg-wrap text-center py-3" style="background-image: url(images/bg.avif);">
+	  			    <div class="user-logo">
+	  				    <div class="img" style="background-image: url(images/logo_small.svg);"></div>
+	  			     </div>
+	  	        </div>
+        <ul class="list-unstyled components mb-5">
+                    <li>
+                        <a href="index.html"><span class="fa fa-home mr-3"></span> Home </a>
+                    </li>
+                    <li class="active">
+                        <a href="dataset.html"><span class="fa fa-cloud-download mr-3 notif"></span> Dataset </a>
+                    </li>
+					<li>
+                        <a href="pipeline.html"><span class="fa fa-sort-amount-desc mr-3"></span>  Pipeline </a>
+                    </li>
+                    <li>
+                        <a href="basecall.html"> <span class="fa fa-bar-chart mr-3 notif"></span> Base Calling </a>
+                    </li>
+                    <li>
+                        <a href="ploya.html"><span class="fa fa-scissors mr-3"></span> PolyA Dection </a>
+                    </li>
+                    <li>
+                        <a href="mod.html"><span class="fa fa-hourglass-half mr-3"></span> Modification Dection </a>
+                    </li>
+                    <li>
+                        <a href="segment.html"><span class="fa fa-align-left mr-3"></span> Segmentation </a>
+                    </li>
+                    <li>
+                        <a href="software.html"><span class="fa fa-github mr-3"></span> Software </a>
+                    </li>
+                    <li>
+                        <a href="about.html"><span class="fa fa-info-circle mr-3"></span> About </a>
+                    </li>
+                </ul>
+
+    	</nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5 pt-5">
+	    <style>
+            table{
+                text-align: center;
+            }
+            td {
+                text-align: center;
+            }
+        </style>
+		<h2 class="mb-4" style="font-family:Georgia">Dataset overview and download</h2>
+		
+		        <table class="noBorder">
+	                <tr>
+                        <th>  <i class="fa fa-circle-o"> </i>  </th>
+			            <th>  <h3 style="font-family:Georgia"> &nbsp; Dataset overview </h3> </th>
+			        </tr>
+		        </table>
+				
+
+        <b>BC</b>: Base calling; &nbsp; <b>PD</b>: PolyA Detecttion; &nbsp; <b>SA</b>: Segmentation and Event Alignmnet; &nbsp; <b>MD</b>: Modification Detecion.
+        <table border="1">
+          <!-- table content goes here -->
+	        <tr>
+                <th scope="col">  Dataset  </th>
+			    <th>  Publish Date </th>
+			    <th>  Accession  </th>
+			    <th>  Species  </th>
+				<th>  Type  </th>
+			    <th>  Sample  </th>
+                <th>  Flowcell_type  </th>
+                <th>  Sequencing_kit  </th>
+			    <th>  # fast5  </th>
+			    <th>  # reads  </th>
+				<th>   &nbsp; BC &nbsp; </th>
+				<th>  &nbsp; PD &nbsp; </th>
+				<th>  &nbsp; SA &nbsp; </th>
+				<th>  &nbsp; MD &nbsp;  </th>
+            </tr>
+            <tr>
+                <th rowspan="6">  ont_ployA_standard </th>
+                <th rowspan="6">2018-09 <br>  </th>
+				<th rowspan="6">  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423"> PRJEB28423 </a>   </th>
+                <th rowspan="6"> <i> Synthetic</i> </th>
+				<th rowspan="6"> RNA </th>
+                <td>10xpolyA</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>24</td>
+			    <td>92,428</td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+	
+            </tr>
+		    <tr>
+                <td>15xpolyA</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>23</td>
+			    <td>91,084</td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+            </tr>
+		    <tr>
+                <td>30xpolyA</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>16</td>
+			    <td>63,886</td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+            </tr>
+		    <tr>
+                <td>60xpolyA</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>28</td>
+			    <td>108,314</td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+            </tr>
+		    <tr>
+                <td>80xpolyA</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>103</td>
+			    <td>409,634</td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+            </tr>
+		    <tr>
+                <td>100xpolyA </td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>70</td>
+			    <td>279,895</td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+            </tr>
+		    <tr>
+                <th rowspan="2">  eGFP_polyA_DNA </th>
+                <th rowspan="2">2019-06 </th>
+                <th rowspan="2"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB31806"> PRJEB31806 </a> </th>
+			    <th rowspan="2"> <i> Synthetic </i> </th>
+				<th rowspan="2"> cDNA </th>
+                <td>dna_rep1_sqklsk108_flipflop</td>
+			    <td>flo-min106</td>
+			    <td>sqk-lsk108</td>
+			    <td>121</td>
+			    <td>484,000</td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+	
+            </tr>
+		    <tr>
+                <td> dna_rep2_sqklsk109_flipflop </td>
+			    <td>flo-min106</td>
+			    <td>sqk-lsk109</td>
+			    <td>71</td>
+			    <td>280,428</td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+		    </tr>
+			<tr>
+                <th rowspan="3">  eGFP_polyA_RNA </th>
+                <th rowspan="3">2019-06</th>
+                <th rowspan="3"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB31806"> PRJEB31806 </a> </th>
+			    <th rowspan="3"> <i> Synthetic </i> </th>
+				<th rowspan="3"> RNA </th>
+                <td>rna_rep1_sqkrna001_plus_rt</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>231</td>
+			    <td>922,826</td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+            </tr>
+		    <tr>
+                <td>  rna_rep2_sqkrna001_plus_rt </td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>364</td>
+			    <td>1,452,042</td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+		    </tr>
+			<tr>
+                <td>  rna_rep3_sqkrna002_minus_rt </td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>149</td>
+			    <td>592,571</td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+		    </tr>
+			<tr>
+                <th rowspan="1">  lambda_phage </th>
+                <th rowspan="1">2021-03 </th>
+                <th rowspan="1"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA926802"> PRJNA926802 </a>  </th>
+			    <th rowspan="1"> <i>lambda phage</i>  </th>
+				<th rowspan="1"> DNA </th>
+                <td>VER5940</td>
+			    <td>flo-flg001</td>
+			    <td>sqk-lsk109</td>
+			    <td>114</td>
+			    <td>113,514</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+            </tr>
+			<tr>
+                <th rowspan="3">  NA12878 </th>
+                <th rowspan="3">2019-06 </th>
+                <th rowspan="3"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB23027"> PRJEB23027 </a>  </th>
+			    <th rowspan="3"> <i> Homo sapiens</i>  </th>
+				<th rowspan="3">  DNA  </th>
+                <td>FAB42828</td>
+			    <td>flo-min106</td>
+			    <td>sqk-lsk108</td>
+			    <td>9</td>
+			    <td>33,633</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+            </tr>
+			<tr>
+			    <td>  FAF04090 </td>
+			    <td>flo-min106</td>
+			    <td>sqk-lsk108</td>
+			    <td>24</td>
+			    <td>62,833</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+			</tr>
+			<tr>
+				<td>  FAF09968 </td>
+			    <td>flo-min106</td>
+			    <td>sqk-lsk108</td>
+			    <td>6</td>
+			    <td>21,947</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+			</tr>
+			<tr>
+                <th rowspan="4">  curlcake </th>
+                <th rowspan="4">2019-07 </th>
+                <th rowspan="4"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA511582"> PRJNA511582 </a>  <br> <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP174366"> SRP174366 </a>  </th>
+			    <th rowspan="4"> <i>Synthetic</i>  </th>
+				<th rowspan="4"> RNA </th>
+                <td>m6A-mod-rep1</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>34</td>
+			    <td>134,374</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> m6A </td>
+            </tr>
+			<tr>
+                <td>  m6A-mod-rep2 </td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>160</td>
+			    <td>638,860</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> m6A </td>
+		    </tr>
+			<tr>
+                <td>  non-mod-rep1 </td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>17</td>
+			    <td>66,736</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+		    </tr>
+			<tr>
+                <td>  non-mod-rep2 </td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>212</td>
+			    <td>846,595</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+		    </tr>
+			<tr>
+                <th rowspan="1">  scBY4741_m5C </th>
+                <th rowspan="1">2021-06 </th>
+                <th rowspan="1"> <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA563591"> PRJNA563591 </a>  </th>
+			    <th rowspan="1"> <i>Synthetic</i>  </th>
+				<th rowspan="1"> RNA  </th>
+                <td>m5C_modified</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>104</td>
+			    <td>415,453</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> m5C </td>
+            </tr>
+			<tr>
+                <th rowspan="1">  scBY4741_hm5C </th>
+                <th rowspan="1">2021-06 </th>
+                <th rowspan="1"> <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA548268"> PRJNA548268  </a>  </th>
+			    <th rowspan="1"> <i>Synthetic</i>  </th>
+				<th rowspan="1"> RNA  </th>
+                <td>hm5C_modified</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>28</td>
+			    <td>111,015</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> hm5C </td> 
+            </tr>
+			<tr>
+                <th rowspan="1">  scBY4741_pU </th>
+                <th rowspan="1">2021-02 </th>
+                <th rowspan="1"> <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA549001">  PRJNA549001  </a>  </th>
+			    <th rowspan="1"> <i>Synthetic</i>  </th>
+				<th rowspan="1"> RNA  </th>
+                <td>pU_modified</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>11</td>
+			    <td>42,386</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> Ψ </td>
+            </tr>			
+			<tr>
+                <th rowspan="3"> hct116 </th>
+                <th rowspan="3">2021-04 </th>
+                <th rowspan="3"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB44348"> PRJEB44348 </a></th>
+			    <th rowspan="3"> <i> Homo sapiens </i>  </th>
+				<th rowspan="3"> RNA  </th>
+                <td>HCT-WT-rep1</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>247</td>
+			    <td>987,488</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> m6A </td>
+            </tr>
+			<tr>
+                <td>HCT-WT-rep2</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>254</td>
+			    <td>1,015,893</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> m6A </td>
+		    </tr>
+			<tr>
+                <td>HCT-WT-rep3</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>419</td>
+			    <td>1,673,394</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> m6A </td>
+		    </tr>
+			<tr>
+                <th rowspan="3"> hek293t_wt </th>
+                <th rowspan="3">2021-01 </th>
+                <th rowspan="3"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872"> PRJEB40872 </a></th>
+			    <th rowspan="3"> <i> Homo sapiens </i>  </th>
+				<th rowspan="3"> RNA  </th>
+                <td>HEK293T-WT-rep1</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>261</td>
+			    <td>1,040,661</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> m6A </td>
+            </tr>
+			<tr>
+                <td>HEK293T-WT-rep2</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>349</td>
+			    <td>1,396,000</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> m6A </td>
+		    </tr>
+			<tr>
+                <td>HEK293T-WT-rep2</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>133</td>
+			    <td>513,561</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> m6A </td>
+		    </tr>
+			<tr>
+			    <th rowspan="3"> hek293t_ko </th>
+                <th rowspan="3">2021-01 </th>
+                <th rowspan="3"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872"> PRJEB40872 </a></th>
+			    <th rowspan="3"> <i> Homo sapiens </i>  </th>
+				<th rowspan="3"> RNA  </th>
+                <td>HEK293T-Mettl3-KO-rep1</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>373</td>
+			    <td>1,490,210</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+		    </tr>
+			<tr>
+                <td>HEK293T-Mettl3-KO-rep2</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>454</td>
+			    <td>1,815,589</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+		    </tr>
+			<tr>
+                <td>HEK293T-Mettl3-KO-rep3</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>421</td>
+			    <td>1,677,075</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+		    </tr>
+			<tr>
+                <th rowspan="2"> mESCs_eligos </th>
+                <th rowspan="2">2020-10 </th>
+                <th rowspan="2"> <a href="https://www.ncbi.nlm.nih.gov/bioproject/497103"> PRJNA497103 </a>  <br> <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&acc=SRP166020"> SRP166020 </a></th>
+			    <th rowspan="2"> <i> Mus musculus </i>  </th>
+				<th rowspan="2"> RNA </th>
+                <td>mESCs_Mettl3_WT</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>247</td>
+			    <td>1,040,661</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> m6A </td>
+            </tr>
+			<tr>
+                <td>mESCs_Mettl3_KO</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>419</td>
+			    <td>1,673,394</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+		    </tr>
+			<tr>
+                <th rowspan="5"> ecoli_eligos </th>
+                <th rowspan="5">2020-08 </th>
+                <th rowspan="5">  <a href="https://www.ncbi.nlm.nih.gov/bioproject/497103"> PRJNA497103 </a>  <br>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&acc=SRP166020"> SRP166020 </a></th>
+			    <th rowspan="5"> <i> Escherichia coli </i>  </th>
+				<th rowspan="5"> RNA </th>
+				<td>IVT_Inosine</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>203</td>
+			    <td>811,953</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> Inosine </td> 
+            </tr>
+			<tr>
+                <td>IVT_m5C</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>144</td>
+			    <td>573,674</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> m5C </td>
+		    </tr>
+			<tr>
+                <td>IVT_m6A</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>371</td>
+			    <td>1,482,437</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> m6A</td>
+		    </tr>
+			<tr>
+			    <td>IVT_normalA</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>96</td>
+			    <td>383,209</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+                
+		    </tr>
+
+			<tr>
+                <td>IVT_normalC</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>114</td>
+			    <td>452,806</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+		    </tr>
+			<tr>
+                <th rowspan="2"> dinopore_ivt </th>
+                <th rowspan="2">2023-01 </th>
+                <th rowspan="2"> <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295"> SRP363295  </a></th>
+			    <th rowspan="2"> <i> Synthetic </i>  </th>
+				<th rowspan="2"> RNA </th>
+                <td>gBlock_pureI</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>47</td>
+			    <td>165,628</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> Inosine </td>
+            </tr>
+			<tr>
+                <td>gBlock_G</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna001</td>
+			    <td>43</td>
+			    <td>150,405</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+		    </tr>
+			<tr>
+                <th rowspan="4"> dinopore_xenopus </th>
+                <th rowspan="4">2022-04 </th>
+                <th rowspan="4"> <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295"> SRP363295  </a></th>
+				<th rowspan="4"> <i> Xenopus lavies </i>  </th>
+				<th rowspan="4"> RNA </th>
+                <td>rep3_stage1_20200812</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>363</td>
+			    <td>1,451,289</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> Inosine </td>
+            </tr>
+			<tr>
+                <td>rep3_stage1_20201005</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>454</td>
+			    <td>1,812,200</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> Inosine </td>
+            </tr>
+			<tr>
+                <td>rep3_stage9_20200812</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>391</td>
+			    <td>1,560,032</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> Inosine </td>
+            </tr>
+			<tr>
+                <td>rep3_stage9_20201008</td>
+			    <td>flo-min106</td>
+			    <td>sqk-rna002</td>
+			    <td>313</td>
+			    <td>1,251,130</td>
+				<td> &#10004 </td>
+				<td> &#10008 </td>
+				<td> &#10004 </td>
+				<td> Inosine </td>
+            </tr>
+			
+			
+        </table>
+
+        <br/> 
+		<br/> 
+                <table class="noBorder">
+	                <tr>
+                        <th>  <i class="fa fa-circle-o"> </i>  </th>
+			            <th>  <h3 style="font-family:Georgia"> &nbsp; Dataset download </h3> </th>
+			        </tr>
+		        </table>
+		
+		<table border="1">
+          <!-- table content goes here -->
+	        <tr>
+                <th> &nbsp; Dataset &nbsp; </th>
+			    <th> &nbsp; Raw data &nbsp; </th>
+			    <th> &nbsp; Processed data &nbsp; </th>
+			    <th> &nbsp; Processed data description &nbsp;  </th>
+            </tr>
+			<tr>
+                <th>  &nbsp; ont_ployA_standard &nbsp;  </th>
+			    <th>   <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423"> fast5</a> (80.7 GB)  </th>
+			    <th>  <a href="https://zenodo.org/records/11408115/files/media.zip?download=1"> ont_ployA_standard.tar.gz </a> (2.07 GB)  </th>
+			    <th>  Base-called resluts (Guppy and Dorado), tailfindr resluts, nanopolish polyA resluts.  </th>
+            </tr>
+			<tr>
+                <th>  &nbsp; eGFP_polyA_DNA &nbsp;  </th>
+			    <th>   <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423"> fast5 </a>  </th>
+			    <th>  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423"> eGFP_polyA_DNA.tar.gz </a> (5.6 GB)  </th>
+			    <th>  Base-called resluts (Guppy and Dorado), tailfindr resluts, nanopolish polyA resluts.  </th>
+            </tr>
+			<tr>
+                <th>  &nbsp; eGFP_polyA_RNA &nbsp;  </th>
+			    <th>   <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423"> fast5 </a>  </th>
+			    <th>  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423"> eGFP_polyA_RNA.tar.gz </a> (3.45 GB)  </th>
+			    <th>  Base-called resluts (Guppy and Dorado), tailfindr resluts, nanopolish polyA resluts.  </th>
+            </tr>
+			<tr>
+                <th>  ...  </th>
+			    <th>  ... </th>
+			    <th>  ...  </th>
+			    <th>  ...  </th>
+            </tr>
+			
+			
+		</table>
+		</br>
+		<center> <p>&copy; 2024. All rights reserved.</p> </center>
+		
+	    </div>
+	   
+	    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
