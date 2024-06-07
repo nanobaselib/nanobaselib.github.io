@@ -57,9 +57,8 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fffafa; }
-
-
+  background-color: #fffafa;}
+  
 table { border: 1px solid black; }
 
 [tabindex="-1"]:focus {
@@ -8376,3 +8375,11 @@ a[data-toggle="collapse"] {
 
 .subscribe-form .form-control {
   background: #4897fc; }
+  
+.noBorder {
+    border:none !important;
+}
+
+.justify {
+    text-align: justify;
+}
