@@ -2,8 +2,8 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- 由 Microsoft Visio, SVG Export 生成 polya.svg Page-1 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
-		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="9.60561in" height="5.68215in"
-		viewBox="0 0 691.604 409.115" xml:space="preserve" color-interpolation-filters="sRGB" class="st15">
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="10.0822in" height="7.0766in"
+		viewBox="0 0 725.919 509.515" xml:space="preserve" color-interpolation-filters="sRGB" class="st16">
 	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(0):26"/>
@@ -26,7 +26,8 @@
 		.st12 {fill:#ff0000;font-family:DengXian;font-size:1.00001em;font-weight:bold}
 		.st13 {stroke:#268fee;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
 		.st14 {fill:#ffffff;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
-		.st15 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+		.st15 {font-size:1em}
+		.st16 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
 
@@ -79,13 +80,13 @@
 		<v:layer v:name="连接线" v:index="1"/>
 		<v:layer v:name="Irrigation System" v:index="2"/>
 		<v:layer v:name="Flow Segment" v:index="3"/>
-		<g id="shape18-1" v:mID="18" v:groupContext="shape" transform="translate(28.5965,-206.518)">
+		<g id="shape18-1" v:mID="18" v:groupContext="shape" transform="translate(28.5965,-306.919)">
 			<title>工作表.18</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(21000):26"/>
 			</v:userDefs>
-			<rect v:rectContext="foreign" x="0" y="235.115" width="600" height="174" class="st1"/>
-			<image x="0" y="235.115" width="600" height="174" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBOR
+			<rect v:rectContext="foreign" x="0" y="335.515" width="600" height="174" class="st1"/>
+			<image x="0" y="335.515" width="600" height="174" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBOR
 						w0KGgoAAAANSUhEUgAABLAAAAFcCAIAAABX/dDGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJ
 						PAAAP+lSURBVHhe7L0FmBxHki9+9/bofQf/997B3q5tgYWWZVnSMDUNiC2yLJZGo+ERMzNLlsU0YmZmZtZomJmhmbsa4h+R2d0ayd5d7
 						Z0l7+51fNHZWVlZmZFY8aukvwIPechDf7ZktdsEweawAdgBLBa7xWxz2AUHWi02h9UONjOYTXgFFofdCnjPhCboBDCgf7A77GbBZhLAY
@@ -1670,9 +1671,9 @@
 						iRIkCDhVwqJEEqQIEGCBAkSJEiQIEHCrxQSIZQgQYIECRIkSJAgQYKEXykkQihBggQJEiRIkCBBggQJv1JIhFCCBAkSJEiQIEGCBAkSf
 						qWQCKEECRIkSJAgQYIECRIk/EohEUIJEiRIkCBBggQJEiRI+JVCIoQSJEiQIEGCBAkSJEiQ8CuFRAglSJAgQYIECRIkSJAg4VcJxv7/h
 						2VX5E4GeKQAAAAASUVORK5CYII="/>
-			<rect v:rectContext="foreign" x="0" y="235.115" width="600" height="174" class="st1"/>
+			<rect v:rectContext="foreign" x="0" y="335.515" width="600" height="174" class="st1"/>
 		</g>
-		<g id="shape325-5" v:mID="325" v:groupContext="shape" v:layerMember="2;3" transform="translate(782.91,220.044) rotate(90)">
+		<g id="shape325-5" v:mID="325" v:groupContext="shape" v:layerMember="2;3" transform="translate(883.31,220.044) rotate(90)">
 			<title>Lateral line.325</title>
 			<v:custProps>
 				<v:cp v:nameU="ShapeClass" v:lbl="Shape class" v:invis="true" v:langID="2052" v:val="VT4(Building Component)"/>
@@ -1688,18 +1689,18 @@
 				<v:ud v:nameU="SubShapeType" v:prompt="Pipe Segment" v:val="VT0(56):26"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(15000):26"/>
 			</v:userDefs>
-			<path d="M0 409.11 L49.12 409.11" class="st2"/>
+			<path d="M0 509.51 L49.12 509.51" class="st2"/>
 		</g>
-		<g id="shape19-11" v:mID="19" v:groupContext="shape" transform="translate(144.28,-36.0061)">
+		<g id="shape19-11" v:mID="19" v:groupContext="shape" transform="translate(144.28,-136.407)">
 			<title>工作表.19</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(22000):26"/>
 			</v:userDefs>
-			<rect v:rectContext="foreign" x="0" y="342.706" width="510.236" height="66.409" class="st1"/>
+			<rect v:rectContext="foreign" x="0" y="443.106" width="510.236" height="66.409" class="st1"/>
 			<clipPath id="clip-path13" clipPathUnits="userSpaceOnUse">
-				<rect x="0" y="342.706" width="510.236" height="66.409"/>
+				<rect x="0" y="443.106" width="510.236" height="66.409"/>
 			</clipPath>
-			<image x="-70.8427" y="342.706" width="581.079" height="66.409" preserveAspectRatio="none"
+			<image x="-70.8427" y="443.106" width="581.079" height="66.409" preserveAspectRatio="none"
 					clip-path="url(#clip-path13)" overflow="hidden" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAGd
 						YAAALzCAIAAAA3xJSbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAP+lSURBVHhe7N3pf5
 						Nl3v//37/3vT9zzYxCtyQtS5ukC5RFUAFxYXEcQHDYBERRUUFARREUwZ0RAZFNAQFF1u5JS2F+7+ZdjitXW0rTpiVtXs8b5+PIuSU58j
@@ -15400,9 +15401,9 @@
 						AAAAAAAAAAAKCjJNgAoEXVL5pvAFirLMtCCMWS9QQAAAAAAAAAAAAAAAAAAEB/SLABQIticO1fzTcA/DdCCHFD2VMAAAAAAAAAAAAAAA
 						AAAAB0ngQbAABAfxVFEUKIc7kUZwAAAAAAAAAAAAAAAAAAAOgwCTYAAAAAAAAAAAAAAAAAAAAAAACgRyTYAAAAAAAAAAAAAAAAAAAAAA
 						AAgB6RYAMAAAAAAAAAAAAAAAAAAAAAAAB6Y7H4AwsihD2n4qcKAAAAAElFTkSuQmCC"/>
-			<rect v:rectContext="foreign" x="0" y="342.706" width="510.236" height="66.409" class="st1"/>
+			<rect v:rectContext="foreign" x="0" y="443.106" width="510.236" height="66.409" class="st1"/>
 		</g>
-		<g id="shape333-15" v:mID="333" v:groupContext="shape" v:layerMember="2;3" transform="translate(141.89,-36.0061)">
+		<g id="shape333-15" v:mID="333" v:groupContext="shape" v:layerMember="2;3" transform="translate(141.89,-136.406)">
 			<title>Lateral line.339</title>
 			<v:custProps>
 				<v:cp v:nameU="ShapeClass" v:lbl="Shape class" v:invis="true" v:langID="2052" v:val="VT4(Building Component)"/>
@@ -15418,42 +15419,42 @@
 				<v:ud v:nameU="SubShapeType" v:prompt="Pipe Segment" v:val="VT0(56):26"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(23000):26"/>
 			</v:userDefs>
-			<path d="M0 409.11 L499.68 409.11" class="st4"/>
+			<path d="M0 509.51 L499.68 509.51" class="st4"/>
 		</g>
-		<g id="shape334-21" v:mID="334" v:groupContext="shape" transform="translate(634.882,-8.34645)">
+		<g id="shape334-21" v:mID="334" v:groupContext="shape" transform="translate(634.882,-108.747)">
 			<title>工作表.334</title>
 			<desc>Time</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(24000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="19.9213" cy="399.115" width="39.85" height="20"/>
-			<rect x="0" y="389.115" width="39.8425" height="20" class="st1"/>
-			<text x="6.54" y="402.71" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Time</text>		</g>
-		<g id="shape335-24" v:mID="335" v:groupContext="shape" transform="translate(-264.548,394.941) rotate(-90)">
+			<v:textRect cx="19.9213" cy="499.515" width="39.85" height="20"/>
+			<rect x="0" y="489.515" width="39.8425" height="20" class="st1"/>
+			<text x="6.54" y="503.12" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Time</text>		</g>
+		<g id="shape335-24" v:mID="335" v:groupContext="shape" transform="translate(-364.948,394.941) rotate(-90)">
 			<title>工作表.335</title>
 			<desc>Nanopore signal</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(25000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="60.9437" cy="389.193" width="121.89" height="39.8425"/>
-			<rect x="0" y="369.272" width="121.887" height="39.8425" class="st1"/>
-			<text x="15.9" y="392.79" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Nanopore signal</text>		</g>
-		<g id="shape337-27" v:mID="337" v:groupContext="shape" transform="translate(181.15,-36.0061)">
+			<v:textRect cx="60.9437" cy="489.594" width="121.89" height="39.8425"/>
+			<rect x="0" y="469.672" width="121.887" height="39.8425" class="st1"/>
+			<text x="15.9" y="493.19" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Nanopore signal</text>		</g>
+		<g id="shape337-27" v:mID="337" v:groupContext="shape" transform="translate(181.15,-136.407)">
 			<title>矩形.562</title>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(27000):26"/>
 			</v:userDefs>
 			<g id="shadow337-28" v:groupContext="shadow" v:shadowOffsetX="0" v:shadowOffsetY="-0" v:shadowType="2"
-					v:shadowScale="0.310001" v:shadowAngle="-56.9997" transform="matrix(1,0,0.259988,0.16884,-106.365,340.04)"
+					v:shadowScale="0.310001" v:shadowAngle="-56.9997" transform="matrix(1,0,0.259988,0.16884,-132.468,423.488)"
 					class="st7">
-				<rect x="0" y="342.706" width="77.6693" height="66.409" class="st8"/>
+				<rect x="0" y="443.106" width="77.6693" height="66.409" class="st8"/>
 			</g>
-			<rect x="0" y="342.706" width="77.6693" height="66.409" class="st9"/>
+			<rect x="0" y="443.106" width="77.6693" height="66.409" class="st9"/>
 		</g>
-		<g id="shape340-32" v:mID="340" v:groupContext="shape" transform="translate(590.123,375.093) rotate(90)">
+		<g id="shape340-32" v:mID="340" v:groupContext="shape" transform="translate(690.523,375.093) rotate(90)">
 			<title>Right Brace.601</title>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
@@ -15462,24 +15463,24 @@
 			<g id="shadow340-33" v:groupContext="shadow" v:shadowOffsetX="0" v:shadowOffsetY="-0" v:shadowType="2"
 					v:shadowScale="0.310001" v:shadowAngle="-56.9997" transform="matrix(0.16884,-0.259988,0,1,8.48173,2.65309)"
 					class="st7">
-				<path d="M0 409.11 A13.662 12.998 -180 0 0 5.1 401.35 L5.1 370.28 L10.2 370.28 L5.1 370.28 L5.1 339.21 A13.662 12.998
-							 -180 0 0 -0 331.45" class="st10"/>
+				<path d="M0 509.51 A13.662 12.998 -180 0 0 5.1 501.75 L5.1 470.68 L10.2 470.68 L5.1 470.68 L5.1 439.61 A13.662 12.998
+							 -180 0 0 -0 431.85" class="st10"/>
 			</g>
-			<path d="M0 409.11 A13.662 12.998 -180 0 0 5.1 401.35 L5.1 370.28 L10.2 370.28 L5.1 370.28 L5.1 339.21 A13.662 12.998
-						 -180 0 0 -0 331.45" class="st11"/>
+			<path d="M0 509.51 A13.662 12.998 -180 0 0 5.1 501.75 L5.1 470.68 L10.2 470.68 L5.1 470.68 L5.1 439.61 A13.662 12.998
+						 -180 0 0 -0 431.85" class="st11"/>
 		</g>
-		<g id="shape342-44" v:mID="342" v:groupContext="shape" transform="translate(149.288,-1.83294)">
+		<g id="shape342-44" v:mID="342" v:groupContext="shape" transform="translate(149.288,-102.233)">
 			<title>工作表.342</title>
 			<desc>PolyA tail</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(32000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="70.5546" cy="399.115" width="141.11" height="20"/>
-			<rect x="0" y="389.115" width="141.109" height="20" class="st1"/>
-			<text x="44.74" y="402.71" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>PolyA tail  </text>		</g>
+			<v:textRect cx="70.5546" cy="499.515" width="141.11" height="20"/>
+			<rect x="0" y="489.515" width="141.109" height="20" class="st1"/>
+			<text x="44.74" y="503.12" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>PolyA tail  </text>		</g>
 		<g id="shape345-47" v:mID="345" v:groupContext="shape" v:layerMember="2;3"
-				transform="translate(-267.225,373.109) rotate(-90)">
+				transform="translate(-367.625,373.109) rotate(-90)">
 			<title>Lateral line.11</title>
 			<v:custProps>
 				<v:cp v:nameU="ShapeClass" v:lbl="Shape class" v:invis="true" v:langID="2052" v:val="VT4(Building Component)"/>
@@ -15495,20 +15496,20 @@
 				<v:ud v:nameU="SubShapeType" v:prompt="Pipe Segment" v:val="VT0(56):26"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(35000):26"/>
 			</v:userDefs>
-			<path d="M0 409.11 L66.82 409.11" class="st4"/>
+			<path d="M0 509.51 L66.82 509.51" class="st4"/>
 		</g>
-		<g id="group363-52" transform="translate(420.985,-107.717)" v:mID="363" v:groupContext="group">
+		<g id="group363-52" transform="translate(385.512,-203.258)" v:mID="363" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(36000):26"/>
 			</v:userDefs>
 			<title>工作表.363</title>
 			<g id="shape20-53" v:mID="20" v:groupContext="shape">
 				<title>工作表.20</title>
-				<rect v:rectContext="foreign" x="0" y="305.896" width="77.9401" height="103.219" class="st1"/>
+				<rect v:rectContext="foreign" x="0" y="406.296" width="77.9401" height="103.219" class="st1"/>
 				<clipPath id="clip-path55" clipPathUnits="userSpaceOnUse">
-					<rect x="0" y="305.896" width="77.9401" height="103.219"/>
+					<rect x="0" y="406.296" width="77.9401" height="103.219"/>
 				</clipPath>
-				<image x="0" y="305.896" width="93.4626" height="103.219" preserveAspectRatio="none" clip-path="url(#clip-path55)"
+				<image x="0" y="406.296" width="93.4626" height="103.219" preserveAspectRatio="none" clip-path="url(#clip-path55)"
 						overflow="hidden" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApUAAALaCAIAAADvPT9JAAAAAXNS
 							R0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAPh6SURBVHhe7L0HeBRJlq599/67e2d2Z3bn3p3Z
 							nd2emR56ppv2jvYNTdPQUMIIIYQAee+99957773DCSOMDAKBJOTwwnvvrUDIm/4PilAqFXIlqUqqKp33+R4ekZmVlZEVeb6MzIgT
@@ -16360,7 +16361,7 @@
 							695U7YO16vuydNIiTXDzHAAJgb8BANPM+VOdbfWFZ461vnnzhm0CAEwE/A0AAACoHvA3AAAAoHrA3wAAAIDqAX8DAAAAqgf8DQAA
 							AKge8DcAAACgesDfAAAAgOoBfwMAAACqB/wNAAAAqB7wNwAAAKB6wN8AAACA6gF/AwAAAKrG27f/H6d1o4L6SqE8AAAAAElFTkSu
 							QmCC"/>
-				<rect v:rectContext="foreign" x="0" y="305.896" width="77.9401" height="103.219" class="st1"/>
+				<rect v:rectContext="foreign" x="0" y="406.296" width="77.9401" height="103.219" class="st1"/>
 			</g>
 			<g id="shape364-57" v:mID="364" v:groupContext="shape" v:layerMember="2;3" transform="translate(71.6926,-39.6726)">
 				<title>Lateral line.721</title>
@@ -16377,7 +16378,7 @@
 					<v:ud v:nameU="ShapeType" v:prompt="Flow Segment" v:val="VT0(19):26"/>
 					<v:ud v:nameU="SubShapeType" v:prompt="Pipe Segment" v:val="VT0(56):26"/>
 				</v:userDefs>
-				<path d="M0 409.11 L5.32 409.11" class="st13"/>
+				<path d="M0 509.51 L5.32 509.51" class="st13"/>
 			</g>
 			<g id="shape365-60" v:mID="365" v:groupContext="shape" v:layerMember="2;3" transform="translate(72.9821,-37.7984)">
 				<title>Lateral line.722</title>
@@ -16394,7 +16395,7 @@
 					<v:ud v:nameU="ShapeType" v:prompt="Flow Segment" v:val="VT0(19):26"/>
 					<v:ud v:nameU="SubShapeType" v:prompt="Pipe Segment" v:val="VT0(56):26"/>
 				</v:userDefs>
-				<path d="M0 409.11 L2.83 409.11" class="st13"/>
+				<path d="M0 509.51 L2.83 509.51" class="st13"/>
 			</g>
 			<g id="shape366-63" v:mID="366" v:groupContext="shape" v:layerMember="2;3" transform="translate(69.8116,-30.5963)">
 				<title>Lateral line.723</title>
@@ -16411,10 +16412,10 @@
 					<v:ud v:nameU="ShapeType" v:prompt="Flow Segment" v:val="VT0(19):26"/>
 					<v:ud v:nameU="SubShapeType" v:prompt="Pipe Segment" v:val="VT0(56):26"/>
 				</v:userDefs>
-				<path d="M0 409.11 L4.63 409.11" class="st13"/>
+				<path d="M0 509.51 L4.63 509.51" class="st13"/>
 			</g>
 			<g id="shape367-66" v:mID="367" v:groupContext="shape" v:layerMember="2;3"
-					transform="translate(-334.677,378.518) rotate(-90)">
+					transform="translate(-435.077,478.919) rotate(-90)">
 				<title>Lateral line.724</title>
 				<v:custProps>
 					<v:cp v:nameU="ShapeClass" v:lbl="Shape class" v:invis="true" v:langID="2052" v:val="VT4(Building Component)"/>
@@ -16429,10 +16430,10 @@
 					<v:ud v:nameU="ShapeType" v:prompt="Flow Segment" v:val="VT0(19):26"/>
 					<v:ud v:nameU="SubShapeType" v:prompt="Pipe Segment" v:val="VT0(56):26"/>
 				</v:userDefs>
-				<path d="M0 409.11 L7.2 409.11" class="st13"/>
+				<path d="M0 509.51 L7.2 509.51" class="st13"/>
 			</g>
 			<g id="shape368-69" v:mID="368" v:groupContext="shape" v:layerMember="2;3"
-					transform="translate(-334.677,369.442) rotate(-90)">
+					transform="translate(-435.077,469.842) rotate(-90)">
 				<title>Lateral line.725</title>
 				<v:custProps>
 					<v:cp v:nameU="ShapeClass" v:lbl="Shape class" v:invis="true" v:langID="2052" v:val="VT4(Building Component)"/>
@@ -16447,7 +16448,7 @@
 					<v:ud v:nameU="ShapeType" v:prompt="Flow Segment" v:val="VT0(19):26"/>
 					<v:ud v:nameU="SubShapeType" v:prompt="Pipe Segment" v:val="VT0(56):26"/>
 				</v:userDefs>
-				<path d="M0 409.11 L7.2 409.11" class="st13"/>
+				<path d="M0 509.51 L7.2 509.51" class="st13"/>
 			</g>
 			<g id="shape369-72" v:mID="369" v:groupContext="shape" v:layerMember="2;3" transform="translate(69.532,-46.8746)">
 				<title>Lateral line.726</title>
@@ -16464,19 +16465,19 @@
 					<v:ud v:nameU="ShapeType" v:prompt="Flow Segment" v:val="VT0(19):26"/>
 					<v:ud v:nameU="SubShapeType" v:prompt="Pipe Segment" v:val="VT0(56):26"/>
 				</v:userDefs>
-				<path d="M0 409.11 L4.91 409.11" class="st13"/>
+				<path d="M0 509.51 L4.91 509.51" class="st13"/>
 			</g>
 		</g>
-		<g id="shape372-75" v:mID="372" v:groupContext="shape" transform="translate(342.992,-258.52)">
+		<g id="shape372-75" v:mID="372" v:groupContext="shape" transform="translate(342.992,-358.92)">
 			<title>矩形</title>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(37000):26"/>
 			</v:userDefs>
-			<rect x="0" y="352.856" width="56.6929" height="56.2583" class="st14"/>
+			<rect x="0" y="453.257" width="56.6929" height="56.2583" class="st14"/>
 		</g>
 		<g id="shape373-77" v:mID="373" v:groupContext="shape" v:layerMember="2;3"
-				transform="translate(780.453,94.3366) rotate(90)">
+				transform="translate(880.854,94.3366) rotate(90)">
 			<title>Lateral line.373</title>
 			<v:custProps>
 				<v:cp v:nameU="ShapeClass" v:lbl="Shape class" v:invis="true" v:langID="2052" v:val="VT4(Building Component)"/>
@@ -16492,7 +16493,19 @@
 				<v:ud v:nameU="SubShapeType" v:prompt="Pipe Segment" v:val="VT0(56):26"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(38000):26"/>
 			</v:userDefs>
-			<path d="M0 409.11 L49.12 409.11" class="st2"/>
+			<path d="M0 509.51 L49.12 509.51" class="st2"/>
 		</g>
+		<g id="shape374-82" v:mID="374" v:groupContext="shape" transform="translate(110.976,-10.3783)">
+			<title>工作表.374</title>
+			<desc>Need to answer: 1. Which part represents the polyA tail in th...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(39000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="288.709" cy="470.331" width="577.42" height="78.3685"/>
+			<rect x="0" y="431.146" width="577.417" height="78.3685" class="st1"/>
+			<text x="4" y="455.93" class="st12" v:langID="1033"><v:paragraph v:spLine="-1.6"/><v:tabList/>Need to answer: <v:newlineChar/><tspan
+						x="4" dy="1.6em" class="st15">1. Which part represents the polyA tail in the raw current signal (polyA start and end borders) ? <v:newlineChar/></tspan><tspan
+						x="4" dy="1.6em" class="st15">2. What is the length of polyA (How many &#34;A&#34; in the RNA molecule) ?</tspan></text>		</g>
 	</g>
 </svg>
