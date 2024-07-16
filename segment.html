@@ -53,9 +53,14 @@
             <!-- Page Content  -->
             <div id="content" class="p-4 p-md-5 pt-5">
 	            <h2 style="font-family:Georgia">Segmentation & event alignment benchmark</h2>
-	            </br>
-	            <img src="images/Segmention.png" width="55%" />
-		        </br>
+	            <br/>
+				<center>
+		            <img src="images/Segmention.png" width="95%" />
+					<figcaption>Illustration of Nanopore signal segmentation and event alignment.</figcaption>
+		        </center>	
+		        <br/>
+				<p>After base calling, we can get a base-called sequence that will align with the reference sequence. The segmentation and event alignment task inputs the raw signal and reference sequence. It would segment the raw signal into small fragments and align it with the reference sequence. So one small fragment and its corresponding nucleotide would be called an "event".</p>
+                <p>For each fragment of the raw signal, we can get its mean and standard deviation, which are used to evaluate the task.</p>
 	            <center> <p>&copy; 2024. All rights reserved.</p> </center>
 	        </div>
 	</div>
