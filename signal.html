@@ -92,7 +92,7 @@
 				<h5 style="font-family:Georgia"> SegPore </h5> 
 				SegPore first detects the polyA tail and calculates its mean (polyA_mu) and standard deviation (polyA_sigma). These values are then used to standardize the signal:
 				<center> <p style="color:red;"> stand_signal = [(signal - polyA_mu) / ployA_sigma ] * POLYA_STANDARD_SIGMA + POLYA_STANDARD_MU </p> </center>	
-				In which, the POLYA_STANDARD_MU and POLYA_STANDARD_SIGMA are from the ONT's standard kmer table.
+				In which, the POLYA_STANDARD_MU and POLYA_STANDARD_SIGMA represent the mean and standard deviation of the kmer "AAAAA" from ONT's standard kmer table. 
 				<br/>
 				<br/>
 				<h5 style="font-family:Georgia">Reference</h5>
