@@ -32,7 +32,7 @@
                         <a href="signal.html"><span class="fa fa-signal mr-3"></span> Signal Process </a>
                     </li>
                     <li>
-                        <a href="basecall.html"> <span class="fa fa-bar-chart mr-3 notif"></span> Base Calling </a>
+                        <a href="basecall.html"> <span class="fa fa-line-chart mr-3"></span> Base Calling </a>
                     </li>
                     <li>
                         <a href="ploya.html"><span class="fa fa-scissors mr-3"></span> PolyA Dection </a>
@@ -69,17 +69,17 @@
 					&nbsp; &nbsp; &nbsp;
 					<img src="images/fast5_2.png" width="45%" />
 				</figure>					
-		        <p> The illustration above depicts the structure of a fast5 file from Nanopore sequencing. In the left figure, the "Signal" data represents the current passing through the pore (type: int16). Oxford Nanopore Technology employs different pores (proteins) in various products. A single flow cell in the sequencing device can contain between 512 and 2675 pores, each referred to as a channel. As shown in the right figure, the fast5 file also includes attributes associated with the channel through which the read passes. These parameters include channel_number (the channel number from which the read was acquired), digitisation (the digitisation is the number of quantisation levels in the Analog to Digital Converter (ADC)), offset (the ADC offset error), range (the full scale measurement range in pico amperes), and sampling_rate (sampling frequency of the ADC).</p>
+		        <p> The illustration above depicts the structure of a single-fast5 file from Nanopore sequencing. In the left figure, the "Signal" data represents the current passing through the pore (type: int16). Oxford Nanopore Technology employs different pores (proteins) in various products. A single flow cell in the sequencing device can contain between 512 and 2675 pores, each referred to as a channel. As shown in the right figure, the fast5 file also includes attributes associated with the channel through which the read passes. These parameters include channel_number (the channel number from which the read was acquired), digitisation (the digitisation is the number of quantisation levels in the Analog to Digital Converter (ADC)), offset (the ADC offset error), range (the full scale measurement range in pico amperes), and sampling_rate (sampling frequency of the ADC).</p>
 				<p> The raw signal can be converted into pico Ampere (pA) values using attributes available in the channel_id group by the equation : </p>
 				<center> <p style="color:red;"> signal_in_pico_ampere = (raw_signal_value + offset) * range / digitisation </p> </center>
-				<p/>After the conversion, the pA current signal will be utilized for downstream tasks. <p>
+				<p/>After the conversion, the pA current signal will be utilized for downstream tasks. More details about all attributes can be found in [5].<p>
 				<table class="noBorder" style="border: 0; border-collapse: collapse;">
 	                <tr>
                         <th>  <i class="fa fa-circle-o"> </i>  </th>
 			            <th>  <h3 style="font-family:Georgia"> &nbsp; Signal standardization or normalization </h3> </th>
 			        </tr>
 		        </table>
-				<p>Oxford Nanopore Technologies provides "standard" parameters for each kmer, as illustrated in the figure below. To enhance the accuracy of analyses, some tools attempt to further standardize or normalize the signal based on these parameters.  For example, Tombo employs median shift and median absolute deviation (MAD) to normalize the current signal to a 0-1 range. Nanopolish uses scaling parameters to account for per-read variations, while SegPore utilizes the polyA tail to standardize the signal for each read. </p>
+				<p>Oxford Nanopore Technologies provides "standard" parameters for each kmer [3], as illustrated in the figure below. To enhance the accuracy of analyses, some tools attempt to further standardize or normalize the signal based on these parameters.  For example, Tombo employs median shift and median absolute deviation (MAD) to normalize the current signal to a 0-1 range. Nanopolish uses scaling parameters to account for per-read variations, while SegPore utilizes the polyA tail to standardize the signal for each read. </p>
 				<center>
 		          <img src="images/kmer_table.png" width="25%" />
 			    </center>
@@ -87,7 +87,7 @@
 				Tombo uses median shift and MAD (median absolute deviation) scale parameters to normalize the signal:
 				<center> <p style="color:red;"> norm_signal = (signal - median) / MAD </p> </center>				
 				<h5 style="font-family:Georgia"> Nanopolish </h5> 
-				<p> For each read, Nanopolish estimates a scale parameter to standardize the signal. You can add the <i>--scale-events</i> option in the <b>nanopolish eventalign</b> command to enable this feature. More details can be found in [5]. </p> 
+				<p> For each read, Nanopolish estimates a scale parameter to standardize the signal. You can add the <i>--scale-events</i> option in the <b>nanopolish eventalign</b> command to enable this feature. More details can be found in [6]. </p> 
                 <br/>
 				<h5 style="font-family:Georgia"> SegPore </h5> 
 				SegPore first detects the polyA tail and calculates its mean (polyA_mu) and standard deviation (polyA_sigma). These values are then used to standardize the signal:
@@ -100,7 +100,8 @@
 				<p> [2] Gamaarachchi, H., Samarakoon, H., Jenner, S.P. et al. Fast nanopore sequencing data analysis with SLOW5. Nat Biotechnol 40, 1026–1029 (2022).</p>
 	            <p> [3] https://github.com/nanoporetech/kmer_models </p>
 				<p> [4] https://nanoporetech.github.io/tombo/resquiggle.html </p>
-				<p> [5] https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.4184/MediaObjects/41592_2017_BFnmeth4184_MOESM258_ESM.pdf </p>
+				<p> [5] https://static-content.springer.com/esm/art%3A10.1038%2Fs41587-021-01147-4/MediaObjects/41587_2021_1147_MOESM1_ESM.pdf </p>
+ 				<p> [6] https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.4184/MediaObjects/41592_2017_BFnmeth4184_MOESM258_ESM.pdf </p>
 				<center> <p>&copy; 2024. All rights reserved.</p> </center>
 	        </div>  
 	  
