@@ -54,10 +54,175 @@
     	</nav>
 
         <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
-	    
-		<h2 style="font-family:Georgia">Preprocessing pipeline</h2>
-		<img src="images/Workflow.svg" width="70%" alt="NanoBaseLib preprocessing pipeline" />
+		<style>
+            table{
+                text-align: center;
+            }
+            td {
+                text-align: center;
+            }
+        </style>
+		
+	 	
+        <div id="content" class="p-4 p-md-5 pt-5">
+	  
+	    <h2 class="mb-4" style="font-family:Georgia">Preprocessing pipeline</h2>
+		
+		<table class="noBorder" style="border: 0; border-collapse: collapse;">
+	        <tr>
+                <th>  <i class="fa fa-circle-o"> </i>  </th>
+			    <th>  <h3 style="font-family:Georgia"> &nbsp; Pipeline workflow  </h3> </th>
+			</tr>
+		</table>
+		
+		<img src="images/Workflow.svg" width="60%" alt="NanoBaseLib preprocessing pipeline" />
+		
+		<table class="noBorder" style="border: 0; border-collapse: collapse;">
+	        <tr>
+                <th>  <i class="fa fa-circle-o"> </i>  </th>
+			    <th>  <h3 style="font-family:Georgia"> &nbsp; Processing tools overview and limitations </h3> </th>
+			</tr>
+		</table>
+		
+		<table border="1">
+          <!-- table content goes here -->
+	        <tr>
+                <th> &nbsp; &nbsp;  Software &nbsp; &nbsp;  </th>
+			    <th> &nbsp; &nbsp;  Version &nbsp; &nbsp; </th>
+			    <th> &nbsp; &nbsp;  Download Link &nbsp; &nbsp;  </th>
+				<th> &nbsp; &nbsp;  Function &nbsp; &nbsp;  </th>
+                <th> &nbsp; &nbsp;  Limiation &nbsp; &nbsp;  </th>
+            </tr>
+            <tr>
+                <td>bedtools</td>
+				<td>2.30.3</td>
+				<td><a href="https://bedtools.readthedocs.io/en/latest"> https://bedtools.readthedocs.io/en/latest </a></td>
+				<td>Genomic file formats conversion.</td>
+			    <td> - </td>
+            </tr>
+			<tr>
+                <td>Bonito</td>
+				<td>0.7.3</td>
+				<td><a href="https://github.com/nanoporetech/bonito"> https://github.com/nanoporetech/bonito </a></td>
+				<td> Base calling.</td>
+			    <td> - </td>
+            </tr>
+			<tr>
+                <td>causalcall</td>
+				<td>-</td>
+				<td><a href="https://github.com/scutbioinformatic/causalcall"> https://github.com/scutbioinformatic/causalcall </a></td>
+				<td>Base calling.</td>
+			    <td> Only for DNA. </td>
+            </tr>
+			<tr>
+                <td>CHEUI</td>
+				<td>-</td>
+				<td><a href="{https://github.com/comprna/CHEUI"> https://github.com/comprna/CHEUI </a></td>
+				<td> RNA Modification detection.</td>
+			    <td> Only for m6A and m5C. </td>
+            </tr>
+			<tr>
+                <td>Dorado</td>
+				<td>0.5.3</td>
+				<td><a href="https://github.com/nanoporetech/dorado"> https://github.com/nanoporetech/dorado </a></td>
+				<td>Base calling, polyA detection, and modification detection.</td>
+			    <td> - </td>
+            </tr>
+			<tr>
+                <td>Epinano</td>
+				<td>1.2.0</td>
+				<td><a href="https://github.com/novoalab/EpiNano"> https://github.com/novoalab/EpiNano </a></td>
+				<td>RNA Modification detection.</td>
+			    <td> - </td>
+            </tr>
+			<tr>
+                <td>Guppy</td>
+				<td>6.0.1</td>
+				<td><a href="https://community.nanoporetech.com/downloads"> https://community.nanoporetech.com/downloads</a>*</td>
+				<td>Base calling.</td>
+			    <td> - </td>
+            </tr>
+			<tr>
+                <td>h5py</td>
+				<td>1.8.18</td>
+				<td><a href="https://www.h5py.org"> https://www.h5py.org </a></td>
+				<td>Pythonic interface to the HDF5 binary data format.</td>
+			    <td> - </td>
+            </tr>
+			<tr>
+                <td>minimap2</td>
+				<td>2.24</td>
+				<td><a href="https://github.com/lh3/minimap2"> https://github.com/lh3/minimap2 </a></td>
+				<td>Aligns DNA/mRNA against the reference database. </td>
+			    <td> - </td>
+            </tr>
+			<tr>
+                <td>MINES</td>
+				<td>-</td>
+				<td><a href="https://github.com/YeoLab/MINES"> https://github.com/YeoLab/MINES </a></td>
+				<td>RNA Modification detection. </td>
+			    <td> Only for m6A. </td>
+            </tr>
+			<tr>
+                <td>m6Anet</td>
+				<td>1.0</td>
+				<td><a href="https://github.com/GoekeLab/m6anet"> https://github.com/GoekeLab/m6anet </a></td>
+				<td>RNA Modification detection. </td>
+			    <td> Only for m6A. </td>
+            </tr>
+			<tr>
+                <td>Nanopolish</td>
+				<td>0.14.0</td>
+				<td><a href="https://github.com/jts/nanopolish"> https://github.com/jts/nanopolish </a></td>
+				<td> Event segmeantation and alignment, modification and polyA detection. </td>
+			    <td> -</td>
+            </tr>
+			<tr>
+                <td>Nanom6A</td>
+				<td>2.0</td>
+				<td><a href="https://github.com/gaoyubang/nanom6A"> https://github.com/gaoyubang/nanom6A </a></td>
+				<td>RNA Modification detection. </td>
+			    <td> Only for m6A. </td>
+            </tr>
+			<tr>
+                <td>ont-fast5-api </td>
+				<td>4.0.2</td>
+				<td><a href="https://pod5-file-format.readthedocs.io"> https://pod5-file-format.readthedocs.io </a></td>
+				<td> Nanopore sequencing data format conversion.</td>
+			    <td> -</td>
+            </tr>
+			<tr>
+                <td>Rodan</td>
+				<td>-</td>
+				<td><a href="{https://github.com/biodlab/RODAN}"> https://github.com/biodlab/RODAN</a></td>
+				<td> Base calling. </td>
+			    <td> Only for RNA.</td>
+            </tr>
+			<tr>
+                <td>SegPore</td>
+				<td>1.0</td>
+				<td><a href="https://github.com/guangzhaocs/SegPore"> https://github.com/guangzhaocs/SegPore </a></td>
+				<td> Event segmeantation and alignment, modification detection. </td>
+			    <td> -</td>
+            </tr>
+			<tr>
+                <td>Tailfindr</td>
+				<td>0.14.0</td>
+				<td><a href="{https://github.com/adnaniazi/tailfindr"> https://github.com/adnaniazi/tailfindr </a></td>
+				<td> PolyA detection. </td>
+			    <td> -</td>
+            </tr>
+			<tr>
+                <td>Tombo</td>
+				<td>1.5.1</td>
+				<td><a href="https://nanoporetech.github.io/tombo"> https://nanoporetech.github.io/tombo </a></td>
+				<td> Event segmeantation and alignment, modification detection. </td>
+			    <td> -</td>
+            </tr>
+		</table>
+		<p>* Users need to register an account (for free) to download the software.</p>
+		
+		
 		</br>
 		</br>
 	    <center> <p>&copy; 2024. All rights reserved.</p> </center>
