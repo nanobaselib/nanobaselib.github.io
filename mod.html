@@ -54,6 +54,15 @@
     	</nav>
 
         <!-- Page Content  -->
+		<style>
+            table{
+                text-align: center;
+            }
+            td {
+                text-align: center;
+            }
+        </style>
+		
         <div id="content" class="p-4 p-md-5 pt-5">
 	    <h2 style="font-family:Georgia">Modification detection benchmark</h2>
 		<br/>
@@ -65,7 +74,76 @@
 		<p>Figure A illustrates the difference between normal adenine (A) and N6-methyladenosine (m6A). After performing Nanopore sequencing, as depicted in Figure B, and subsequent analysis, the current signal variations between normal A and modified A become evident (Figure C). By analyzing these signal segments, various machine learning (ML) and deep learning (DL) models can be employed to detect the modifications.</p>
 		
 		<p>The m6A and m5C modification detection benchmarks are available from <a href="https://github.com/nanobaselib/NanoBaseLib/tree/main/rna_mod_detection">Github</a>. </p>
-
+        
+		<table class="noBorder" style="border: 0; border-collapse: collapse;">
+	        <tr>
+                <th>  <i class="fa fa-circle-o"> </i>  </th>
+			    <th>  <h3 style="font-family:Georgia"> &nbsp; Modification detection benchmark models introduction </h3> </th>
+			</tr>
+		</table>
+		
+		<table border="1">
+          <!-- table content goes here -->
+	        <tr>
+                <th> &nbsp; &nbsp;  Model &nbsp; &nbsp;  </th>
+			    <th> &nbsp; &nbsp;  Version &nbsp; &nbsp; </th>
+			    <th> &nbsp; &nbsp;  Download Link &nbsp; &nbsp;  </th>
+				<th> &nbsp; &nbsp;  Model methods & Architecture &nbsp; &nbsp;  </th>
+                <th> &nbsp; &nbsp;  Limiation &nbsp; &nbsp;  </th>
+            </tr>
+			<tr>
+                <td><a href="https://www.nature.com/articles/s41592-022-01666-1">m6Anet</a></td>
+				<td>1.0</td>
+				<td><a href="https://github.com/GoekeLab/m6anet"> https://github.com/GoekeLab/m6anet </a></td>
+				<td> MLP. </td>
+			    <td> Only for m6A. </td>
+            </tr>
+            <tr>
+                <tr>
+                <td><a href="https://www.nature.com/articles/s41467-024-47953-7">CHEUI</a></td>
+				<td>-</td>
+				<td><a href="{https://github.com/comprna/CHEUI"> https://github.com/comprna/CHEUI </a></td>
+				<td> CNN.</td>
+			    <td> Only for m6A and m5C. </td>
+            </tr>
+            <tr>
+                <td><a href="https://www.nature.com/articles/s41467-019-11713-9">Epinano</a></td>
+				<td>1.2.0</td>
+				<td><a href="https://github.com/novoalab/EpiNano"> https://github.com/novoalab/EpiNano </a></td>
+				<td>SVM.</td>
+			    <td> - </td>
+            </tr>
+			<tr>
+                <td><a href="https://rnajournal.cshlp.org/content/26/1/19.full"> MINES </a></td>
+				<td>-</td>
+				<td><a href="https://github.com/YeoLab/MINES"> https://github.com/YeoLab/MINES </a></td>
+				<td>Random Forest </td>
+			    <td> Only for m6A. </td>
+            </tr>
+			<tr>
+                <td><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02241-7">Nanom6A</a></td>
+				<td>2.0</td>
+				<td><a href="https://github.com/gaoyubang/nanom6A"> https://github.com/gaoyubang/nanom6A </a></td>
+				<td>XGBoost. </td>
+			    <td> Only for m6A. </td>
+            </tr>
+			<tr>
+                <td><a href="https://www.biorxiv.org/content/10.1101/2024.01.11.575207">SegPore</a></td>
+				<td>1.0</td>
+				<td><a href="https://github.com/guangzhaocs/SegPore"> https://github.com/guangzhaocs/SegPore </a></td>
+				<td> GMM. </td>
+			    <td> -</td>
+            </tr>
+			<tr>
+                <td><a href="">Tombo</a></td>
+				<td>1.5.1</td>
+				<td><a href="https://nanoporetech.github.io/tombo"> https://nanoporetech.github.io/tombo </a></td>
+				<td> - </td>
+			    <td> - </td>
+            </tr>
+		</table>	
+			
+        <br/>		
 		<h5 style="font-family:Georgia">Reference</h5>
 		<p>Shi, Hailing, Jiangbo Wei, and Chuan He. "Where, when, and how: context-dependent functions of RNA methylation writers, readers, and erasers." Molecular cell 74.4 (2019): 640-650.</p>
 		<p>Liu, Huanle, et al. "Accurate detection of m6A RNA modifications in native RNA sequences." Nature communications 10.1 (2019): 4079.</p>

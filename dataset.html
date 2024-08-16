@@ -79,7 +79,7 @@
 	        <tr>
                 <th scope="col">  Dataset  </th>
 			    <th>  Publish Date </th>
-			    <th>  Accession  </th>
+			    <th>  Accession Number </th>
 			    <th>  Species  </th>
 				<th>  Type  </th>
 			    <th>  Sample  </th>
@@ -573,8 +573,6 @@
 			
 			
         </table>
-
-        <br/> 
 		<br/> 
 		
 		<table class="noBorder" style="border: 0; border-collapse: collapse;">
@@ -960,14 +958,21 @@
 			
 			
         </table>
-		
-		
 		<br/> 
-		<br/>
         <table class="noBorder" style="border: 0; border-collapse: collapse;">
 	        <tr>
                 <th>  <i class="fa fa-circle-o"> </i>  </th>
-			    <th>  <h3 style="font-family:Georgia"> &nbsp; Dataset download </h3> </th>
+			    <th>  <h3 style="font-family:Georgia"> &nbsp; Raw dataset download </h3> </th>
+			</tr>
+		</table>
+		
+		<p>The "Accession Number " in the "Dataset Overview" table above or the "All Dataset Download" table below will direct users to the original NCBI/EBI data repositories, where they can access all meta-information about the raw data. Accession numbers starting with "PRJEB" should be downloaded from the <a href="https://www.ebi.ac.uk/ena/browser/home">EBI-ENA</a> repository, while those starting with "SRP" should be downloaded from the <a href="https://www.ncbi.nlm.nih.gov/sra">NCBI-SRA</a> repository. </p>		
+		<p>We also provide another page, <a href="raw.html">Raw Data Download</a>, where users can download the raw fast5 files directly.</p>
+
+        <table class="noBorder" style="border: 0; border-collapse: collapse;">
+	        <tr>
+                <th>  <i class="fa fa-circle-o"> </i>  </th>
+			    <th>  <h3 style="font-family:Georgia"> &nbsp; All dataset download </h3> </th>
 			</tr>
 		</table>
 
@@ -976,125 +981,124 @@
           <!-- table content goes here -->
 	        <tr>
                 <th>  Dataset  </th>
-			    <th>  Raw data  </th>
-			    <th>  Processed data </th>
-			    <th>  Processed data description  </th>
+			    <th>  Raw Data Accession Number  </th>
+			    <th>  Processed Data </th>
+			    <th>  Processed Data description  </th>
             </tr>
 			<tr>
                 <th>  ont_ployA_standard   </th>
-			    <th>  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423"> fast5</a> (81 GB)  </th>
+			    <th>  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423"> PRJEB28423	</a> (81 GB)  </th>
 			    <th>  <a href="https://462000561.lumidata.eu/nanobaselib/ont_ployA_standard.tar.gz.1"> ont_ployA_standard.tar.gz  </a> </th>
 				<!-- <th>  <a href="https://filesender.funet.fi/download.php?token=01901205-0a5e-71db-9ae2-7830f21103c0&files_ids=867118"> ont_ployA_standard.tar.gz  </a> </th> -->
 			    <th> Guppy, Dorado, Tailfindr, Nanopolish polya.  </th>
             </tr>
 			<tr>
                 <th>  eGFP_polyA_DNA </th>
-			    <th>  <a href="https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&from_uid=547915"> fast5 </a>(43 GB)   </th>
+			    <th>  <a href="https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&from_uid=547915"> PRJEB31806 </a>(43 GB)   </th>
 			    <th>  <a href="https://462000561.lumidata.eu/nanobaselib/eGFP_polyA_DNA.tar.gz.1"> eGFP_polyA_DNA.tar.gz </a>  </th>
 				<!--  <th>  <a href="https://filesender.funet.fi/download.php?token=01901205-0a5e-71db-9ae2-7830f21103c0&files_ids=867117"> eGFP_polyA_DNA.tar.gz </a>  </th> -->
 			    <th>  Guppy, Dorado, Tailfindr, Nanopolish polya.  </th>
             </tr>
 			<tr>
                 <th>  eGFP_polyA_RNA  </th>
-			    <th>  <a href="https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&from_uid=547915"> fast5 </a> (529 GB) </th>
+			    <th>  <a href="https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&from_uid=547915"> 	PRJEB31806 </a> (529 GB) </th>
 			    <th>  <a href="https://462000561.lumidata.eu/nanobaselib/eGFP_polyA_RNA.tar.gz.1"> eGFP_polyA_RNA.tar.gz </a>  </th>
 				<!--<th>  <a href="https://filesender.funet.fi/download.php?token=01901205-0a5e-71db-9ae2-7830f21103c0&files_ids=867120"> eGFP_polyA_RNA.tar.gz </a>  </th>-->
 			    <th>   Guppy, Dorado, Tailfindr, Nanopolish polya.  </th>
             </tr>
 			<tr>
                 <th>  lambda_phage  </th>
-			    <th>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR23197167"> fast5 </a> (19 GB) </th>
+			    <th>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR23197167"> 	PRJNA926802 </a> (19 GB) </th>
 			    <th>  <a href="https://462000561.lumidata.eu/nanobaselib/lambda_phage.tar.gz.1"> lambda_phage.tar.gz </a>  </th>
 				<!--<th>  <a href="https://filesender.funet.fi/download.php?token=01901205-0a5e-71db-9ae2-7830f21103c0&files_ids=867121"> lambda_phage.tar.gz </a>  </th>-->
 			    <th>   Guppy, Dorado, Tombo resquiggle, Nanopolish eventalign.  </th>
             </tr>
 			<tr>
                 <th>  NA12878  </th>
-			    <th>  <a href="https://github.com/nanopore-wgs-consortium/NA12878/blob/master/Genome.md"> fast5 </a> (68 GB) </th>
+			    <th>  <a href="https://github.com/nanopore-wgs-consortium/NA12878/blob/master/Genome.md"> PRJEB23027 </a> (68 GB) </th>
 				<th>  <a href="https://462000561.lumidata.eu/nanobaselib/NA12878.tar.gz.1"> NA12878.tar.gz </a>  </th>
 			    <!--<th>  <a href="https://filesender.funet.fi/download.php?token=01901205-0a5e-71db-9ae2-7830f21103c0&files_ids=867122"> NA12878.tar.gz </a>  </th>-->
 			    <th>   Guppy, Dorado, Tombo resquiggle, Nanopolish eventalign.  </th>
             </tr>
 			<tr>
                 <th>  curlcake   </th>
-			    <th>  <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP174366"> fast5 </a> (584 GB) </th>
+			    <th>  <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP174366"> 	PRJNA511582	 </a> (584 GB) </th>
 				<th>  <a href="https://462000561.lumidata.eu/nanobaselib/curlcake.tar.gz.1"> curlcake.tar.gz </a>  </th>
 			    <!--<th>  <a href="https://filesender.funet.fi/download.php?token=01901205-0a5e-71db-9ae2-7830f21103c0&files_ids=867119"> curlcake.tar.gz </a>  </th>-->
 			    <th>  Guppy, Dorado, Tailfindr, Nanopolish polya.   </th>
             </tr>
 			<tr>
                 <th>  scBY4741_m5C   </th>
-			    <th>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR13570753"> fast5 </a> (37 GB) </th>
+			    <th>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR13570753"> 	PRJNA563591	 </a> (37 GB) </th>
 				<th>  <a href="https://462000561.lumidata.eu/nanobaselib/scBY4741_m5C.tar.gz.1"> scBY4741_m5C.tar.gz </a>  </th>
 			    <!--<th>  <a href="https://filesender.funet.fi/download.php?token=01903534-edb0-7320-9c31-2ef619d57ccb&files_ids=870301"> scBY4741_m5C.tar.gz </a>  </th>-->
 			    <th>   Guppy, Dorado, Tailfindr, Nanopolish, Tombo resquiggle.  </th>
             </tr>
 			<tr>
                 <th>  scBY4741_hm5C   </th>
-			    <th>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR13570800"> fast5 </a> (17 GB) </th>
+			    <th>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR13570800"> PRJNA548268	 </a> (17 GB) </th>
 				<th>  <a href="https://462000561.lumidata.eu/nanobaselib/scBY4741_hm5C.tar.gz.1"> scBY4741_hm5C.tar.gz </a>  </th>
 			    <!--<th>  <a href="https://filesender.funet.fi/download.php?token=01903534-edb0-7320-9c31-2ef619d57ccb&files_ids=870302"> scBY4741_hm5C.tar.gz </a>  </th>-->
 			    <th>   Guppy, Dorado, Tailfindr, Nanopolish, Tombo resquiggle.  </th>
             </tr>
 			<tr>
                 <th>  scBY4741_pU   </th>
-			    <th>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR9644012"> fast5 </a> (4 GB) </th>
+			    <th>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR9644012"> 	PRJNA549001	 </a> (4 GB) </th>
 				<th>  <a href="https://462000561.lumidata.eu/nanobaselib/scBY4741_pU.tar.gz.1"> scBY4741_pU.tar.gz </a>  </th>
 			    <!--<th>  <a href="https://filesender.funet.fi/download.php?token=01903534-edb0-7320-9c31-2ef619d57ccb&files_ids=870300"> scBY4741_pU.tar.gz </a>  </th>-->
 			    <th>   Guppy, Dorado, Tailfindr, Nanopolish, Tombo resquiggle.  </th>
             </tr>
 			<tr>
                 <th>  hct116   </th>
-			    <th>  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB44348"> fast5 </a> (346 GB) </th>
+			    <th>  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB44348"> PRJEB44348 </a> (346 GB) </th>
 			    <th>  <a href="https://462000561.lumidata.eu/nanobaselib/hct116.tar.gz.1"> hct116.tar.gz </a>  </th>
 				<!--<th>  <a href=""> hct116.tar.gz </a>  </th>-->
 			    <th>   Guppy, Dorado, Tailfindr, Nanopolish, SegPore eventalign. </th>
             </tr>
 			<tr>
                 <th>  hek293t_wt   </th>
-			    <th>  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872"> fast5 </a> (224 GB) </th>
+			    <th>  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872"> PRJEB40872 </a> (224 GB) </th>
 			    <th>  <a href="https://462000561.lumidata.eu/nanobaselib/hek293t_wt.tar.gz.1"> hek293t_wt.tar.gz </a> </th>
 				<!--<th>  <a href=""> hek293t_wt.tar.gz </a> </th>-->
 			    <th>  Guppy, Dorado, Tailfindr, Nanopolish, SegPore eventalign. </th>
             </tr>
 			<tr>
                 <th>  hek293t_ko   </th>
-			    <th>  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872"> fast5 </a> (356 GB) </th>
+			    <th>  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872"> PRJEB40872 </a> (356 GB) </th>
 			    <th>  <a href="https://462000561.lumidata.eu/nanobaselib/hek293t_ko.tar.gz.1"> hek293t_ko.tar.gz </a>  </th>
 				<!--<th>  <a href=""> hek293t_ko.tar.gz </a>  </th>-->
 			    <th>  Guppy, Dorado, Tailfindr, Nanopolish, SegPore eventalign. </th>
             </tr>
 			<tr>
                 <th>  mESCs_eligos   </th>
-			    <th>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&acc=SRP166020"> fast5 </a> (220 GB) </th>
+			    <th>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&acc=SRP166020"> 	PRJNA497103 </a> (220 GB) </th>
 			    <th>  <a href="https://462000561.lumidata.eu/nanobaselib/mESCs_eligos.tar.gz.1"> mESCs_eligos.tar.gz </a>  </th>
 				<!--<th>  <a href="https://filesender.funet.fi/download.php?token=01903534-edb0-7320-9c31-2ef619d57ccb&files_ids=870303"> mESCs_eligos.tar.gz </a>  </th>-->
 			    <th>  Guppy, Dorado, Tailfindr, Nanopolish, SegPore eventalign.  </th>
             </tr>
 			<tr>
                 <th>  ecoli_eligos   </th>
-			    <th>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&acc=SRP166020"> fast5 </a> (214 GB) </th>
+			    <th>  <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&acc=SRP166020"> PRJNA497103 </a> (214 GB) </th>
 				<th>  <a href="https://462000561.lumidata.eu/nanobaselib/ecoli_eligos.tar.gz.1"> ecoli_eligos.tar.gz </a>  </th>
 			    <!--<th>  <a href="https://filesender.funet.fi/download.php?token=01903534-edb0-7320-9c31-2ef619d57ccb&files_ids=870304"> ecoli_eligos.tar.gz </a>  </th>-->
 			    <th>  Guppy, Dorado, Tailfindr, Nanopolish, SegPore eventalign. </th>
             </tr>
 			<tr>
                 <th>  dinopore_ivt   </th>
-			    <th>  <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295"> fast5 </a> (15 GB) </th>
+			    <th>  <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295"> SRP363295	 </a> (15 GB) </th>
 			    <th>  <a href="https://462000561.lumidata.eu/nanobaselib/dinopore_ivt.tar.gz.1"> dinopore_ivt.tar.gz </a>  </th>
 				<!--<th>  <a href="https://filesender.funet.fi/download.php?token=01903534-edb0-7320-9c31-2ef619d57ccb&files_ids=870306"> dinopore_ivt.tar.gz </a>  </th>-->
 			    <th>   Guppy, Dorado, Tailfindr, Nanopolish, SegPore eventalign. </th>
             </tr>
 			<tr>
                 <th>  dinopore_xenopus   </th>
-			    <th>  <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295"> fast5 </a> (399 GB) </th>
+			    <th>  <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295"> SRP363295 </a> (399 GB) </th>
 			    <th>  <a href="https://462000561.lumidata.eu/nanobaselib/dinopore_xenopus.tar.gz.1"> dinopore_xenopus.tar.gz </a>  </th>
 				<!--<th>  <a href="https://filesender.funet.fi/download.php?token=01903534-edb0-7320-9c31-2ef619d57ccb&files_ids=870305"> dinopore_xenopus.tar.gz </a>  </th>-->
 			    <th>   Guppy, Dorado, Tailfindr, Nanopolish.  </th>
             </tr>
 	
 		</table>
-		<br/>
 		<br/>
 		<table class="noBorder" style="border: 0; border-collapse: collapse;">
 	                <tr>

@@ -54,6 +54,8 @@
     	    </nav>
 
             <!-- Page Content  -->
+
+		
             <div id="content" class="p-4 p-md-5 pt-5">
 	            <h2 style="font-family:Georgia">Segmentation & event alignment benchmark</h2>
 	            <br/>
@@ -65,6 +67,37 @@
 				<p>After base calling, we can get a base-called sequence that will align with the reference sequence. The segmentation and event alignment task inputs the raw signal and reference sequence. It would segment the raw signal into small fragments and align it with the reference sequence. So one small fragment and its corresponding nucleotide would be called an "event".</p>
                 <p>For each fragment of the raw signal, we can get its mean and standard deviation, which are used to evaluate the task.</p>
 				<p>The benchmark results are available from the <a href="https://nanobaselib.github.io/dataset.html"> Dataset Download </a>.</p>
+				
+				<table class="noBorder" style="border: 0; border-collapse: collapse;">
+	                <tr>
+                        <th>  <i class="fa fa-circle-o"> </i>  </th>
+			            <th>  <h3 style="font-family:Georgia"> &nbsp; Segmentation and event alignment benchmark models introduction </h3> </th>
+			        </tr>
+		        </table>
+				
+				<h5 style="font-family:Georgia"> Tombo re-squiggle</h5> 
+				<p>The re-squiggle algorithm is the basis for the Tombo framework. The re-squiggle algorithm takes as input a read file (in FAST5 format) containing raw signal and associated base calls. The base calls are mapped to a genome or transcriptome reference and then the raw signal is assigned to the reference sequence based on an expected current level model. [1]</p>
+				<center>
+		            <img src="images/adaptive_half_z_scores.png" width="45%" />
+					<figcaption>Full read adaptive banded shifted half-normal scores. (figure source: [1])</figcaption>
+		        </center>	
+				
+				<h5 style="font-family:Georgia"> Nanopolish eventalign</h5> 
+				<p> The hidden Markov model Nanopolish designed for the consensus problem had 5-mers of a proposed consensus sequence as the backbone of the HMM, with additional states and transitions to handle the skipping/splitting artefacts. Nanopolish used this HMM to calculate a consensus sequence from a set of reads. If we make a reference genome the backbone of the HMM, we can use it to align events to the reference. [2]</p>
+				<h5 style="font-family:Georgia"> SegPore eventalign</h5> 
+				<p> SegPore extends the model kmer table by estimating the distribution parameters for both the normal and modified states of each kmer.</p>
+				<center>
+		            <img src="images/segpore.png" width="40%" />
+					<figcaption>Illustration of SegPore eventalign. (figure source: [3])</figcaption>
+		        </center>
+				
+				<h5 style="font-family:Georgia">Reference</h5>
+		        <p>[1] https://nanoporetech.github.io/tombo/resquiggle.html </p>
+				<p>[2] https://simpsonlab.github.io/2015/04/08/eventalign </p>
+				<p>[3] https://www.biorxiv.org/content/10.1101/2024.01.11.575207 </p>
+		
+		
+		
 	            <center> <p>&copy; 2024. All rights reserved.</p> </center>
 	        </div>
 	</div>
