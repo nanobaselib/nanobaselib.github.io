@@ -102,7 +102,22 @@
 				<p> Tailfindr is an R tool that estimates poly(A) tail length from individual reads directly from ONT FAST5 raw data. tailfindr is able to estimate poly(A) tails from both RNA and DNA reads, including DNA reverse-complement reads containing poly(T) stretches.  [3]</p>
 				<h5 style="font-family:Georgia"> Dorado</h5> 
 				<p> Dorado is the latest basecaller developed by ONT, offering support for estimating polA tail length. </p>
-
+				<br/>
+				<table class="noBorder" style="border: 0; border-collapse: collapse;">
+	                <tr>
+                        <th>  <i class="fa fa-circle-o"> </i>  </th>
+			            <th>  <h3 style="font-family:Georgia"> &nbsp; PolyA tail length ground truth label </h3> </th>
+			        </tr>
+		        </table>
+				
+				<p>For dataset <i>ont_ployA_standard</i>, the sample name is the label.</p>
+				
+				<p>While different datasets have different naming conventions. For dataset <i>eGFP_polyA_DNA</i> and <i>eGFP_polyA_RNA</i>, the sample names are organized by kit and replicate. And the label can be obtained using the barcode. The barcode in eGFP datasets is assigned by aligning the expected barcode sequences against the extracted read sequence preceding the eGFP alignment (see below Table).</p>
+				<img src="images/tailfindr_barcode.png" width="50%" />
+				<p>  </p>
+				<img src="images/tailfindr_lable.png" width="50%" />
+				<p>  </p>
+				Download all the label files <a href="https://drive.usercontent.google.com/u/0/uc?id=1Pox89PxnJ5BlRf4_sZAAP0d5w6DAW-rA&export=download">tailfindr_label.tar.gz</a>.
 				<br/>
 				<br/>
 				<h5 style="font-family:Georgia">Reference</h5>
