@@ -13,6 +13,10 @@
 		
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar">
+			    <div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+					</button>
+                </div>      
 				<div class="img bg-wrap text-center py-3" style="background-image: url(images/bg.avif);">
 	  			    <div class="user-logo">
 	  				    <div class="img" style="background-image: url(images/logo_small.svg);"></div>
@@ -66,7 +70,6 @@
 		        <br/>
 				<p>After base calling, we can get a base-called sequence that will align with the reference sequence. The segmentation and event alignment task inputs the raw signal and reference sequence. It would segment the raw signal into small fragments and align it with the reference sequence. So one small fragment and its corresponding nucleotide would be called an "event".</p>
                 <p>For each fragment of the raw signal, we can get its mean and standard deviation, which are used to evaluate the task.</p>
-				<p>The benchmark results are available from the <a href="https://nanobaselib.github.io/dataset.html"> Dataset Download </a>.</p>
 				
 				<table class="noBorder" style="border: 0; border-collapse: collapse;">
 	                <tr>
@@ -95,11 +98,12 @@
 		        <p>[1] https://nanoporetech.github.io/tombo/resquiggle.html </p>
 				<p>[2] https://simpsonlab.github.io/2015/04/08/eventalign </p>
 				<p>[3] https://www.biorxiv.org/content/10.1101/2024.01.11.575207 </p>
-		
-		
-		
-	            <center> <p>&copy; 2024. All rights reserved.</p> </center>
+	
 	        </div>
 	</div>
+	<script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

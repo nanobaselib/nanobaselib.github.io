@@ -12,9 +12,12 @@
 <body>	
 	<div class="wrapper d-flex align-items-stretch">
 		<nav id="sidebar">
+		        <div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary"></button>
+                </div>
 	  	        <div class="img bg-wrap text-center py-3" style="background-image: url(images/bg.avif);">
 	  			    <div class="user-logo">
-	  				    <div class="img" style="background-image: url(images/logo_small.svg);"></div>
+	  				    <div class="img" style="background-image: url(images/logo_rename_color.svg);"></div>
 	  			     </div>
 	  	        </div>
                 <ul class="list-unstyled components mb-5">
@@ -55,7 +58,7 @@
         <!-- Page Content Start  -->
         <div id="content" class="p-4 p-md-5 pt-5" style="font-family:Georgia">
 		<center>
-		    <img src="images/logo_small.svg" width="60%" alt="Nanopore Sequencing" />
+		    <img src="images/logo_rename_color.svg" width="60%" alt="Nanopore Sequencing" />
             <h1 class="mb-4" style="font-family:Georgia">A Multi-task Benchmark Dataset for Nanopore Sequencing</h1>
 		</center>
 		<table class="noBorder" style="border: 0; border-collapse: collapse;">
@@ -104,10 +107,14 @@
 		</br>
 		<h5 style="font-family:Georgia">Reference</h5>
 		<p> [1] Wang, Yunhao, et al. "Nanopore sequencing technology, bioinformatics and applications." Nature biotechnology 39.11 (2021): 1348-1365. </p>
-	    <center> <p>&copy; 2024. All rights reserved.</p> </center>
+
 		<!-- Page Content End -->
 	    </div>
 	
 	</div>
+	<script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
