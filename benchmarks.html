@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmarks overview · NanoBaseLib</title>
+<meta name="description" content="Summary of the four NanoBaseLib benchmark tasks: inputs, outputs, ground truth, metrics, baselines and the best-performing method for each.">
+<link rel="canonical" href="https://nanobaselib.github.io/benchmarks.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NanoBaseLib">
+<meta property="og:title" content="Benchmarks overview · NanoBaseLib">
+<meta property="og:description" content="Summary of the four NanoBaseLib benchmark tasks: inputs, outputs, ground truth, metrics, baselines and the best-performing method for each.">
+<meta property="og:url" content="https://nanobaselib.github.io/benchmarks.html">
+<meta property="og:image" content="https://nanobaselib.github.io/images/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1316" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=32cf222c">
+<script>
+/* apply saved theme before first paint to avoid a flash */
+(function(){try{var t=localStorage.getItem('nbl-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
+</script>
+
+</head>
+<body class="layout-docs">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <button class="icon-btn menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <a class="brand" href="index.html" aria-label="NanoBaseLib home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0079cd"/><stop offset="1" stop-color="#19c6b3"/></linearGradient></defs><circle cx="16" cy="16" r="15" fill="url(#bm)"/><path d="M5 18h3l2-7 3 12 3-14 3 10 2-5 2 4h4" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="brand-name">Nano<span>Base</span>Lib</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="dataset.html">Datasets</a>
+      <a href="pipeline.html">Pipeline</a>
+      <a href="benchmarks.html" aria-current="true">Benchmarks</a>
+      <a href="software.html">Software</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href="https://github.com/nanobaselib/NanoBaseLib" aria-label="GitHub repository" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://zenodo.org/records/10889896" aria-label="Download from Zenodo" title="Zenodo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html" aria-current="page">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper, team &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Benchmarks</div><h1>Benchmarks overview</h1><p class="lede">Four interdependent tasks, each with ground truth acquisition, evaluation metrics, baseline models and results on held-out test datasets that were never used to train any baseline.</p><div class="meta"><span class="badge">4 tasks</span><span class="badge">19 baseline runs</span><span class="badge">Test sets held out</span></div></div>
+
+<figure class="figure-card"><img src="images/intro.png" alt="Overview figure: nanopore current signal flows through base calling, polyA detection, segmentation and event alignment, and modification detection" loading="lazy" width="2000" height="872"><figcaption>Nanopore sequencing and data analysis: the four NanoBaseLib benchmark tasks and how they depend on each other.</figcaption></figure>
+
+<h2 id="task-overview">Task overview</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Task</th><th>Input</th><th>Output</th><th>Learning setting</th><th>Typical models</th><th>Metrics</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-task task-bc"><span class="dot"></span>BC</span> <a href="basecall.html">Base calling</a></td><td>Raw current signal</td><td>Nucleotide sequence</td><td>Supervised, generative seq2seq</td><td>CNN + LSTM + CTC-CRF (Bonito); UNet + GRU; CNN + Transformer + CTC; ResNet + CTC</td><td>Match / mismatch / insertion / deletion rates</td></tr>
+<tr><td><span class="badge badge-task task-pd"><span class="dot"></span>PD</span> <a href="polya.html">PolyA detection</a></td><td>Raw current signal</td><td>Tail flag, borders, length</td><td>Unsupervised or supervised, predictive</td><td>Hidden Markov models; deep basecaller heads</td><td>Detection rate, length MSE</td></tr>
+<tr><td><span class="badge badge-task task-sa"><span class="dot"></span>SA</span> <a href="segment.html">Segmentation &amp; event alignment</a></td><td>Raw signal + reference sequence</td><td>Event alignment table</td><td>Unsupervised, predictive</td><td>Hidden Markov models; banded dynamic programming</td><td>Average std σ̂, average log-likelihood L̂</td></tr>
+<tr><td><span class="badge badge-task task-md"><span class="dot"></span>MD</span> <a href="mod.html">Modification detection</a></td><td>Event alignment results</td><td>Modification probability per site and read</td><td>Supervised, predictive, multiple-instance</td><td>SVM; random forest; XGBoost; CNN; MIL neural nets</td><td>ROC AUC, PR AUC</td></tr>
+</tbody></table></div>
+
+<h2 id="headline-results">Headline results</h2>
+<div class="cards">
+  <article class="card task-card task-bc"><span class="task-num">Base calling</span><h3 id="guppy-6-0-1-dna-dorado-0-5-3-rna">Guppy 6.0.1 (DNA) · Dorado 0.5.3 (RNA)</h3><p>Best match rates of 93.60% on NA12878 and 93.96% on hek293t_wt. Second-generation sequencing reaches 99.9%, so the headroom is large.</p><a class="card-link stretched" href="basecall.html">Full tables and chart</a></article>
+  <article class="card task-card task-pd"><span class="task-num">PolyA detection</span><h3 id="tailfindr-1-4">Tailfindr 1.4</h3><p>Highest detection rate on all seven test datasets; Nanopolish polya varies strongly across datasets because it depends on alignment. Length estimates are similar across tools.</p><a class="card-link stretched" href="polya.html">Detection rates and length benchmark</a></article>
+  <article class="card task-card task-sa"><span class="task-num">Segmentation &amp; alignment</span><h3 id="segpore-1-0">SegPore 1.0</h3><p>Lowest average within-event std and highest log-likelihood against the ONT k-mer table on all three human RNA test sets.</p><a class="card-link stretched" href="segment.html">Metrics per dataset</a></article>
+  <article class="card task-card task-md"><span class="task-num">Modification detection</span><h3 id="m6anet-m6a-cheui-solo-m5c">m6Anet (m6A) · CHEUI-solo (m5C)</h3><p>m6Anet leads on all three m6A ground truths (ROC AUC up to 0.891); CHEUI-solo leads for m5C (ROC AUC 0.842). Precision-recall AUCs stay below 0.5, showing how hard the task remains.</p><a class="card-link stretched" href="mod.html">ROC and PR AUC tables</a></article>
+</div>
+
+<h2 id="how-the-benchmarks-were-run">How the benchmarks were run</h2>
+<ul>
+  <li><b>Held-out test data.</b> Test datasets were selected at random and none was used to train any baseline model.</li>
+  <li><b>Same preprocessing for every method.</b> All inputs come from the <a href="pipeline.html">unified pipeline</a>, so differences reflect the methods rather than the data preparation.</li>
+  <li><b>Evaluation code is open.</b> Dataloaders and metric implementations live in the <a href="software.html">NanoBaseLib package</a>; the base calling metrics use the parasail pairwise aligner.</li>
+  <li><b>Subset of datasets.</b> The paper's experiments use a subset of the 16 datasets to demonstrate the framework; the remaining datasets are available for broader evaluations.</li>
+</ul>
+
+<h2 id="submitting-a-method">Submitting a method</h2>
+<p>NanoBaseLib v1.0 does not run a hosted leaderboard. To add a method, evaluate it with the package's scripts on the test datasets listed on each task page and <a href="https://github.com/nanobaselib/NanoBaseLib/issues">open an issue or pull request</a> with the output files and the exact command line. Results are added to the task pages with the method name, version and configuration.</p>
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="signal.html"><span class="dir">← Previous</span>Signal processing</a><a class="next" href="basecall.html"><span class="dir">Next →</span>Base calling</a></nav></main><aside class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ul><li class="depth-2"><a href="#task-overview">Task overview</a></li><li class="depth-2"><a href="#headline-results">Headline results</a></li><li class="depth-3"><a href="#guppy-6-0-1-dna-dorado-0-5-3-rna">Guppy 6.0.1 (DNA) · Dorado 0.5.3 (RNA)</a></li><li class="depth-3"><a href="#tailfindr-1-4">Tailfindr 1.4</a></li><li class="depth-3"><a href="#segpore-1-0">SegPore 1.0</a></li><li class="depth-3"><a href="#m6anet-m6a-cheui-solo-m5c">m6Anet (m6A) · CHEUI-solo (m5C)</a></li><li class="depth-2"><a href="#how-the-benchmarks-were-run">How the benchmarks were run</a></li><li class="depth-2"><a href="#submitting-a-method">Submitting a method</a></li></ul></aside></div><div class="sidebar-backdrop"></div>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <a class="brand" href="index.html"><span class="brand-name">Nano<span>Base</span>Lib</span></a>
+      <p style="margin-top:.75rem">A multi-task benchmark dataset for Nanopore sequencing. 16 public datasets, 30 million reads, one unified preprocessing pipeline, four benchmark tasks.</p>
+      <p class="small muted">Department of Computer Science, Aalto University · Institute of Biomedicine, University of Eastern Finland</p>
+    </div>
+    <div>
+      <h4>Data</h4>
+      <ul>
+        <li><a href="dataset.html">Dataset overview</a></li>
+        <li><a href="raw.html">Raw data download</a></li>
+        <li><a href="https://zenodo.org/records/10889896">Processed data on Zenodo</a></li>
+        <li><a href="pipeline.html">Preprocessing pipeline</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Benchmarks</h4>
+      <ul>
+        <li><a href="basecall.html">Base calling</a></li>
+        <li><a href="polya.html">PolyA detection</a></li>
+        <li><a href="segment.html">Segmentation &amp; event alignment</a></li>
+        <li><a href="mod.html">Modification detection</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="software.html">Software package</a></li>
+        <li><a href="https://github.com/nanobaselib/NanoBaseLib">GitHub</a></li>
+        <li><a href="https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html">NeurIPS 2024 paper</a></li>
+        <li><a href="about.html">About &amp; citation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2024–2026 NanoBaseLib authors. Dataset: CC BY 4.0 · Software: Apache 2.0.</span>
+    <span>Built 2026-10-07</span>
+  </div>
+</footer>
+<button class="icon-btn to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button>
+<script src="assets/site.js?v=32cf222c" defer></script>
+</body>
+</html>

@@ -1,120 +1,218 @@
 <!doctype html>
 <html lang="en">
-  <head>
-  	<title>NanoBaseLib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-			    <div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-					</button>
-                </div>
-				<div class="img bg-wrap text-center py-3" style="background-image: url(images/bg.avif);">
-	  			    <div class="user-logo">
-	  				    <div class="img" style="background-image: url(images/logo_small.svg);"></div>
-	  			     </div>
-	  	        </div>
-                <ul class="list-unstyled components mb-5">
-                    <li>
-                        <a href="index.html"><span class="fa fa-home mr-3"></span> Home </a>
-                    </li>
-                    <li>
-                        <a href="dataset.html"><span class="fa fa-cloud-download mr-3 notif"></span> Dataset </a>
-                    </li>
-					<li>
-                        <a href="pipeline.html"><span class="fa fa-sort-amount-desc mr-3"></span>  Pipeline </a>
-                    </li>
-					<li>
-                        <a href="signal.html"><span class="fa fa-signal mr-3"></span> Signal Process </a>
-                    </li>
-                    <li>
-                        <a href="basecall.html"> <span class="fa fa-line-chart mr-3"></span> Base Calling </a>
-                    </li>
-                    <li>
-                        <a href="ploya.html"><span class="fa fa-scissors mr-3"></span> PolyA Dection </a>
-                    </li>
-                    <li>
-                        <a href="segment.html"><span class="fa fa-align-left mr-3"></span> Segmentation </a>
-                    </li>
-					<li>
-                        <a href="mod.html"><span class="fa fa-hourglass-half mr-3"></span> Modification Dection </a>
-                    </li>
-                    <li class="active">
-                        <a href="software.html"><span class="fa fa-github mr-3"></span> Software </a>
-                    </li>
-                    <li>
-                        <a href="about.html"><span class="fa fa-info-circle mr-3"></span> About </a>
-                    </li>
-                </ul>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software package &amp; tutorials · NanoBaseLib</title>
+<meta name="description" content="The NanoBaseLib Python package: data preparation, base calling dataset generation and PyTorch dataloaders, evaluation scripts for each benchmark task, and how to run them on the demo dataset.">
+<link rel="canonical" href="https://nanobaselib.github.io/software.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NanoBaseLib">
+<meta property="og:title" content="Software package &amp; tutorials · NanoBaseLib">
+<meta property="og:description" content="The NanoBaseLib Python package: data preparation, base calling dataset generation and PyTorch dataloaders, evaluation scripts for each benchmark task, and how to run them on the demo dataset.">
+<meta property="og:url" content="https://nanobaselib.github.io/software.html">
+<meta property="og:image" content="https://nanobaselib.github.io/images/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1316" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=32cf222c">
+<script>
+/* apply saved theme before first paint to avoid a flash */
+(function(){try{var t=localStorage.getItem('nbl-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
+</script>
 
-    	</nav>
+</head>
+<body class="layout-docs">
+<a class="skip-link" href="#main">Skip to content</a>
 
-        <!-- Page Content  -->
-        <div id="content" class="p-4 p-md-5 pt-5">
-			    <h2 class="mb-4" style="font-family:Georgia"> Software package</h2>
-				
-				<table class="noBorder">
-	                <tr>
-                        <th>  <i class="fa fa-circle-o"> </i>  </th>
-			            <th>  <h3 style="font-family:Georgia"> &nbsp; Github </h3> </th>
-			        </tr>
-		        </table>
-				<table class="noBorder">
-	                <tr>
-					    <th>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </th>
-                        <th>  <i class="fa fa-github"> </i>  </th>
-			            <th>  <h5 style="font-family:Georgia"> &nbsp; <a href="https://github.com/nanobaselib/NanoBaseLib"> https://github.com/nanobaselib/NanoBaseLib</a> </h5> </th>
-			        </tr>
-		        </table>
-				
-				<br/>
-				<br/>
-				
-				<table class="noBorder">
-	                <tr>
-                        <th>  <i class="fa fa-circle-o"> </i>  </th>
-			            <th>  <h3 style="font-family:Georgia"> &nbsp; Tutorials </h3> </th>
-			        </tr>
-		        </table>
-				<table class="noBorder">
-	                <tr>
-					    <th>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </th>
-                        <th>  <i class="fa fa-book"> </i>  </th>
-			            <th>  <h5 style="font-family:Georgia"> &nbsp; <a href="https://github.com/nanobaselib/NanoBaseLib/blob/main/docs/tutorial.md"> https://github.com/nanobaselib/NanoBaseLib/blob/main/docs/tutorial.md</a> </h5> </th>
-			        </tr>
-		        </table>
-				
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-	        </div>  
-		  
-	</div>
-	<script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+<header class="site-header">
+  <div class="inner">
+    <button class="icon-btn menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <a class="brand" href="index.html" aria-label="NanoBaseLib home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0079cd"/><stop offset="1" stop-color="#19c6b3"/></linearGradient></defs><circle cx="16" cy="16" r="15" fill="url(#bm)"/><path d="M5 18h3l2-7 3 12 3-14 3 10 2-5 2 4h4" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="brand-name">Nano<span>Base</span>Lib</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="dataset.html">Datasets</a>
+      <a href="pipeline.html">Pipeline</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="software.html" aria-current="true">Software</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href="https://github.com/nanobaselib/NanoBaseLib" aria-label="GitHub repository" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://zenodo.org/records/10889896" aria-label="Download from Zenodo" title="Zenodo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html" aria-current="page">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper, team &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Software</div><h1>Software package &amp; tutorials</h1><p class="lede">NanoBaseLib is also a Python package. It turns the processed pipeline outputs into uniform inputs for each task, loads them like a standard deep-learning dataset, and computes the benchmark metrics, so a new model needs only the model code.</p><div class="meta"><span class="badge">Python 3</span><span class="badge">PyTorch dataloaders</span><span class="badge">Apache 2.0</span></div></div>
+
+<div class="btn-group" style="margin-bottom:2rem">
+  <a class="btn btn-primary" href="https://github.com/nanobaselib/NanoBaseLib">GitHub repository</a>
+  <a class="btn" href="https://github.com/nanobaselib/NanoBaseLib/blob/main/docs/tutorial.md">Tutorial on GitHub</a>
+  <a class="btn" href="https://github.com/nanobaselib/NanoBaseLib/issues">Issues</a>
+</div>
+
+<h2 id="installation">Installation</h2>
+<p>The package is a plain Python source tree; clone it and install the dependencies. The preprocessing tools themselves (Guppy, minimap2, Nanopolish, Tombo, …) are external and listed on the <a href="pipeline.html#processing-tools-versions-and-limitations">pipeline page</a>.</p>
+<div class="code-block" data-lang="bash"><pre><code>git clone https://github.com/nanobaselib/NanoBaseLib.git
+cd NanoBaseLib
+pip install h5py pandas numpy torch parasail</code></pre></div>
+
+<h2 id="package-layout">Package layout</h2>
+<pre class="tree"><code>NanoBaseLib/
+├── dataprep/
+│   ├── combine_nanopolish_eventalign.py   <span class="c"># merge eventalign rows per k-mer, build an index</span>
+│   └── extract_tombo_resquiggle.py        <span class="c"># export Tombo resquiggle results to text</span>
+├── base_calling/
+│   ├── generate_dna_dataset.py            <span class="c"># signal chunks + ground truth from eventalign</span>
+│   ├── generate_rna_dataset.py
+│   ├── base_calling_dataloader.py         <span class="c"># PyTorch Dataset / DataLoader</span>
+│   └── base_calling_evaluation.py         <span class="c"># M / X / I / D rates with parasail</span>
+├── segment_align/
+│   ├── segment_align.py
+│   ├── nanopolish_evaluation.py           <span class="c"># σ̂ and L̂ per tool</span>
+│   ├── tombo_evaluation.py
+│   └── segpore_evaluation.py
+├── rna_mod_detection/
+│   ├── rna_mod_detection.py               <span class="c"># ROC / PR AUC against ground truth</span>
+│   ├── m6A.benchmark.csv, m5C.benchmark.csv
+│   └── plot_m6A.py, plot_m5C.py
+├── utils/
+│   ├── sam_filter.py
+│   └── stat_fast5.py
+└── docs/</code></pre>
+
+<h2 id="1-data-preparation">1. Data preparation</h2>
+<h3 id="combine-nanopolish-eventalign">combine_nanopolish_eventalign</h3>
+<p>Nanopolish writes one line per raw event, so a single k-mer often spans several lines. This script merges them into one event per k-mer and writes an index into the original file for random access.</p>
+<div class="code-block" data-lang="bash"><pre><code>python dataprep/combine_nanopolish_eventalign.py \
+    --input_file demo_dataset/4_nanopolish/eventalign.txt \
+    --base_type rna --n_processes 10</code></pre></div>
+<div class="table-wrap dense"><table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody>
+<tr><td class="mono">--input_file</td><td>Path to the <code>eventalign.txt</code> produced by <code>nanopolish eventalign</code>.</td></tr>
+<tr><td class="mono">--base_type</td><td><code>rna</code> or <code>dna</code>.</td></tr>
+<tr><td class="mono">--output_suffix</td><td>Suffix of the combined output file.</td></tr>
+<tr><td class="mono">--n_processes</td><td>Number of worker processes.</td></tr>
+<tr><td class="mono">--chunk_size</td><td>Lines of the eventalign file processed per chunk.</td></tr>
+</tbody></table></div>
+<p>Outputs <code>eventalign_combined.txt</code> (one event per k-mer) and <code>eventalign.index</code>.</p>
+
+<h3 id="extract-tombo-resquiggle">extract_tombo_resquiggle</h3>
+<div class="code-block" data-lang="bash"><pre><code>python dataprep/extract_tombo_resquiggle.py --root_dir demo_dataset/5_tombo/single_reads --folder 0</code></pre></div>
+<p>Reads Tombo's per-read HDF5 results from <code>--root_dir/--folder</code> and writes <code>tombo_resquiggle.txt</code> (segments) and <code>tombo_summary.txt</code> (per-read attributes).</p>
+
+<h2 id="base-calling">2. Base calling</h2>
+<h3 id="generate-dna-dataset-generate-rna-dataset">generate_dna_dataset / generate_rna_dataset</h3>
+<p>Builds the base calling ground truth: raw-signal chunks matched to reference fragments, written as new fast5 files plus a <code>label.csv</code>.</p>
+<div class="code-block" data-lang="bash"><pre><code>mkdir demo_dataset_base_calling
+python base_calling/generate_rna_dataset.py \
+    --input_file demo_dataset/4_nanopolish/eventalign.txt \
+    --summary_file demo_dataset/4_nanopolish/summary.txt \
+    --reference_file demo_dataset/0_reference/ref.fa \
+    --fast5_folder demo_dataset/1_raw_signal/multi_fast5 \
+    --save_folder demo_dataset_base_calling</code></pre></div>
+<div class="table-wrap dense"><table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody>
+<tr><td class="mono">--input_file</td><td>Combined eventalign file.</td></tr>
+<tr><td class="mono">--summary_file</td><td>Nanopolish eventalign summary.</td></tr>
+<tr><td class="mono">--reference_file</td><td>Reference genome / transcriptome FASTA.</td></tr>
+<tr><td class="mono">--fast5_folder</td><td>Original multi-fast5 folder.</td></tr>
+<tr><td class="mono">--save_folder</td><td>Output folder for generated fast5 files and <code>label.csv</code>.</td></tr>
+</tbody></table></div>
+
+<h3 id="base-calling-dataloader">base_calling_dataloader</h3>
+<p>A PyTorch <code>Dataset</code> that pads signal chunks and label sequences and caches them as NumPy arrays. Use it directly in a training loop.</p>
+<div class="code-block" data-lang="bash"><pre><code>python base_calling/base_calling_dataloader.py --root_dir demo_dataset_base_calling</code></pre></div>
+<div class="code-block" data-lang="python"><pre><code>from base_calling.base_calling_dataloader import Seg2BaseDataset, dataset_prep
+from torch.utils.data import DataLoader
+
+dataset_prep("demo_dataset_base_calling/fast5", "demo_dataset_base_calling/label.csv",
+             "demo_dataset_base_calling/output")   # writes seg_data_arr.npy, seg_len_arr.npy, base_seq_arr.npy, base_len_arr.npy
+# then build Seg2BaseDataset(src_seqs, src_lens, tgt_seqs, tgt_lens) from the arrays
+# items: {"src_seq", "src_len", "tgt_seq", "tgt_len"} as tensors; base ids N=0 A=1 T=2 C=3 G=4</code></pre></div>
+<div class="table-wrap dense"><table><thead><tr><th>Output file</th><th>Content</th></tr></thead><tbody>
+<tr><td class="mono">seg_data_arr.npy</td><td>Padded current-signal chunks.</td></tr>
+<tr><td class="mono">seg_len_arr.npy</td><td>Length of each signal chunk.</td></tr>
+<tr><td class="mono">base_seq_arr.npy</td><td>Ground-truth base sequences (integer-encoded).</td></tr>
+<tr><td class="mono">base_len_arr.npy</td><td>Length of each ground-truth sequence.</td></tr>
+</tbody></table></div>
+
+<h3 id="base-calling-evaluation">base_calling_evaluation</h3>
+<p>Aligns predicted sequences to the ground truth with parasail and reports average match, mismatch, insertion and deletion rates. Readers for Dorado, Guppy, Rodan, Halcyon and Radian outputs are included.</p>
+<div class="code-block" data-lang="bash"><pre><code>python base_calling/base_calling_evaluation.py --root_dir bc_benchmark --base_type dna --model guppy_v6.0.1</code></pre></div>
+
+<h2 id="3-polya-detection">3. PolyA detection</h2>
+<p>PolyA results from Nanopolish (<code>4_nanopolish/polya.tsv</code>) and Tailfindr (<code>3_tailfindr/tails.csv</code>) ship with every RNA dataset. A dedicated dataloader is planned; see the <a href="polya.html#ground-truth">label files</a> for the ground truth format.</p>
+
+<h2 id="4-segmentation-and-event-alignment">4. Segmentation and event alignment</h2>
+<p><code>nanopolish_evaluation.py</code>, <code>tombo_evaluation.py</code> and <code>segpore_evaluation.py</code> compute the average std σ̂ and average log-likelihood L̂ described on the <a href="segment.html#ground-truth-and-metrics">segmentation page</a> from each tool's output and the ONT k-mer table.</p>
+
+<h2 id="5-rna-modification-detection">5. RNA modification detection</h2>
+<p><code>rna_mod_detection.py</code> reads a benchmark CSV of per-site predictions and labels and computes ROC and PR AUC; <code>plot_m6A.py</code> and <code>plot_m5C.py</code> reproduce the figures on the <a href="mod.html">modification detection page</a>.</p>
+<div class="code-block" data-lang="bash"><pre><code>python rna_mod_detection/rna_mod_detection.py --benchmark_file rna_mod_detection/m6A.benchmark.csv</code></pre></div>
+
+<h2 id="extending-nanobaselib-with-new-data">Extending NanoBaseLib with new data</h2>
+<p>When a new public dataset appears, run the <a href="pipeline.html">unified pipeline</a> on its raw fast5, place the outputs in the standard directory layout, and the package scripts work unchanged. Contributions of new datasets, tools or baselines are welcome through pull requests.</p>
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="mod.html"><span class="dir">← Previous</span>Modification detection</a><a class="next" href="about.html"><span class="dir">Next →</span>Paper, team &amp; changelog</a></nav></main><aside class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ul><li class="depth-2"><a href="#installation">Installation</a></li><li class="depth-2"><a href="#package-layout">Package layout</a></li><li class="depth-2"><a href="#1-data-preparation">1. Data preparation</a></li><li class="depth-3"><a href="#combine-nanopolish-eventalign">combine_nanopolish_eventalign</a></li><li class="depth-3"><a href="#extract-tombo-resquiggle">extract_tombo_resquiggle</a></li><li class="depth-2"><a href="#base-calling">2. Base calling</a></li><li class="depth-3"><a href="#generate-dna-dataset-generate-rna-dataset">generate_dna_dataset / generate_rna_dataset</a></li><li class="depth-3"><a href="#base-calling-dataloader">base_calling_dataloader</a></li><li class="depth-3"><a href="#base-calling-evaluation">base_calling_evaluation</a></li><li class="depth-2"><a href="#3-polya-detection">3. PolyA detection</a></li><li class="depth-2"><a href="#4-segmentation-and-event-alignment">4. Segmentation and event alignment</a></li><li class="depth-2"><a href="#5-rna-modification-detection">5. RNA modification detection</a></li><li class="depth-2"><a href="#extending-nanobaselib-with-new-data">Extending NanoBaseLib with new data</a></li></ul></aside></div><div class="sidebar-backdrop"></div>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <a class="brand" href="index.html"><span class="brand-name">Nano<span>Base</span>Lib</span></a>
+      <p style="margin-top:.75rem">A multi-task benchmark dataset for Nanopore sequencing. 16 public datasets, 30 million reads, one unified preprocessing pipeline, four benchmark tasks.</p>
+      <p class="small muted">Department of Computer Science, Aalto University · Institute of Biomedicine, University of Eastern Finland</p>
+    </div>
+    <div>
+      <h4>Data</h4>
+      <ul>
+        <li><a href="dataset.html">Dataset overview</a></li>
+        <li><a href="raw.html">Raw data download</a></li>
+        <li><a href="https://zenodo.org/records/10889896">Processed data on Zenodo</a></li>
+        <li><a href="pipeline.html">Preprocessing pipeline</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Benchmarks</h4>
+      <ul>
+        <li><a href="basecall.html">Base calling</a></li>
+        <li><a href="polya.html">PolyA detection</a></li>
+        <li><a href="segment.html">Segmentation &amp; event alignment</a></li>
+        <li><a href="mod.html">Modification detection</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="software.html">Software package</a></li>
+        <li><a href="https://github.com/nanobaselib/NanoBaseLib">GitHub</a></li>
+        <li><a href="https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html">NeurIPS 2024 paper</a></li>
+        <li><a href="about.html">About &amp; citation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2024–2026 NanoBaseLib authors. Dataset: CC BY 4.0 · Software: Apache 2.0.</span>
+    <span>Built 2026-10-07</span>
+  </div>
+</footer>
+<button class="icon-btn to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button>
+<script src="assets/site.js?v=32cf222c" defer></script>
 </body>
 </html>

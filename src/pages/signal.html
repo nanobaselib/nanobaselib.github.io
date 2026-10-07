@@ -1,0 +1,37 @@
+<!--meta {"title": "Nanopore signal processing", "description": "How raw Nanopore current signals are stored in fast5, converted to picoamperes, and standardized by Tombo, Nanopolish and SegPore.", "lede": "What is inside a fast5 file, how the integer signal becomes a current in picoamperes, and how the three event-alignment tools normalize it before any model sees it.", "badges": ["fast5 anatomy", "pA conversion", "Normalization"]} -->
+
+<h2>Raw signal conversion</h2>
+<div class="two-col">
+  <figure class="figure-card" style="margin:0"><img src="images/fast5_1.png" alt="HDF5 viewer showing the Signal dataset of a single-fast5 file" loading="lazy" width="1462" height="950"><figcaption>The <code>Signal</code> dataset of a single-fast5 file (int16).</figcaption></figure>
+  <figure class="figure-card" style="margin:0"><img src="images/fast5_2.png" alt="HDF5 viewer showing channel_id attributes: channel_number, digitisation, offset, range, sampling_rate" loading="lazy" width="1462" height="950"><figcaption>The <code>channel_id</code> attributes needed to convert the signal.</figcaption></figure>
+</div>
+<p>A fast5 file is an HDF5 container. The <code>Signal</code> array is the raw current passing through the pore, stored as 16-bit integers. Oxford Nanopore uses different pore proteins in different products, and a single flow cell holds between 512 and 2,675 pores, each called a <em>channel</em>. The file also stores channel attributes: <code>channel_number</code>, <code>digitisation</code> (number of quantisation levels of the analog-to-digital converter), <code>offset</code> (ADC offset error), <code>range</code> (full-scale measurement range in picoamperes) and <code>sampling_rate</code> (ADC sampling frequency).</p>
+<p>The raw integers are converted to picoamperes with the attributes of the <code>channel_id</code> group:</p>
+<span class="math">signal_pA = (raw_signal + offset) × range / digitisation</span>
+<p>All downstream tasks work on the pA signal. A full description of the attributes is in the <a href="https://github.com/nanoporetech/taiyaki/blob/master/docs/FILE_FORMATS.md">taiyaki file-format notes</a> and the supplementary material of Wang et al. (2021); SLOW5 (Gamaarachchi et al., 2022) is a faster alternative container with the same content.</p>
+
+<h2>Signal standardization and normalization</h2>
+<p>Oxford Nanopore publishes a “standard” k-mer table for each pore model: the expected mean and standard deviation of the current for every k-mer (1,024 rows for 5-mers). Tools standardize each read against this table in different ways, and the choice matters for every downstream benchmark.</p>
+<figure class="figure-card figure-narrow"><img src="images/kmer_table.png" alt="Excerpt of the ONT standard k-mer table with level_mean and level_stdv columns" loading="lazy" width="411" height="185"><figcaption>Excerpt of the ONT k-mer model (<a href="https://github.com/nanoporetech/kmer_models">nanoporetech/kmer_models</a>).</figcaption></figure>
+
+<h3>Tombo</h3>
+<p>Tombo normalizes with a median shift and a median-absolute-deviation (MAD) scale:</p>
+<span class="math">norm_signal = (signal_pA − median) / MAD</span>
+
+<h3>Nanopolish</h3>
+<p>Nanopolish estimates a per-read scale parameter and applies it when <code>--scale-events</code> is passed to <code>nanopolish eventalign</code>. The <code>model_mean</code> and <code>model_stdv</code> columns of its output are the standard k-mer parameters; <code>standardized_level</code> is the z-score of the event against them.</p>
+
+<h3>SegPore</h3>
+<p>SegPore first detects the poly(A) tail of each read and computes its mean μ<sub>polyA</sub> and standard deviation σ<sub>polyA</sub>, then maps the read onto the standard parameters of the k-mer <code>AAAAA</code>:</p>
+<span class="math">stand_signal = (signal_pA − μ_polyA) / σ_polyA × σ_stand_polyA + μ_stand_polyA</span>
+<p>where μ<sub>stand_polyA</sub> and σ<sub>stand_polyA</sub> are the mean and standard deviation of <code>AAAAA</code> in ONT's k-mer table.</p>
+
+<h2>References</h2>
+<ol class="refs">
+  <li><a href="https://github.com/nanoporetech/taiyaki/blob/master/docs/FILE_FORMATS.md">Oxford Nanopore Technologies. Taiyaki file formats.</a></li>
+  <li>Gamaarachchi, H., Samarakoon, H., Jenner, S.P. et al. Fast nanopore sequencing data analysis with SLOW5. <i>Nature Biotechnology</i> 40, 1026–1029 (2022).</li>
+  <li><a href="https://github.com/nanoporetech/kmer_models">Oxford Nanopore Technologies. K-mer models.</a></li>
+  <li><a href="https://nanoporetech.github.io/tombo/resquiggle.html">Tombo re-squiggle algorithm documentation.</a></li>
+  <li>Wang, Y., Zhao, Y., Bollas, A., Wang, Y. &amp; Au, K.F. Nanopore sequencing technology, bioinformatics and applications. <i>Nature Biotechnology</i> 39, 1348–1365 (2021). <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41587-021-01147-4/MediaObjects/41587_2021_1147_MOESM1_ESM.pdf">Supplementary information</a>.</li>
+  <li>Simpson, J.T. et al. Detecting DNA cytosine methylation using nanopore sequencing. <i>Nature Methods</i> 14, 407–410 (2017). <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.4184/MediaObjects/41592_2017_BFnmeth4184_MOESM258_ESM.pdf">Supplementary note on event scaling</a>.</li>
+</ol>

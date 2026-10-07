@@ -1,0 +1,32 @@
+<!--meta {"title": "Benchmarks overview", "description": "Summary of the four NanoBaseLib benchmark tasks: inputs, outputs, ground truth, metrics, baselines and the best-performing method for each.", "lede": "Four interdependent tasks, each with ground truth acquisition, evaluation metrics, baseline models and results on held-out test datasets that were never used to train any baseline.", "badges": ["4 tasks", "19 baseline runs", "Test sets held out"]} -->
+
+<figure class="figure-card"><img src="images/intro.png" alt="Overview figure: nanopore current signal flows through base calling, polyA detection, segmentation and event alignment, and modification detection" loading="lazy" width="2000" height="872"><figcaption>Nanopore sequencing and data analysis: the four NanoBaseLib benchmark tasks and how they depend on each other.</figcaption></figure>
+
+<h2>Task overview</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Task</th><th>Input</th><th>Output</th><th>Learning setting</th><th>Typical models</th><th>Metrics</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-task task-bc"><span class="dot"></span>BC</span> <a href="basecall.html">Base calling</a></td><td>Raw current signal</td><td>Nucleotide sequence</td><td>Supervised, generative seq2seq</td><td>CNN + LSTM + CTC-CRF (Bonito); UNet + GRU; CNN + Transformer + CTC; ResNet + CTC</td><td>Match / mismatch / insertion / deletion rates</td></tr>
+<tr><td><span class="badge badge-task task-pd"><span class="dot"></span>PD</span> <a href="polya.html">PolyA detection</a></td><td>Raw current signal</td><td>Tail flag, borders, length</td><td>Unsupervised or supervised, predictive</td><td>Hidden Markov models; deep basecaller heads</td><td>Detection rate, length MSE</td></tr>
+<tr><td><span class="badge badge-task task-sa"><span class="dot"></span>SA</span> <a href="segment.html">Segmentation &amp; event alignment</a></td><td>Raw signal + reference sequence</td><td>Event alignment table</td><td>Unsupervised, predictive</td><td>Hidden Markov models; banded dynamic programming</td><td>Average std σ̂, average log-likelihood L̂</td></tr>
+<tr><td><span class="badge badge-task task-md"><span class="dot"></span>MD</span> <a href="mod.html">Modification detection</a></td><td>Event alignment results</td><td>Modification probability per site and read</td><td>Supervised, predictive, multiple-instance</td><td>SVM; random forest; XGBoost; CNN; MIL neural nets</td><td>ROC AUC, PR AUC</td></tr>
+</tbody></table></div>
+
+<h2>Headline results</h2>
+<div class="cards">
+  <article class="card task-card task-bc"><span class="task-num">Base calling</span><h3>Guppy 6.0.1 (DNA) · Dorado 0.5.3 (RNA)</h3><p>Best match rates of 93.60% on NA12878 and 93.96% on hek293t_wt. Second-generation sequencing reaches 99.9%, so the headroom is large.</p><a class="card-link stretched" href="basecall.html">Full tables and chart</a></article>
+  <article class="card task-card task-pd"><span class="task-num">PolyA detection</span><h3>Tailfindr 1.4</h3><p>Highest detection rate on all seven test datasets; Nanopolish polya varies strongly across datasets because it depends on alignment. Length estimates are similar across tools.</p><a class="card-link stretched" href="polya.html">Detection rates and length benchmark</a></article>
+  <article class="card task-card task-sa"><span class="task-num">Segmentation &amp; alignment</span><h3>SegPore 1.0</h3><p>Lowest average within-event std and highest log-likelihood against the ONT k-mer table on all three human RNA test sets.</p><a class="card-link stretched" href="segment.html">Metrics per dataset</a></article>
+  <article class="card task-card task-md"><span class="task-num">Modification detection</span><h3>m6Anet (m6A) · CHEUI-solo (m5C)</h3><p>m6Anet leads on all three m6A ground truths (ROC AUC up to 0.891); CHEUI-solo leads for m5C (ROC AUC 0.842). Precision-recall AUCs stay below 0.5, showing how hard the task remains.</p><a class="card-link stretched" href="mod.html">ROC and PR AUC tables</a></article>
+</div>
+
+<h2>How the benchmarks were run</h2>
+<ul>
+  <li><b>Held-out test data.</b> Test datasets were selected at random and none was used to train any baseline model.</li>
+  <li><b>Same preprocessing for every method.</b> All inputs come from the <a href="pipeline.html">unified pipeline</a>, so differences reflect the methods rather than the data preparation.</li>
+  <li><b>Evaluation code is open.</b> Dataloaders and metric implementations live in the <a href="software.html">NanoBaseLib package</a>; the base calling metrics use the parasail pairwise aligner.</li>
+  <li><b>Subset of datasets.</b> The paper's experiments use a subset of the 16 datasets to demonstrate the framework; the remaining datasets are available for broader evaluations.</li>
+</ul>
+
+<h2>Submitting a method</h2>
+<p>NanoBaseLib v1.0 does not run a hosted leaderboard. To add a method, evaluate it with the package's scripts on the test datasets listed on each task page and <a href="https://github.com/nanobaselib/NanoBaseLib/issues">open an issue or pull request</a> with the output files and the exact command line. Results are added to the task pages with the method name, version and configuration.</p>

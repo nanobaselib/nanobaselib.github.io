@@ -1,0 +1,50 @@
+<!--meta {"title": "Base calling benchmark", "description": "Base calling benchmark of NanoBaseLib: ground truth construction, match/mismatch/indel metrics, and results of Guppy, Bonito, Dorado, Causalcall and Rodan on DNA (NA12878) and RNA (hek293t_wt) test sets.", "lede": "Base calling converts a chunk of raw current into a DNA or RNA sequence, exactly as speech recognition converts audio into text. It is the foundation every other task builds on, and its accuracy is still far from the 99.9% of short-read sequencing.", "badges": ["Task 1 · BC", "DNA: NA12878 · RNA: hek293t_wt", "7 + 6 baselines"]} -->
+
+<figure class="figure-card"><img src="images/basecalling_seq2seq.png" alt="Analogy between automatic speech recognition and base calling: a current signal is decoded into a nucleotide sequence by a seq2seq model" loading="lazy" width="2400" height="670"><figcaption>Base calling as a sequence-to-sequence problem: the input is the nanopore current, the output a sequence over {A, C, G, T/U}.</figcaption></figure>
+
+<h2>Results</h2>
+<div class="chart-grid-2">
+{{bc_chart_dna}}
+{{bc_chart_rna}}
+</div>
+<p>Guppy 6.0.1 and Dorado 0.5.3 achieve the best DNA and RNA results respectively, with match rates of roughly 93–94%. Official ONT basecallers (Guppy, Bonito, Dorado) clearly outperform the community models Causalcall and Rodan, and successive Guppy versions show how much the models have improved since 2019.</p>
+
+<h3>DNA base calling on NA12878</h3>
+{{bc_table_dna}}
+<h3>RNA base calling on hek293t_wt</h3>
+{{bc_table_rna}}
+<p class="sub">M = match, I = insertion, X = mismatch, D = deletion. ★ marks the best value per column. Rates are percentages normalized by the alignment length (left) or the ground-truth reference length (right).</p>
+
+<h2>Ground truth acquisition</h2>
+<figure class="figure-card"><img src="images/base_calling_gt.jpg" alt="Three stages: base calling, genome alignment of the base-called sequence, then segmentation and event alignment to extract matched raw-signal chunks and reference fragments" loading="lazy" width="2000" height="663"><figcaption>Ground truth pairs are raw-signal chunks matched to reference-genome fragments.</figcaption></figure>
+<p>The ground truth is a one-to-one correspondence between raw-signal segments and reference fragments. Reads are first base called with Guppy 6.0.1, aligned to the reference genome, and processed with Nanopolish eventalign. The matched raw-signal segments and reference-sequence fragments are then extracted and sampled. In total the benchmark contains <b>34,742 DNA</b> and <b>83,681 RNA</b> pairs of signal chunks and reference segments.</p>
+<p>Because modified bases are written as the same nucleotide but produce different current levels, there is an inherent upper limit on ground-truth accuracy; the labels are an approximation.</p>
+
+<h2>Evaluation metrics</h2>
+<p>Predicted sequences are aligned pairwise to the ground truth with the <a href="https://github.com/jeffdaily/parasail">parasail</a> SIMD aligner. From the alignment we count matches (M), mismatches (X), insertions (I) and deletions (D) and report two normalizations:</p>
+<span class="math">rate_align = M | X | I | D  /  (number of aligned bases)   × 100%
+rate_ref   = M | X | I | D  /  (number of reference bases) × 100%</span>
+<p>A higher match rate is better; higher mismatch, insertion or deletion rates are worse. The implementation is <a href="https://github.com/nanobaselib/NanoBaseLib/blob/main/base_calling/base_calling_evaluation.py"><code>base_calling_evaluation.py</code></a>.</p>
+
+<h2>Baseline models</h2>
+<figure class="figure-card"><img src="images/basecalling.png" alt="Timeline of base calling model architectures" loading="lazy" width="1668" height="351"><figcaption>Architectures of the benchmarked basecallers. All are deep-learning models.</figcaption></figure>
+<p>Guppy, Bonito and Dorado are official Oxford Nanopore basecallers; Causalcall (temporal convolutional network) and Rodan (fully convolutional) come from the research community. Several versions of Guppy and Dorado are included because they are the most widely used.</p>
+
+<h3 id="basecaller-configurations">Basecaller configurations</h3>
+<div class="table-wrap dense"><table>
+<thead><tr><th>Basecaller</th><th>Version</th><th>Sample</th><th>Configuration</th></tr></thead>
+<tbody>
+<tr><td>Guppy</td><td class="mono">2.3.1</td><td>DNA</td><td class="mono">dna_r9.4.1_450bps.cfg</td></tr>
+<tr><td>Guppy</td><td class="mono">2.3.1</td><td>RNA</td><td class="mono">rna_r9.4.1_70bps.cfg</td></tr>
+<tr><td>Guppy</td><td class="mono">4.5.4</td><td>DNA</td><td class="mono">dna_r9.4.1_450bps_hac.cfg</td></tr>
+<tr><td>Guppy</td><td class="mono">4.5.4</td><td>RNA</td><td class="mono">rna_r9.4.1_70bps_hac.cfg</td></tr>
+<tr><td>Guppy</td><td class="mono">6.0.1</td><td>DNA</td><td class="mono">dna_r9.4.1_450bps_hac.cfg</td></tr>
+<tr><td>Guppy</td><td class="mono">6.0.1</td><td>RNA</td><td class="mono">rna_r9.4.1_70bps_hac.cfg</td></tr>
+<tr><td>Bonito</td><td class="mono">0.7.3</td><td>DNA</td><td class="mono">dna_r9.4.1_e8_hac@v3.3</td></tr>
+<tr><td>Dorado</td><td class="mono">0.5.3 / 0.7.0</td><td>DNA</td><td class="mono">dna_r9.4.1_e8_hac@v3.3</td></tr>
+<tr><td>Dorado</td><td class="mono">0.5.3 / 0.7.0</td><td>RNA</td><td class="mono">rna002_70bps_hac@v3</td></tr>
+</tbody></table></div>
+
+<h2>Download the benchmark data</h2>
+<p>Each archive contains the fast5 chunks, the ground-truth <code>label.csv</code>, and the outputs of every baseline. Use the <a href="software.html#base-calling">base calling dataloader</a> to turn them into training tensors.</p>
+{{bc_downloads}}

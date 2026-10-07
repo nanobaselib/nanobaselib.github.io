@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PolyA detection benchmark · NanoBaseLib</title>
+<meta name="description" content="PolyA tail detection benchmark of NanoBaseLib: detection rate and tail-length estimation of Nanopolish polya, Tailfindr and Dorado on synthetic datasets with known tail lengths.">
+<link rel="canonical" href="https://nanobaselib.github.io/polya.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NanoBaseLib">
+<meta property="og:title" content="PolyA detection benchmark · NanoBaseLib">
+<meta property="og:description" content="PolyA tail detection benchmark of NanoBaseLib: detection rate and tail-length estimation of Nanopolish polya, Tailfindr and Dorado on synthetic datasets with known tail lengths.">
+<meta property="og:url" content="https://nanobaselib.github.io/polya.html">
+<meta property="og:image" content="https://nanobaselib.github.io/images/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1316" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=32cf222c">
+<script>
+/* apply saved theme before first paint to avoid a flash */
+(function(){try{var t=localStorage.getItem('nbl-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
+</script>
+
+</head>
+<body class="layout-docs">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <button class="icon-btn menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <a class="brand" href="index.html" aria-label="NanoBaseLib home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0079cd"/><stop offset="1" stop-color="#19c6b3"/></linearGradient></defs><circle cx="16" cy="16" r="15" fill="url(#bm)"/><path d="M5 18h3l2-7 3 12 3-14 3 10 2-5 2 4h4" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="brand-name">Nano<span>Base</span>Lib</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="dataset.html">Datasets</a>
+      <a href="pipeline.html">Pipeline</a>
+      <a href="benchmarks.html" aria-current="true">Benchmarks</a>
+      <a href="software.html">Software</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href="https://github.com/nanobaselib/NanoBaseLib" aria-label="GitHub repository" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://zenodo.org/records/10889896" aria-label="Download from Zenodo" title="Zenodo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html" aria-current="page">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper, team &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Benchmarks</div><h1>PolyA detection benchmark</h1><p class="lede">Polyadenylation adds a poly(A) tail to messenger RNA. Finding that tail in the raw signal is a quality-control step after base calling, and three synthetic datasets with known tail lengths make it a measurable task.</p><div class="meta"><span class="badge">Task 2 · PD</span><span class="badge">7 test datasets</span><span class="badge">3 baselines</span></div></div>
+
+<figure class="figure-card"><img src="images/polya.png" alt="Top: polyadenylation of an mRNA transcript. Bottom: the poly(A) tail appears as a long flat segment in the nanopore current between adapter and transcript" loading="lazy" width="1452" height="1019"><figcaption>Polyadenylation and its signature in the Nanopore signal. Top panel adapted from Weil (2015).</figcaption></figure>
+<p>The poly(A) tail is used in library preparation, so a read without a detectable tail is flagged as low quality and removed from downstream analysis. The task outputs a detection flag, the start and end of the tail on the raw signal, and the tail length in nucleotides. Only the tail length has ground truth; the borders cannot be measured independently with current technology.</p>
+
+<h2 id="detection-rate-benchmark">Detection rate benchmark</h2>
+<p>Seven test datasets. Tailfindr detects a tail in the largest fraction of reads on every dataset, while Nanopolish polya varies strongly because it relies on alignment to the reference genome; Tailfindr and Dorado are alignment-free.</p>
+<figure class="figure-card"><img src="images/polya_rate.svg" alt="Grouped bar chart of polyA detection rate for Dorado 0.5.3, Nanopolish 0.14.0 and Tailfindr 1.4 across seven test datasets" loading="lazy" width="1440" height="360"><figcaption>PolyA detection rate (fraction of reads with a detected tail) per test dataset.</figcaption></figure>
+
+<h2 id="tail-length-estimation-benchmark">Tail length estimation benchmark</h2>
+<p>On <code>ont_ployA_standard</code> the six samples carry synthetic tails of 10, 15, 30, 60, 80 and 100 nucleotides. All three methods give similar distributions; the mean squared error against the known length is the metric.</p>
+<figure class="figure-card"><img src="images/ont_polyA_standard.svg" alt="Box plots of estimated polyA tail length per sample for three tools, with the true lengths 10 to 100 marked" loading="lazy" width="729" height="502"><figcaption>Estimated tail length per sample. Black lines mark the ground truth (10, 15, 30, 60, 80, 100 nt).</figcaption></figure>
+<p><a class="btn" href="https://zenodo.org/records/10889896/files/ont_ployA_standard_benchmark.tar.gz?download=1">Download ont_ployA_standard benchmark</a></p>
+
+<h2 id="ground-truth">Ground truth</h2>
+<p>Three synthetic datasets use tails of known length: <code>ont_ployA_standard</code> (10–100 nt, six samples) and <code>eGFP_polyA_DNA</code> / <code>eGFP_polyA_RNA</code> (10, 30, 40, 60, 100 and 150 nt, six samples each). For the ONT standard the sample name is the label. For the eGFP datasets samples are organised by kit and replicate, and the label is recovered from a barcode: expected barcode sequences are aligned against the read sequence preceding the eGFP alignment.</p>
+<div class="two-col">
+  <figure class="figure-card" style="margin:0"><img src="images/tailfindr_barcode.png" alt="Table of barcode sequences assigned to each polyA length in the eGFP datasets" loading="lazy" width="1871" height="851"><figcaption>Barcode-to-tail-length assignment in the eGFP datasets.</figcaption></figure>
+  <figure class="figure-card" style="margin:0"><img src="images/tailfindr_lable.png" alt="Example label table mapping read names to barcode and polyA length" loading="lazy" width="985" height="651"><figcaption>Resulting per-read label file.</figcaption></figure>
+</div>
+<p><a class="btn" href="https://drive.google.com/file/d/1Pox89PxnJ5BlRf4_sZAAP0d5w6DAW-rA/view?usp=sharing">Download all label files (tailfindr_label.tar.gz)</a></p>
+
+<h2 id="baseline-models">Baseline models</h2>
+<div class="table-wrap"><table><thead><tr><th>Model</th><th>Version</th><th>Approach</th><th>Category</th></tr></thead><tbody><tr><td><b>Nanopolish polya</b></td><td class="mono sub">v0.14.0</td><td>Hidden Markov model, alignment-based</td><td>Statistical / HMM</td></tr><tr><td><b>Tailfindr</b></td><td class="mono sub">v1.4</td><td>Signal-based R tool, alignment-free</td><td>Statistical / HMM</td></tr><tr><td><b>Dorado</b></td><td class="mono sub">v0.5.3</td><td>Deep learning basecaller with tail estimation, alignment-free</td><td>Deep learning</td></tr></tbody></table></div>
+<h3 id="nanopolish-polya">Nanopolish polya</h3>
+<p>A hidden Markov model segments each raw signal into five regions: start, leader, adapter, poly(A) tail and transcript, then converts the tail duration into a length estimate.</p>
+<figure class="figure-card figure-narrow"><img src="images/nanopolish_polya.png" alt="A squiggle segmented by the HMM into start, leader, adapter, polyA tail and transcript regions, with two cliffs marked in the tail" loading="lazy" width="1158" height="447"><figcaption>HMM segmentation of a read: start (cyan), leader (yellow), adapter (red), poly(A) tail (green), transcript (purple). From Workman et al. (2019).</figcaption></figure>
+<h3 id="tailfindr">Tailfindr</h3>
+<p>An R package that estimates poly(A) length from raw fast5 data without alignment, for both RNA and DNA reads including reverse-complement reads with poly(T) stretches.</p>
+<h3 id="dorado">Dorado</h3>
+<p>ONT's current basecaller estimates tail length as part of base calling when run with <code>--estimate-poly-a</code>; it is the only deep-learning method among the baselines.</p>
+
+<h2 id="references">References</h2>
+<ol class="refs">
+  <li>Weil, T.T. Post-transcriptional regulation of early embryogenesis. <i>F1000Prime Reports</i> 7 (2015).</li>
+  <li>Workman, R.E., Tang, A.D., Tang, P.S. et al. Nanopore native RNA sequencing of a human poly(A) transcriptome. <i>Nature Methods</i> 16, 1297–1305 (2019).</li>
+  <li>Krause, M., Niazi, A.M., Labun, K. et al. tailfindr: alignment-free poly(A) length measurement for Oxford Nanopore RNA and DNA sequencing. <i>RNA</i> 25, 1229–1241 (2019).</li>
+</ol>
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="basecall.html"><span class="dir">← Previous</span>Base calling</a><a class="next" href="segment.html"><span class="dir">Next →</span>Segmentation &amp; event alignment</a></nav></main><aside class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ul><li class="depth-2"><a href="#detection-rate-benchmark">Detection rate benchmark</a></li><li class="depth-2"><a href="#tail-length-estimation-benchmark">Tail length estimation benchmark</a></li><li class="depth-2"><a href="#ground-truth">Ground truth</a></li><li class="depth-2"><a href="#baseline-models">Baseline models</a></li><li class="depth-3"><a href="#nanopolish-polya">Nanopolish polya</a></li><li class="depth-3"><a href="#tailfindr">Tailfindr</a></li><li class="depth-3"><a href="#dorado">Dorado</a></li><li class="depth-2"><a href="#references">References</a></li></ul></aside></div><div class="sidebar-backdrop"></div>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <a class="brand" href="index.html"><span class="brand-name">Nano<span>Base</span>Lib</span></a>
+      <p style="margin-top:.75rem">A multi-task benchmark dataset for Nanopore sequencing. 16 public datasets, 30 million reads, one unified preprocessing pipeline, four benchmark tasks.</p>
+      <p class="small muted">Department of Computer Science, Aalto University · Institute of Biomedicine, University of Eastern Finland</p>
+    </div>
+    <div>
+      <h4>Data</h4>
+      <ul>
+        <li><a href="dataset.html">Dataset overview</a></li>
+        <li><a href="raw.html">Raw data download</a></li>
+        <li><a href="https://zenodo.org/records/10889896">Processed data on Zenodo</a></li>
+        <li><a href="pipeline.html">Preprocessing pipeline</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Benchmarks</h4>
+      <ul>
+        <li><a href="basecall.html">Base calling</a></li>
+        <li><a href="polya.html">PolyA detection</a></li>
+        <li><a href="segment.html">Segmentation &amp; event alignment</a></li>
+        <li><a href="mod.html">Modification detection</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="software.html">Software package</a></li>
+        <li><a href="https://github.com/nanobaselib/NanoBaseLib">GitHub</a></li>
+        <li><a href="https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html">NeurIPS 2024 paper</a></li>
+        <li><a href="about.html">About &amp; citation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2024–2026 NanoBaseLib authors. Dataset: CC BY 4.0 · Software: Apache 2.0.</span>
+    <span>Built 2026-10-07</span>
+  </div>
+</footer>
+<button class="icon-btn to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button>
+<script src="assets/site.js?v=32cf222c" defer></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+[
+  {"name": "ont-fast5-api / pod5", "version": "4.0.2", "url": "https://github.com/nanoporetech/ont_fast5_api", "function": "Raw data format conversion (single-fast5, multi-fast5, pod5)", "step": 1, "limitation": ""},
+  {"name": "Guppy", "version": "6.0.1", "url": "https://community.nanoporetech.com/downloads", "function": "Base calling", "step": 2, "limitation": "Requires a free ONT community account to download"},
+  {"name": "Dorado", "version": "0.5.3", "url": "https://github.com/nanoporetech/dorado", "function": "Base calling, polyA detection, modification detection", "step": 2, "limitation": ""},
+  {"name": "Bonito", "version": "0.7.3", "url": "https://github.com/nanoporetech/bonito", "function": "Base calling", "step": 2, "limitation": ""},
+  {"name": "Causalcall", "version": "-", "url": "https://github.com/scutbioinformatic/causalcall", "function": "Base calling", "step": 2, "limitation": "DNA only"},
+  {"name": "Rodan", "version": "-", "url": "https://github.com/biodlab/RODAN", "function": "Base calling", "step": 2, "limitation": "RNA only"},
+  {"name": "minimap2", "version": "2.24", "url": "https://github.com/lh3/minimap2", "function": "Align reads to the reference genome / transcriptome", "step": 3, "limitation": ""},
+  {"name": "samtools / htslib", "version": "-", "url": "https://www.htslib.org", "function": "BAM sorting, filtering and indexing", "step": 3, "limitation": ""},
+  {"name": "bedtools", "version": "2.30.3", "url": "https://bedtools.readthedocs.io/en/latest/", "function": "Genomic file format conversion", "step": 3, "limitation": ""},
+  {"name": "Nanopolish", "version": "0.14.0", "url": "https://github.com/jts/nanopolish", "function": "PolyA detection, event alignment, modification detection", "step": 4, "limitation": ""},
+  {"name": "Tailfindr", "version": "1.4", "url": "https://github.com/adnaniazi/tailfindr", "function": "PolyA tail detection and length estimation", "step": 4, "limitation": ""},
+  {"name": "Tombo", "version": "1.5.1", "url": "https://nanoporetech.github.io/tombo", "function": "Re-squiggle (segmentation and alignment), modification detection", "step": 5, "limitation": ""},
+  {"name": "SegPore", "version": "1.0", "url": "https://github.com/guangzhaocs/SegPore", "function": "Event alignment and modification detection", "step": 5, "limitation": "RNA only"},
+  {"name": "m6Anet", "version": "1.0", "url": "https://github.com/GoekeLab/m6anet", "function": "RNA modification detection", "step": 6, "limitation": "m6A only"},
+  {"name": "CHEUI", "version": "-", "url": "https://github.com/comprna/CHEUI", "function": "RNA modification detection", "step": 6, "limitation": "m6A and m5C only"},
+  {"name": "Epinano", "version": "1.2.0", "url": "https://github.com/novoalab/EpiNano", "function": "RNA modification detection", "step": 6, "limitation": ""},
+  {"name": "MINES", "version": "-", "url": "https://github.com/YeoLab/MINES", "function": "RNA modification detection", "step": 6, "limitation": "m6A only"},
+  {"name": "Nanom6A", "version": "2.0", "url": "https://github.com/gaoyubang/nanom6A", "function": "RNA modification detection", "step": 6, "limitation": "m6A only"},
+  {"name": "h5py", "version": "1.8.18", "url": "https://www.h5py.org", "function": "Python interface to HDF5 (fast5) files", "step": 0, "limitation": ""}
+]

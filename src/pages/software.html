@@ -1,0 +1,108 @@
+<!--meta {"title": "Software package & tutorials", "description": "The NanoBaseLib Python package: data preparation, base calling dataset generation and PyTorch dataloaders, evaluation scripts for each benchmark task, and how to run them on the demo dataset.", "lede": "NanoBaseLib is also a Python package. It turns the processed pipeline outputs into uniform inputs for each task, loads them like a standard deep-learning dataset, and computes the benchmark metrics, so a new model needs only the model code.", "badges": ["Python 3", "PyTorch dataloaders", "Apache 2.0"]} -->
+
+<div class="btn-group" style="margin-bottom:2rem">
+  <a class="btn btn-primary" href="https://github.com/nanobaselib/NanoBaseLib">GitHub repository</a>
+  <a class="btn" href="https://github.com/nanobaselib/NanoBaseLib/blob/main/docs/tutorial.md">Tutorial on GitHub</a>
+  <a class="btn" href="https://github.com/nanobaselib/NanoBaseLib/issues">Issues</a>
+</div>
+
+<h2>Installation</h2>
+<p>The package is a plain Python source tree; clone it and install the dependencies. The preprocessing tools themselves (Guppy, minimap2, Nanopolish, Tombo, …) are external and listed on the <a href="pipeline.html#processing-tools-versions-and-limitations">pipeline page</a>.</p>
+<div class="code-block" data-lang="bash"><pre><code>git clone https://github.com/nanobaselib/NanoBaseLib.git
+cd NanoBaseLib
+pip install h5py pandas numpy torch parasail</code></pre></div>
+
+<h2>Package layout</h2>
+<pre class="tree"><code>NanoBaseLib/
+├── dataprep/
+│   ├── combine_nanopolish_eventalign.py   <span class="c"># merge eventalign rows per k-mer, build an index</span>
+│   └── extract_tombo_resquiggle.py        <span class="c"># export Tombo resquiggle results to text</span>
+├── base_calling/
+│   ├── generate_dna_dataset.py            <span class="c"># signal chunks + ground truth from eventalign</span>
+│   ├── generate_rna_dataset.py
+│   ├── base_calling_dataloader.py         <span class="c"># PyTorch Dataset / DataLoader</span>
+│   └── base_calling_evaluation.py         <span class="c"># M / X / I / D rates with parasail</span>
+├── segment_align/
+│   ├── segment_align.py
+│   ├── nanopolish_evaluation.py           <span class="c"># σ̂ and L̂ per tool</span>
+│   ├── tombo_evaluation.py
+│   └── segpore_evaluation.py
+├── rna_mod_detection/
+│   ├── rna_mod_detection.py               <span class="c"># ROC / PR AUC against ground truth</span>
+│   ├── m6A.benchmark.csv, m5C.benchmark.csv
+│   └── plot_m6A.py, plot_m5C.py
+├── utils/
+│   ├── sam_filter.py
+│   └── stat_fast5.py
+└── docs/</code></pre>
+
+<h2>1. Data preparation</h2>
+<h3>combine_nanopolish_eventalign</h3>
+<p>Nanopolish writes one line per raw event, so a single k-mer often spans several lines. This script merges them into one event per k-mer and writes an index into the original file for random access.</p>
+<div class="code-block" data-lang="bash"><pre><code>python dataprep/combine_nanopolish_eventalign.py \
+    --input_file demo_dataset/4_nanopolish/eventalign.txt \
+    --base_type rna --n_processes 10</code></pre></div>
+<div class="table-wrap dense"><table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody>
+<tr><td class="mono">--input_file</td><td>Path to the <code>eventalign.txt</code> produced by <code>nanopolish eventalign</code>.</td></tr>
+<tr><td class="mono">--base_type</td><td><code>rna</code> or <code>dna</code>.</td></tr>
+<tr><td class="mono">--output_suffix</td><td>Suffix of the combined output file.</td></tr>
+<tr><td class="mono">--n_processes</td><td>Number of worker processes.</td></tr>
+<tr><td class="mono">--chunk_size</td><td>Lines of the eventalign file processed per chunk.</td></tr>
+</tbody></table></div>
+<p>Outputs <code>eventalign_combined.txt</code> (one event per k-mer) and <code>eventalign.index</code>.</p>
+
+<h3>extract_tombo_resquiggle</h3>
+<div class="code-block" data-lang="bash"><pre><code>python dataprep/extract_tombo_resquiggle.py --root_dir demo_dataset/5_tombo/single_reads --folder 0</code></pre></div>
+<p>Reads Tombo's per-read HDF5 results from <code>--root_dir/--folder</code> and writes <code>tombo_resquiggle.txt</code> (segments) and <code>tombo_summary.txt</code> (per-read attributes).</p>
+
+<h2 id="base-calling">2. Base calling</h2>
+<h3>generate_dna_dataset / generate_rna_dataset</h3>
+<p>Builds the base calling ground truth: raw-signal chunks matched to reference fragments, written as new fast5 files plus a <code>label.csv</code>.</p>
+<div class="code-block" data-lang="bash"><pre><code>mkdir demo_dataset_base_calling
+python base_calling/generate_rna_dataset.py \
+    --input_file demo_dataset/4_nanopolish/eventalign.txt \
+    --summary_file demo_dataset/4_nanopolish/summary.txt \
+    --reference_file demo_dataset/0_reference/ref.fa \
+    --fast5_folder demo_dataset/1_raw_signal/multi_fast5 \
+    --save_folder demo_dataset_base_calling</code></pre></div>
+<div class="table-wrap dense"><table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody>
+<tr><td class="mono">--input_file</td><td>Combined eventalign file.</td></tr>
+<tr><td class="mono">--summary_file</td><td>Nanopolish eventalign summary.</td></tr>
+<tr><td class="mono">--reference_file</td><td>Reference genome / transcriptome FASTA.</td></tr>
+<tr><td class="mono">--fast5_folder</td><td>Original multi-fast5 folder.</td></tr>
+<tr><td class="mono">--save_folder</td><td>Output folder for generated fast5 files and <code>label.csv</code>.</td></tr>
+</tbody></table></div>
+
+<h3>base_calling_dataloader</h3>
+<p>A PyTorch <code>Dataset</code> that pads signal chunks and label sequences and caches them as NumPy arrays. Use it directly in a training loop.</p>
+<div class="code-block" data-lang="bash"><pre><code>python base_calling/base_calling_dataloader.py --root_dir demo_dataset_base_calling</code></pre></div>
+<div class="code-block" data-lang="python"><pre><code>from base_calling.base_calling_dataloader import Seg2BaseDataset, dataset_prep
+from torch.utils.data import DataLoader
+
+dataset_prep("demo_dataset_base_calling/fast5", "demo_dataset_base_calling/label.csv",
+             "demo_dataset_base_calling/output")   # writes seg_data_arr.npy, seg_len_arr.npy, base_seq_arr.npy, base_len_arr.npy
+# then build Seg2BaseDataset(src_seqs, src_lens, tgt_seqs, tgt_lens) from the arrays
+# items: {"src_seq", "src_len", "tgt_seq", "tgt_len"} as tensors; base ids N=0 A=1 T=2 C=3 G=4</code></pre></div>
+<div class="table-wrap dense"><table><thead><tr><th>Output file</th><th>Content</th></tr></thead><tbody>
+<tr><td class="mono">seg_data_arr.npy</td><td>Padded current-signal chunks.</td></tr>
+<tr><td class="mono">seg_len_arr.npy</td><td>Length of each signal chunk.</td></tr>
+<tr><td class="mono">base_seq_arr.npy</td><td>Ground-truth base sequences (integer-encoded).</td></tr>
+<tr><td class="mono">base_len_arr.npy</td><td>Length of each ground-truth sequence.</td></tr>
+</tbody></table></div>
+
+<h3>base_calling_evaluation</h3>
+<p>Aligns predicted sequences to the ground truth with parasail and reports average match, mismatch, insertion and deletion rates. Readers for Dorado, Guppy, Rodan, Halcyon and Radian outputs are included.</p>
+<div class="code-block" data-lang="bash"><pre><code>python base_calling/base_calling_evaluation.py --root_dir bc_benchmark --base_type dna --model guppy_v6.0.1</code></pre></div>
+
+<h2>3. PolyA detection</h2>
+<p>PolyA results from Nanopolish (<code>4_nanopolish/polya.tsv</code>) and Tailfindr (<code>3_tailfindr/tails.csv</code>) ship with every RNA dataset. A dedicated dataloader is planned; see the <a href="polya.html#ground-truth">label files</a> for the ground truth format.</p>
+
+<h2>4. Segmentation and event alignment</h2>
+<p><code>nanopolish_evaluation.py</code>, <code>tombo_evaluation.py</code> and <code>segpore_evaluation.py</code> compute the average std σ̂ and average log-likelihood L̂ described on the <a href="segment.html#ground-truth-and-metrics">segmentation page</a> from each tool's output and the ONT k-mer table.</p>
+
+<h2>5. RNA modification detection</h2>
+<p><code>rna_mod_detection.py</code> reads a benchmark CSV of per-site predictions and labels and computes ROC and PR AUC; <code>plot_m6A.py</code> and <code>plot_m5C.py</code> reproduce the figures on the <a href="mod.html">modification detection page</a>.</p>
+<div class="code-block" data-lang="bash"><pre><code>python rna_mod_detection/rna_mod_detection.py --benchmark_file rna_mod_detection/m6A.benchmark.csv</code></pre></div>
+
+<h2>Extending NanoBaseLib with new data</h2>
+<p>When a new public dataset appears, run the <a href="pipeline.html">unified pipeline</a> on its raw fast5, place the outputs in the standard directory layout, and the package scripts work unchanged. Contributions of new datasets, tools or baselines are welcome through pull requests.</p>

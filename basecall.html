@@ -1,108 +1,160 @@
 <!doctype html>
 <html lang="en">
-  <head>
-  	<title>NanoBaseLib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-			    <div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-					</button>
-                </div>
-				<div class="img bg-wrap text-center py-3" style="background-image: url(images/bg.avif);">
-	  			    <div class="user-logo">
-	  				    <div class="img" style="background-image: url(images/logo_small.svg);"></div>
-	  			     </div>
-	  	        </div>
-                <ul class="list-unstyled components mb-5">
-                    <li>
-                        <a href="index.html"><span class="fa fa-home mr-3"></span> Home </a>
-                    </li>
-                    <li>
-                        <a href="dataset.html"><span class="fa fa-cloud-download mr-3 notif"></span> Dataset </a>
-                    </li>
-					<li>
-                        <a href="pipeline.html"><span class="fa fa-sort-amount-desc mr-3"></span>  Pipeline </a>
-                    </li>
-					<li>
-                        <a href="signal.html"><span class="fa fa-signal mr-3"></span> Signal Process </a>
-                    </li>
-                    <li class="active">
-                        <a href="basecall.html"> <span class="fa fa-line-chart mr-3"></span> Base Calling </a>
-                    </li>
-                    <li>
-                        <a href="ploya.html"><span class="fa fa-scissors mr-3"></span> PolyA Dection </a>
-                    </li>
-                    <li>
-                        <a href="segment.html"><span class="fa fa-align-left mr-3"></span> Segmentation </a>
-                    </li>
-					<li>
-                        <a href="mod.html"><span class="fa fa-hourglass-half mr-3"></span> Modification Dection </a>
-                    </li>
-                    <li>
-                        <a href="software.html"><span class="fa fa-github mr-3"></span> Software </a>
-                    </li>
-                    <li>
-                        <a href="about.html"><span class="fa fa-info-circle mr-3"></span> About </a>
-                    </li>
-                </ul>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Base calling benchmark · NanoBaseLib</title>
+<meta name="description" content="Base calling benchmark of NanoBaseLib: ground truth construction, match/mismatch/indel metrics, and results of Guppy, Bonito, Dorado, Causalcall and Rodan on DNA (NA12878) and RNA (hek293t_wt) test sets.">
+<link rel="canonical" href="https://nanobaselib.github.io/basecall.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NanoBaseLib">
+<meta property="og:title" content="Base calling benchmark · NanoBaseLib">
+<meta property="og:description" content="Base calling benchmark of NanoBaseLib: ground truth construction, match/mismatch/indel metrics, and results of Guppy, Bonito, Dorado, Causalcall and Rodan on DNA (NA12878) and RNA (hek293t_wt) test sets.">
+<meta property="og:url" content="https://nanobaselib.github.io/basecall.html">
+<meta property="og:image" content="https://nanobaselib.github.io/images/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1316" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=32cf222c">
+<script>
+/* apply saved theme before first paint to avoid a flash */
+(function(){try{var t=localStorage.getItem('nbl-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
+</script>
 
-    	</nav>
+</head>
+<body class="layout-docs">
+<a class="skip-link" href="#main">Skip to content</a>
 
-        <!-- Page Content  -->
-        <div id="content" class="p-4 p-md-5 pt-5">
-	        <h2 class="mb-4" style="font-family:Georgia">Base calling benchmark</h2>
-		    </br>
-		    <img src="images/BaseCalling.svg" width="90%" alt="Base Calling" />
-		    <p> Similarly to Automatic Speech Recognition (ASR), base calling is also a sequence-to-sequence (seq2seq) model. In ASR, the input is a human speech signal, and the output is a text sequence. Similarly, in base calling, the input is the current signal from Oxford Nanopore sequencing, and the output is a nucleotide sequence (A, C, G, T, or U). </p>
-		    <br/>
-			<table class="noBorder" style="border: 0; border-collapse: collapse;">
-	            <tr>
-                    <th>  <i class="fa fa-circle-o"> </i>  </th>
-			        <th>  <h3 style="font-family:Georgia"> &nbsp; Base Calling ground truth acquisition </h3> </th>
-			    </tr>
-		    </table>
-			<img src="images/base_calling_gt.jpg" width="75%" />
-			<p>We perform base calling firstly, then align the base-called sequence with the reference genome and run Nanopolish “eventalign”. Finally, we extract the matched raw signal segments and reference sequence fragments as the ground truth.</p>
-			<br/>
-		    <table class="noBorder" style="border: 0; border-collapse: collapse;">
-	            <tr>
-                    <th>  <i class="fa fa-circle-o"> </i>  </th>
-			        <th>  <h3 style="font-family:Georgia"> &nbsp; DNA base calling benchmark </h3> </th>
-			    </tr>
-		    </table>
-			<p> Download the benchmark datasets and resluts (<a href="https://zenodo.org/records/10889896/files/NA12878_benchmark.tar.gz?download=1">NA12878_benchmark.tar.gz</a>, 70.6 GB).</p>
-			<table class="noBorder" style="border: 0; border-collapse: collapse;">
-	            <tr>
-                    <th>  <i class="fa fa-circle-o"> </i>  </th>
-			        <th>  <h3 style="font-family:Georgia"> &nbsp; RNA base calling benchmark </h3> </th>
-			    </tr>
-		    </table>
-			<p>Download the benchmark datasets and resluts (<a href="https://zenodo.org/records/10889896/files/hek293t_benchmark.tar.gz?download=1">hek293t_benchmark.tar.gz</a>, 81.9 GB).</p>
-		    
-			<table class="noBorder" style="border: 0; border-collapse: collapse;">
-	            <tr>
-                    <th>  <i class="fa fa-circle-o"> </i>  </th>
-			        <th>  <h3 style="font-family:Georgia"> &nbsp; Base calling benchmark models overview </h3> </th>
-			    </tr>
-		    </table>
-			<img src="images/basecalling.png" width="75%" />
-			
-	 
-	  </div>  
-	  
-	</div>
-	<script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+<header class="site-header">
+  <div class="inner">
+    <button class="icon-btn menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <a class="brand" href="index.html" aria-label="NanoBaseLib home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0079cd"/><stop offset="1" stop-color="#19c6b3"/></linearGradient></defs><circle cx="16" cy="16" r="15" fill="url(#bm)"/><path d="M5 18h3l2-7 3 12 3-14 3 10 2-5 2 4h4" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="brand-name">Nano<span>Base</span>Lib</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="dataset.html">Datasets</a>
+      <a href="pipeline.html">Pipeline</a>
+      <a href="benchmarks.html" aria-current="true">Benchmarks</a>
+      <a href="software.html">Software</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href="https://github.com/nanobaselib/NanoBaseLib" aria-label="GitHub repository" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://zenodo.org/records/10889896" aria-label="Download from Zenodo" title="Zenodo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html" aria-current="page">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper, team &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Benchmarks</div><h1>Base calling benchmark</h1><p class="lede">Base calling converts a chunk of raw current into a DNA or RNA sequence, exactly as speech recognition converts audio into text. It is the foundation every other task builds on, and its accuracy is still far from the 99.9% of short-read sequencing.</p><div class="meta"><span class="badge">Task 1 · BC</span><span class="badge">DNA: NA12878 · RNA: hek293t_wt</span><span class="badge">7 + 6 baselines</span></div></div>
+
+<figure class="figure-card"><img src="images/basecalling_seq2seq.png" alt="Analogy between automatic speech recognition and base calling: a current signal is decoded into a nucleotide sequence by a seq2seq model" loading="lazy" width="2400" height="670"><figcaption>Base calling as a sequence-to-sequence problem: the input is the nanopore current, the output a sequence over {A, C, G, T/U}.</figcaption></figure>
+
+<h2 id="results">Results</h2>
+<div class="chart-grid-2">
+<div class="chart"><div class="chart-title">DNA base calling: match rate on NA12878</div><div class="chart-sub">34,742 signal-chunk / reference pairs. Highlighted dot = best model.</div><svg viewBox="0 0 640 260" role="img" aria-labelledby="bc-dna-t"><title id="bc-dna-t">Match rate by base caller, DNA test set NA12878</title><g class="grid"><line x1="170.0" x2="170.0" y1="14" y2="224"/><line x1="272.5" x2="272.5" y1="14" y2="224"/><line x1="375.0" x2="375.0" y1="14" y2="224"/><line x1="477.5" x2="477.5" y1="14" y2="224"/><line x1="580.0" x2="580.0" y1="14" y2="224"/></g><g class="axis"><line x1="170" x2="580" y1="224" y2="224"/></g><text class="tick" x="170.0" y="240" text-anchor="middle">80%</text><text class="tick" x="272.5" y="240" text-anchor="middle">85%</text><text class="tick" x="375.0" y="240" text-anchor="middle">90%</text><text class="tick" x="477.5" y="240" text-anchor="middle">95%</text><text class="tick" x="580.0" y="240" text-anchor="middle">100%</text><text class="tick" x="580" y="258" text-anchor="end">Match rate (M, normalized by alignment length)</text><text x="160" y="33.0" text-anchor="end">Causalcall</text><line x1="170" x2="258.1" y1="29.0" y2="29.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark" cx="258.1" cy="29.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Causalcall: 84.30%</title></circle><text class="val" x="269.1" y="33.0">84.30</text><text x="160" y="63.0" text-anchor="end">Guppy v2.3.1</text><line x1="170" x2="305.9" y1="59.0" y2="59.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark" cx="305.9" cy="59.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Guppy v2.3.1: 86.63%</title></circle><text class="val" x="316.9" y="63.0">86.63</text><text x="160" y="93.0" text-anchor="end">Guppy v4.5.4</text><line x1="170" x2="414.6" y1="89.0" y2="89.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark" cx="414.6" cy="89.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Guppy v4.5.4: 91.93%</title></circle><text class="val" x="425.6" y="93.0">91.93</text><text x="160" y="123.0" text-anchor="end">Guppy v6.0.1</text><line x1="170" x2="448.8" y1="119.0" y2="119.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark best" cx="448.8" cy="119.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Guppy v6.0.1: 93.60%</title></circle><text class="val" x="459.8" y="123.0">93.60</text><text x="160" y="153.0" text-anchor="end">Bonito v0.7.3</text><line x1="170" x2="443.7" y1="149.0" y2="149.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark" cx="443.7" cy="149.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Bonito v0.7.3: 93.35%</title></circle><text class="val" x="454.7" y="153.0">93.35</text><text x="160" y="183.0" text-anchor="end">Dorado v0.5.3</text><line x1="170" x2="443.7" y1="179.0" y2="179.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark" cx="443.7" cy="179.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Dorado v0.5.3: 93.35%</title></circle><text class="val" x="454.7" y="183.0">93.35</text><text x="160" y="213.0" text-anchor="end">Dorado v0.7.0</text><line x1="170" x2="446.1" y1="209.0" y2="209.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark" cx="446.1" cy="209.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Dorado v0.7.0: 93.47%</title></circle><text class="val" x="457.1" y="213.0">93.47</text></svg></div>
+<div class="chart"><div class="chart-title">RNA base calling: match rate on hek293t_wt</div><div class="chart-sub">83,681 signal-chunk / reference pairs. Highlighted dot = best model.</div><svg viewBox="0 0 640 230" role="img" aria-labelledby="bc-rna-t"><title id="bc-rna-t">Match rate by base caller, RNA test set hek293t_wt</title><g class="grid"><line x1="170.0" x2="170.0" y1="14" y2="194"/><line x1="272.5" x2="272.5" y1="14" y2="194"/><line x1="375.0" x2="375.0" y1="14" y2="194"/><line x1="477.5" x2="477.5" y1="14" y2="194"/><line x1="580.0" x2="580.0" y1="14" y2="194"/></g><g class="axis"><line x1="170" x2="580" y1="194" y2="194"/></g><text class="tick" x="170.0" y="210" text-anchor="middle">80%</text><text class="tick" x="272.5" y="210" text-anchor="middle">85%</text><text class="tick" x="375.0" y="210" text-anchor="middle">90%</text><text class="tick" x="477.5" y="210" text-anchor="middle">95%</text><text class="tick" x="580.0" y="210" text-anchor="middle">100%</text><text class="tick" x="580" y="228" text-anchor="end">Match rate (M, normalized by alignment length)</text><text x="160" y="33.0" text-anchor="end">Rodan</text><line x1="170" x2="328.3" y1="29.0" y2="29.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark" cx="328.3" cy="29.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Rodan: 87.72%</title></circle><text class="val" x="339.3" y="33.0">87.72</text><text x="160" y="63.0" text-anchor="end">Guppy v2.3.1</text><line x1="170" x2="286.2" y1="59.0" y2="59.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark" cx="286.2" cy="59.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Guppy v2.3.1: 85.67%</title></circle><text class="val" x="297.2" y="63.0">85.67</text><text x="160" y="93.0" text-anchor="end">Guppy v4.5.4</text><line x1="170" x2="411.5" y1="89.0" y2="89.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark" cx="411.5" cy="89.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Guppy v4.5.4: 91.78%</title></circle><text class="val" x="422.5" y="93.0">91.78</text><text x="160" y="123.0" text-anchor="end">Guppy v6.0.1</text><line x1="170" x2="411.5" y1="119.0" y2="119.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark" cx="411.5" cy="119.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Guppy v6.0.1: 91.78%</title></circle><text class="val" x="422.5" y="123.0">91.78</text><text x="160" y="153.0" text-anchor="end">Dorado v0.5.3</text><line x1="170" x2="456.2" y1="149.0" y2="149.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark best" cx="456.2" cy="149.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Dorado v0.5.3: 93.96%</title></circle><text class="val" x="467.2" y="153.0">93.96</text><text x="160" y="183.0" text-anchor="end">Dorado v0.7.0</text><line x1="170" x2="451.7" y1="179.0" y2="179.0" stroke="var(--chart-grid)" stroke-width="2"/><circle class="mark" cx="451.7" cy="179.0" r="6" stroke="var(--bg-elev)" stroke-width="2"><title>Dorado v0.7.0: 93.74%</title></circle><text class="val" x="462.7" y="183.0">93.74</text></svg></div>
+</div>
+<p>Guppy 6.0.1 and Dorado 0.5.3 achieve the best DNA and RNA results respectively, with match rates of roughly 93–94%. Official ONT basecallers (Guppy, Bonito, Dorado) clearly outperform the community models Causalcall and Rodan, and successive Guppy versions show how much the models have improved since 2019.</p>
+
+<h3 id="dna-base-calling-on-na12878">DNA base calling on NA12878</h3>
+<div class="table-wrap"><table><thead><tr><th rowspan="2">Model</th><th rowspan="2">Version</th><th colspan="4" style="text-align:center">Normalized by alignment length (%)</th><th colspan="4" style="text-align:center">Normalized by reference length (%)</th></tr><tr><th class="num">M ↑</th><th class="num">I ↓</th><th class="num">X ↓</th><th class="num">D ↓</th><th class="num">M ↑</th><th class="num">I ↓</th><th class="num">X ↓</th><th class="num">D ↓</th></tr></thead><tbody><tr><td><b>Causalcall</b></td><td class="mono sub">–</td><td class="num">84.30</td><td class="num best">0.82</td><td class="num">4.11</td><td class="num">10.77</td><td class="num">84.41</td><td class="num best">0.82</td><td class="num">4.12</td><td class="num">10.79</td></tr><tr><td><b>Guppy</b></td><td class="mono sub">v2.3.1</td><td class="num">86.63</td><td class="num">2.59</td><td class="num">4.34</td><td class="num">6.44</td><td class="num">88.08</td><td class="num">2.64</td><td class="num">4.36</td><td class="num">6.53</td></tr><tr><td><b>Guppy</b></td><td class="mono sub">v4.5.4</td><td class="num">91.93</td><td class="num">1.97</td><td class="num">2.68</td><td class="num">3.42</td><td class="num">93.27</td><td class="num">2.01</td><td class="num">2.71</td><td class="num">3.48</td></tr><tr><td><b>Guppy</b></td><td class="mono sub">v6.0.1</td><td class="num best">93.60</td><td class="num">1.51</td><td class="num best">2.12</td><td class="num best">2.77</td><td class="num best">94.30</td><td class="num">1.54</td><td class="num best">2.14</td><td class="num best">2.79</td></tr><tr><td><b>Bonito</b></td><td class="mono sub">v0.7.3</td><td class="num">93.35</td><td class="num">1.56</td><td class="num">2.23</td><td class="num">2.86</td><td class="num">94.13</td><td class="num">1.59</td><td class="num">2.25</td><td class="num">2.90</td></tr><tr><td><b>Dorado</b></td><td class="mono sub">v0.5.3</td><td class="num">93.35</td><td class="num">1.57</td><td class="num">2.24</td><td class="num">2.85</td><td class="num">93.07</td><td class="num">1.57</td><td class="num">2.23</td><td class="num">2.84</td></tr><tr><td><b>Dorado</b></td><td class="mono sub">v0.7.0</td><td class="num">93.47</td><td class="num">1.54</td><td class="num">2.18</td><td class="num">2.81</td><td class="num">93.17</td><td class="num">1.55</td><td class="num">2.17</td><td class="num">2.80</td></tr></tbody></table></div>
+<h3 id="rna-base-calling-on-hek293t-wt">RNA base calling on hek293t_wt</h3>
+<div class="table-wrap"><table><thead><tr><th rowspan="2">Model</th><th rowspan="2">Version</th><th colspan="4" style="text-align:center">Normalized by alignment length (%)</th><th colspan="4" style="text-align:center">Normalized by reference length (%)</th></tr><tr><th class="num">M ↑</th><th class="num">I ↓</th><th class="num">X ↓</th><th class="num">D ↓</th><th class="num">M ↑</th><th class="num">I ↓</th><th class="num">X ↓</th><th class="num">D ↓</th></tr></thead><tbody><tr><td><b>Rodan</b></td><td class="mono sub">–</td><td class="num">87.72</td><td class="num">3.28</td><td class="num">4.91</td><td class="num">4.08</td><td class="num">85.16</td><td class="num">3.05</td><td class="num">4.17</td><td class="num">3.78</td></tr><tr><td><b>Guppy</b></td><td class="mono sub">v2.3.1</td><td class="num">85.67</td><td class="num">3.59</td><td class="num">4.46</td><td class="num">6.29</td><td class="num">88.06</td><td class="num">3.74</td><td class="num">4.54</td><td class="num">6.43</td></tr><tr><td><b>Guppy</b></td><td class="mono sub">v4.5.4</td><td class="num">91.78</td><td class="num">2.39</td><td class="num">2.15</td><td class="num">3.67</td><td class="num">93.40</td><td class="num">2.48</td><td class="num">2.19</td><td class="num">3.74</td></tr><tr><td><b>Guppy</b></td><td class="mono sub">v6.0.1</td><td class="num">91.78</td><td class="num">2.39</td><td class="num">2.15</td><td class="num">3.67</td><td class="num">93.40</td><td class="num">2.48</td><td class="num">2.19</td><td class="num">3.74</td></tr><tr><td><b>Dorado</b></td><td class="mono sub">v0.5.3</td><td class="num best">93.96</td><td class="num best">1.89</td><td class="num best">1.81</td><td class="num best">2.34</td><td class="num best">95.22</td><td class="num best">1.96</td><td class="num best">1.84</td><td class="num best">2.37</td></tr><tr><td><b>Dorado</b></td><td class="mono sub">v0.7.0</td><td class="num">93.74</td><td class="num">1.95</td><td class="num">1.92</td><td class="num">2.40</td><td class="num">95.01</td><td class="num">2.02</td><td class="num">1.94</td><td class="num">2.43</td></tr></tbody></table></div>
+<p class="sub">M = match, I = insertion, X = mismatch, D = deletion. ★ marks the best value per column. Rates are percentages normalized by the alignment length (left) or the ground-truth reference length (right).</p>
+
+<h2 id="ground-truth-acquisition">Ground truth acquisition</h2>
+<figure class="figure-card"><img src="images/base_calling_gt.jpg" alt="Three stages: base calling, genome alignment of the base-called sequence, then segmentation and event alignment to extract matched raw-signal chunks and reference fragments" loading="lazy" width="2000" height="663"><figcaption>Ground truth pairs are raw-signal chunks matched to reference-genome fragments.</figcaption></figure>
+<p>The ground truth is a one-to-one correspondence between raw-signal segments and reference fragments. Reads are first base called with Guppy 6.0.1, aligned to the reference genome, and processed with Nanopolish eventalign. The matched raw-signal segments and reference-sequence fragments are then extracted and sampled. In total the benchmark contains <b>34,742 DNA</b> and <b>83,681 RNA</b> pairs of signal chunks and reference segments.</p>
+<p>Because modified bases are written as the same nucleotide but produce different current levels, there is an inherent upper limit on ground-truth accuracy; the labels are an approximation.</p>
+
+<h2 id="evaluation-metrics">Evaluation metrics</h2>
+<p>Predicted sequences are aligned pairwise to the ground truth with the <a href="https://github.com/jeffdaily/parasail">parasail</a> SIMD aligner. From the alignment we count matches (M), mismatches (X), insertions (I) and deletions (D) and report two normalizations:</p>
+<span class="math">rate_align = M | X | I | D  /  (number of aligned bases)   × 100%
+rate_ref   = M | X | I | D  /  (number of reference bases) × 100%</span>
+<p>A higher match rate is better; higher mismatch, insertion or deletion rates are worse. The implementation is <a href="https://github.com/nanobaselib/NanoBaseLib/blob/main/base_calling/base_calling_evaluation.py"><code>base_calling_evaluation.py</code></a>.</p>
+
+<h2 id="baseline-models">Baseline models</h2>
+<figure class="figure-card"><img src="images/basecalling.png" alt="Timeline of base calling model architectures" loading="lazy" width="1668" height="351"><figcaption>Architectures of the benchmarked basecallers. All are deep-learning models.</figcaption></figure>
+<p>Guppy, Bonito and Dorado are official Oxford Nanopore basecallers; Causalcall (temporal convolutional network) and Rodan (fully convolutional) come from the research community. Several versions of Guppy and Dorado are included because they are the most widely used.</p>
+
+<h3 id="basecaller-configurations">Basecaller configurations</h3>
+<div class="table-wrap dense"><table>
+<thead><tr><th>Basecaller</th><th>Version</th><th>Sample</th><th>Configuration</th></tr></thead>
+<tbody>
+<tr><td>Guppy</td><td class="mono">2.3.1</td><td>DNA</td><td class="mono">dna_r9.4.1_450bps.cfg</td></tr>
+<tr><td>Guppy</td><td class="mono">2.3.1</td><td>RNA</td><td class="mono">rna_r9.4.1_70bps.cfg</td></tr>
+<tr><td>Guppy</td><td class="mono">4.5.4</td><td>DNA</td><td class="mono">dna_r9.4.1_450bps_hac.cfg</td></tr>
+<tr><td>Guppy</td><td class="mono">4.5.4</td><td>RNA</td><td class="mono">rna_r9.4.1_70bps_hac.cfg</td></tr>
+<tr><td>Guppy</td><td class="mono">6.0.1</td><td>DNA</td><td class="mono">dna_r9.4.1_450bps_hac.cfg</td></tr>
+<tr><td>Guppy</td><td class="mono">6.0.1</td><td>RNA</td><td class="mono">rna_r9.4.1_70bps_hac.cfg</td></tr>
+<tr><td>Bonito</td><td class="mono">0.7.3</td><td>DNA</td><td class="mono">dna_r9.4.1_e8_hac@v3.3</td></tr>
+<tr><td>Dorado</td><td class="mono">0.5.3 / 0.7.0</td><td>DNA</td><td class="mono">dna_r9.4.1_e8_hac@v3.3</td></tr>
+<tr><td>Dorado</td><td class="mono">0.5.3 / 0.7.0</td><td>RNA</td><td class="mono">rna002_70bps_hac@v3</td></tr>
+</tbody></table></div>
+
+<h2 id="download-the-benchmark-data">Download the benchmark data</h2>
+<p>Each archive contains the fast5 chunks, the ground-truth <code>label.csv</code>, and the outputs of every baseline. Use the <a href="software.html#base-calling">base calling dataloader</a> to turn them into training tensors.</p>
+<ul class="dl-list"><li><span>DNA benchmark (NA12878_benchmark.tar.gz)</span><span class="size">70.6 GB</span><a class="btn" href="https://zenodo.org/records/10889896/files/NA12878_benchmark.tar.gz?download=1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg> Download</a></li><li><span>RNA benchmark (hek293t_benchmark.tar.gz)</span><span class="size">81.9 GB</span><a class="btn" href="https://zenodo.org/records/10889896/files/hek293t_benchmark.tar.gz?download=1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg> Download</a></li></ul>
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="benchmarks.html"><span class="dir">← Previous</span>Overview</a><a class="next" href="polya.html"><span class="dir">Next →</span>PolyA detection</a></nav></main><aside class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ul><li class="depth-2"><a href="#results">Results</a></li><li class="depth-3"><a href="#dna-base-calling-on-na12878">DNA base calling on NA12878</a></li><li class="depth-3"><a href="#rna-base-calling-on-hek293t-wt">RNA base calling on hek293t_wt</a></li><li class="depth-2"><a href="#ground-truth-acquisition">Ground truth acquisition</a></li><li class="depth-2"><a href="#evaluation-metrics">Evaluation metrics</a></li><li class="depth-2"><a href="#baseline-models">Baseline models</a></li><li class="depth-3"><a href="#basecaller-configurations">Basecaller configurations</a></li><li class="depth-2"><a href="#download-the-benchmark-data">Download the benchmark data</a></li></ul></aside></div><div class="sidebar-backdrop"></div>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <a class="brand" href="index.html"><span class="brand-name">Nano<span>Base</span>Lib</span></a>
+      <p style="margin-top:.75rem">A multi-task benchmark dataset for Nanopore sequencing. 16 public datasets, 30 million reads, one unified preprocessing pipeline, four benchmark tasks.</p>
+      <p class="small muted">Department of Computer Science, Aalto University · Institute of Biomedicine, University of Eastern Finland</p>
+    </div>
+    <div>
+      <h4>Data</h4>
+      <ul>
+        <li><a href="dataset.html">Dataset overview</a></li>
+        <li><a href="raw.html">Raw data download</a></li>
+        <li><a href="https://zenodo.org/records/10889896">Processed data on Zenodo</a></li>
+        <li><a href="pipeline.html">Preprocessing pipeline</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Benchmarks</h4>
+      <ul>
+        <li><a href="basecall.html">Base calling</a></li>
+        <li><a href="polya.html">PolyA detection</a></li>
+        <li><a href="segment.html">Segmentation &amp; event alignment</a></li>
+        <li><a href="mod.html">Modification detection</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="software.html">Software package</a></li>
+        <li><a href="https://github.com/nanobaselib/NanoBaseLib">GitHub</a></li>
+        <li><a href="https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html">NeurIPS 2024 paper</a></li>
+        <li><a href="about.html">About &amp; citation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2024–2026 NanoBaseLib authors. Dataset: CC BY 4.0 · Software: Apache 2.0.</span>
+    <span>Built 2026-10-07</span>
+  </div>
+</footer>
+<button class="icon-btn to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button>
+<script src="assets/site.js?v=32cf222c" defer></script>
 </body>
 </html>

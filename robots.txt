@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nanobaselib.github.io/sitemap.xml

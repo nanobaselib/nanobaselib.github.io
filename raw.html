@@ -1,361 +1,132 @@
 <!doctype html>
 <html lang="en">
-  <head>
-  	<title>NanoBaseLib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-			    <div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-					</button>
-                </div>
-				<div class="img bg-wrap text-center py-3" style="background-image: url(images/bg.avif);">
-	  			    <div class="user-logo">
-	  				    <div class="img" style="background-image: url(images/logo_small.svg);"></div>
-	  			     </div>
-	  	        </div>
-                <ul class="list-unstyled components mb-5">
-                    <li>
-                        <a href="index.html"><span class="fa fa-home mr-3"></span> Home </a>
-                    </li>
-                    <li class="active">
-                        <a href="dataset.html"><span class="fa fa-cloud-download mr-3 notif"></span> Dataset </a>
-                    </li>
-					<li>
-                        <a href="pipeline.html"><span class="fa fa-sort-amount-desc mr-3"></span>  Pipeline </a>
-                    </li>
-					<li>
-                        <a href="signal.html"><span class="fa fa-signal mr-3"></span> Signal Process </a>
-                    </li>
-                    <li>
-                        <a href="basecall.html"> <span class="fa fa-line-chart mr-3"></span> Base Calling </a>
-                    </li>
-                    <li>
-                        <a href="ploya.html"><span class="fa fa-scissors mr-3"></span> PolyA Dection </a>
-                    </li>
-                    <li>
-                        <a href="segment.html"><span class="fa fa-align-left mr-3"></span> Segmentation </a>
-                    </li>
-					<li>
-                        <a href="mod.html"><span class="fa fa-hourglass-half mr-3"></span> Modification Dection </a>
-                    </li>
-                    <li>
-                        <a href="software.html"><span class="fa fa-github mr-3"></span> Software </a>
-                    </li>
-                    <li>
-                        <a href="about.html"><span class="fa fa-info-circle mr-3"></span> About </a>
-                    </li>
-                </ul>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raw data download · NanoBaseLib</title>
+<meta name="description" content="Direct download links (fast5) and repository accessions for every sample of the 16 public Nanopore datasets in NanoBaseLib.">
+<link rel="canonical" href="https://nanobaselib.github.io/raw.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NanoBaseLib">
+<meta property="og:title" content="Raw data download · NanoBaseLib">
+<meta property="og:description" content="Direct download links (fast5) and repository accessions for every sample of the 16 public Nanopore datasets in NanoBaseLib.">
+<meta property="og:url" content="https://nanobaselib.github.io/raw.html">
+<meta property="og:image" content="https://nanobaselib.github.io/images/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1316" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=32cf222c">
+<script>
+/* apply saved theme before first paint to avoid a flash */
+(function(){try{var t=localStorage.getItem('nbl-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
+</script>
 
-    	</nav>
+</head>
+<body class="layout-docs">
+<a class="skip-link" href="#main">Skip to content</a>
 
-        <!-- Page Content  -->
-        <div id="content" class="p-4 p-md-5 pt-5">
-	    <style>
-            table{
-                text-align: center;
-            }
-            td {
-                text-align: center;
-            }
-        </style>
-		<h2 class="mb-4" style="font-family:Georgia">Raw data download</h2>
-		
-		<p>The "Accession Number" in the table below will direct users to the original NCBI/EBI data repositories, where they can access all meta information and data about the raw dataset. Accession numbers starting with "PRJEB" should be downloaded from the <a href="https://www.ebi.ac.uk/ena/browser/home">EBI-ENA</a> repository, while those starting with "SRP" should be downloaded from the <a href="https://www.ncbi.nlm.nih.gov/sra">NCBI-SRA</a> repository. </p> 
-		
-		<p> The "Raw Data Download Link" in the table below, we also provide a link to download the raw data (fast5 files) directly. </p>
-		<p style="color:red;"> * If clicking the download link does not work, place your mouse over the link, right-click, select "Copy link address," and then paste the link into a new browser window to download. </p> 
-        <table border="1">
-          <!-- table content goes here -->
-	        <tr>
-                <th scope="col">  Dataset  </th>
-			    <th>  Publish Date </th>
-			    <th>  &nbsp;  Accession Number &nbsp;  </th>
-			    <th>  Species  </th>
-				<th>  Type  </th>
-			    <th>  Sample  </th>
-                <th>  &nbsp; &nbsp; &nbsp; Raw Data Download Link *  &nbsp; &nbsp; &nbsp; </th>
-            </tr>
-            <tr>
-                <th rowspan="6">  ont_ployA_standard </th>
-                <th rowspan="6">2018-09 <br>  </th>
-				<th rowspan="6">  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423"> PRJEB28423 </a>   </th>
-                <th rowspan="6"> <i> Synthetic</i> </th>
-				<th rowspan="6"> RNA </th>
-                <td>10xpolyA</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764782/10xpolyA.tar.gz">10xpolyA.tar.gz</a></td>
-	
-            </tr>
-		    <tr>
-                <td>15xpolyA</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764783/15xpolyA.tar.gz">15xpolyA.tar.gz</a></td>
-            </tr>
-		    <tr>
-                <td>30xpolyA</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764784/30xpolyA.tar.gz">30xpolyA.tar.gz</a></td>
-            </tr>
-		    <tr>
-                <td>60xpolyA</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764787/60xpolyA.tar.gz">60xpolyA.tar.gz</a></td>
-            </tr>
-		    <tr>
-                <td>80xpolyA</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764788/80xpolyA.tar.gz">80xpolyA.tar.gz</a></td>
-            </tr>
-		    <tr>
-                <td>100xpolyA </td>
-			   <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764789/100xpolyA.tar.gz">100xpolyA.tar.gz</a></td>
-            </tr>
-		    <tr>
-                <th rowspan="2">  eGFP_polyA_DNA </th>
-                <th rowspan="2">2019-06 </th>
-                <th rowspan="2"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB31806"> PRJEB31806 </a> </th>
-			    <th rowspan="2"> <i> Synthetic </i> </th>
-				<th rowspan="2"> cDNA </th>
-                <td>dna_rep1_sqklsk108_flipflop</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349891/dna_rep1_sqklsk108_flipflop_basecalled.tar.gz">dna_rep1_sqklsk108_flipflop.tar.gz</a></td>
-	
-            </tr>
-		    <tr>
-                <td> dna_rep2_sqklsk109_flipflop </td>
-			   <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349892/dna_rep2_sqklsk109_flipflop_basecalled.tar.gz">dna_rep2_sqklsk109_flipflop.tar.gz</a></td>
-            </tr>
-			<tr>
-                <th rowspan="3">  eGFP_polyA_RNA </th>
-                <th rowspan="3">2019-06</th>
-                <th rowspan="3"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB31806"> PRJEB31806 </a> </th>
-			    <th rowspan="3"> <i> Synthetic </i> </th>
-				<th rowspan="3"> RNA </th>
-                <td>rna_rep1_sqkrna001_plus_rt</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349886/rna_rep1_sqkrna001_plus_rt_standard_basecalled.tar.gz">rna_rep1_sqkrna001_plus_rt.tar.gz</a></td>
-            </tr>
-		    <tr>
-                <td>  rna_rep2_sqkrna001_plus_rt </td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349887/rna_rep2_sqkrna001_plus_rt_standard_basecalled.tar.gz">rna_rep2_sqkrna001_plus_rt.tar.gz</a></td>
-		    </tr>
-			<tr>
-                <td>  rna_rep3_sqkrna002_minus_rt </td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349888/rna_rep3_sqkrna002_minus_rt_standard_basecalled.tar.gz">rna_rep3_sqkrna002_minus_rt.tar.gz</a></td>
-		    </tr>
-			<tr>
-                <th rowspan="1">  lambda_phage </th>
-                <th rowspan="1">2021-03 </th>
-                <th rowspan="1"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA926802"> PRJNA926802 </a>  </th>
-			    <th rowspan="1"> <i>lambda phage</i>  </th>
-				<th rowspan="1"> DNA </th>
-                <td>VER5940</td>
-			    <td><a href="https://sra-pub-src-2.s3.amazonaws.com/SRR23197167/single_fast5_lambdaphage.tar.1">single_fast5_lambdaphage.tar.1</a></td>
-            </tr>
-			<tr>
-                <th rowspan="3">  NA12878 </th>
-                <th rowspan="3">2019-06 </th>
-                <th rowspan="3"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB23027"> PRJEB23027 </a>  </th>
-			    <th rowspan="3"> <i> Homo sapiens</i>  </th>
-				<th rowspan="3">  DNA  </th>
-                <td>FAB42828</td>
-			    <td><a href="https://s3.amazonaws.com/nanopore-human-wgs/rel6/MultiFast5Tars/FAB42828-288548394_Multi_Fast5.tar">FAB42828-288548394_Multi_Fast5.tar</a> &nbsp;  &  &nbsp; <a href="https://github.com/nanopore-wgs-consortium/NA12878/blob/master/Genome.md">Raw fast5 page</a></td>
-            </tr>
-			<tr>
-			    <td>  FAF04090 </td>
-			    <td><a href="https://s3.amazonaws.com/nanopore-human-wgs/rel6/MultiFast5Tars/FAF04090-3842965088_Multi_Fast5.tar">FAF04090-3842965088_Multi_Fast5.tar</a>&nbsp;  &  &nbsp; <a href="https://github.com/nanopore-wgs-consortium/NA12878/blob/master/Genome.md">Raw fast5 page</a></td>
-			</tr>
-			<tr>
-				<td>  FAF09968 </td>
-			    <td><a href="https://s3.amazonaws.com/nanopore-human-wgs/rel6/MultiFast5Tars/FAF09968-3439856925_Multi_Fast5.tar">FAF09968-3439856925_Multi_Fast5.tar</a>&nbsp;  &  &nbsp;<a href="https://github.com/nanopore-wgs-consortium/NA12878/blob/master/Genome.md">Raw fast5 page</a></td>
-			</tr>
-			<tr>
-                <th rowspan="4">  curlcake </th>
-                <th rowspan="4">2019-07 </th>
-                <th rowspan="4"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA511582"> PRJNA511582 </a> </th>
-			    <th rowspan="4"> <i>Synthetic</i>  </th>
-				<th rowspan="4"> RNA </th>
-                <td>m6A-mod-rep1</td>
-			    <td><a href="https://sra-pub-src-1.s3.amazonaws.com/SRR8767351/RNAAB090763.fast5.tar.gz.3">RNAAB090763.fast5.tar.gz.3</a></td>
-            </tr>
-			<tr>
-                <td>  m6A-mod-rep2 </td>
-			    <td><a href="https://sra-pub-src-1.s3.amazonaws.com/SRR8767349/RNA081120182.fast5.tar.gz.2">RNA081120182.fast5.tar.gz.2</a></td>
-		    </tr>
-			<tr>
-                <td>  non-mod-rep1 </td>
-			    <td><a href="https://sra-pub-src-1.s3.amazonaws.com/SRR8767350/RNAAB089716.fast5.tar.gz.4">RNAAB089716.fast5.tar.gz.4</a></td>
-		    </tr>
-			<tr>
-                <td>  non-mod-rep2 </td>
-			    <td><a href="https://sra-pub-src-1.s3.amazonaws.com/SRR8767348/RNA081120181.fast5.tar.gz.2">RNA081120181.fast5.tar.gz.2</a></td>
-		    </tr>
-			<tr>
-                <th rowspan="1">  scBY4741_m5C </th>
-                <th rowspan="1">2021-06 </th>
-                <th rowspan="1"> <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA563591"> PRJNA563591 </a>  </th>
-			    <th rowspan="1"> <i>Synthetic</i>  </th>
-				<th rowspan="1"> RNA  </th>
-                <td>m5C_modified</td>
-			    <td><a href="https://sra-pub-src-2.s3.amazonaws.com/SRR13570753/RNA010220191_m5C_fast5.tar.gz.1">RNA010220191_m5C_fast5.tar.gz.1</a></td>
-            </tr>
-			<tr>
-                <th rowspan="1">  scBY4741_hm5C </th>
-                <th rowspan="1">2021-06 </th>
-                <th rowspan="1"> <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA548268"> PRJNA548268  </a>  </th>
-			    <th rowspan="1"> <i>Synthetic</i>  </th>
-				<th rowspan="1"> RNA  </th>
-                <td>hm5C_modified</td>
-			    <td><a href="https://sra-pub-src-2.s3.amazonaws.com/SRR13570800/RNA080420191_5hmC_fast5.tar.gz.1">RNA080420191_5hmC_fast5.tar.gz.1</a></td>
-            </tr>
-			<tr>
-                <th rowspan="1">  scBY4741_pU </th>
-                <th rowspan="1">2021-02 </th>
-                <th rowspan="1"> <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA549001">  PRJNA549001  </a>  </th>
-			    <th rowspan="1"> <i>Synthetic</i>  </th>
-				<th rowspan="1"> RNA  </th>
-                <td>pU_modified</td>
-			    <td><a href="https://sra-pub-src-2.s3.amazonaws.com/SRR9644012/pU.tar.4">pU.tar.4</a></td>
+<header class="site-header">
+  <div class="inner">
+    <button class="icon-btn menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <a class="brand" href="index.html" aria-label="NanoBaseLib home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0079cd"/><stop offset="1" stop-color="#19c6b3"/></linearGradient></defs><circle cx="16" cy="16" r="15" fill="url(#bm)"/><path d="M5 18h3l2-7 3 12 3-14 3 10 2-5 2 4h4" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="brand-name">Nano<span>Base</span>Lib</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="dataset.html" aria-current="true">Datasets</a>
+      <a href="pipeline.html">Pipeline</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="software.html">Software</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href="https://github.com/nanobaselib/NanoBaseLib" aria-label="GitHub repository" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://zenodo.org/records/10889896" aria-label="Download from Zenodo" title="Zenodo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-            </tr>			
-			<tr>
-                <th rowspan="3"> hct116 </th>
-                <th rowspan="3">2021-04 </th>
-                <th rowspan="3"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB44348"> PRJEB44348 </a></th>
-			    <th rowspan="3"> <i> Homo sapiens </i>  </th>
-				<th rowspan="3"> RNA  </th>
-                <td>HCT-WT-rep1</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR928/ERR9286491/SGNex_Hct116_directRNA_replicate3_run1.tar.gz"> SGNex_Hct116_directRNA_replicate3_run1.tar.gz </a> &nbsp;  &  &nbsp;  <a href="https://registry.opendata.aws/sgnex/"> AWS </a></td>
-            </tr>
-			<tr>
-                <td>HCT-WT-rep2</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR928/ERR9286492/SGNex_Hct116_directRNA_replicate3_run4.tar.gz"> SGNex_Hct116_directRNA_replicate3_run4.gz </a> &nbsp;  &  &nbsp;   <a href="https://registry.opendata.aws/sgnex/"> AWS </a></td>
-		    </tr>
-			<tr>
-                <td>HCT-WT-rep3</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR928/ERR9286493/SGNex_Hct116_directRNA_replicate4_run3.tar.gz"> SGNex_Hct116_directRNA_replicate4_run3.tar.gz </a> &nbsp;  &  &nbsp;   <a href="https://registry.opendata.aws/sgnex/"> AWS </a></td>
-		    </tr>
-			<tr>
-                <th rowspan="3"> hek293t_wt </th>
-                <th rowspan="3">2021-01 </th>
-                <th rowspan="3"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872"> PRJEB40872 </a></th>
-			    <th rowspan="3"> <i> Homo sapiens </i>  </th>
-				<th rowspan="3"> RNA  </th>
-                <td>HEK293T-WT-rep1</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4706156/HEK293T-WT-rep1.tar.gz">HEK293T-WT-rep1.tar.gz</a></td>
-            </tr>
-			<tr>
-                <td>HEK293T-WT-rep2</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR475/ERR4756709/HEK293T-WT-rep2.tar.gz">HEK293T-WT-rep2.tar.gz</a></td>
-		    </tr>
-			<tr>
-                <td>HEK293T-WT-rep3</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4706307/HEK293T-WT-rep3.tar.gz">HEK293T-WT-rep3.tar.gz</a></td>
-		    </tr>
-			<tr>
-			    <th rowspan="3"> hek293t_ko </th>
-                <th rowspan="3">2021-01 </th>
-                <th rowspan="3"> <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872"> PRJEB40872 </a></th>
-			    <th rowspan="3"> <i> Homo sapiens </i>  </th>
-				<th rowspan="3"> RNA  </th>
-                <td>HEK293T-Mettl3-KO-rep1</td>
-				<td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4706254/HEK293T-Mettl3-KO-rep1.tar.gz">HEK293T-Mettl3-KO-rep1.tar.gz</a></td>
-		    </tr>
-			<tr>
-                <td>HEK293T-Mettl3-KO-rep2</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4708848/HEK293T-Mettl3-KO-rep2.tar.gz">HEK293T-Mettl3-KO-rep2.tar.gz</a></td>
-		    </tr>
-			<tr>
-                <td>HEK293T-Mettl3-KO-rep3</td>
-			    <td><a href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4708824/HEK293T-Mettl3-KO-rep3.tar.gz">HEK293T-Mettl3-KO-rep3.tar.gz</a></td>
-		    </tr>
-			<tr>
-                <th rowspan="2"> mESCs_eligos </th>
-                <th rowspan="2">2020-10 </th>
-                <th rowspan="2"> <a href="https://www.ncbi.nlm.nih.gov/bioproject/497103"> PRJNA497103 </a> </br> <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&acc=SRP166020"> SRP166020 </a> </th>
-			    <th rowspan="2"> <i> Mus musculus </i>  </th>
-				<th rowspan="2"> RNA </th>
-                <td>mESCs_Mettl3_WT</td>
-			    <td><a href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190766/mESCs_Mettl3_WT_fast5.tar.gz.1">mESCs_Mettl3_WT_fast5.tar.gz.1</a></td>
-            </tr>
-			<tr>
-                <td>mESCs_Mettl3_KO</td>
-			    <td><a href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190765/mESCs_Mettl3_KO-ref_fast5.tar.gz.1">mESCs_Mettl3_KO-ref_fast5.tar.gz.1</a></td>
-		    </tr>
-			<tr>
-                <th rowspan="5"> ecoli_eligos </th>
-                <th rowspan="5">2020-08 </th>
-                <th rowspan="5">  <a href="https://www.ncbi.nlm.nih.gov/bioproject/497103"> PRJNA497103 </a> </br> <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&acc=SRP166020"> SRP166020 </a></th>
-			    <th rowspan="5"> <i> Escherichia coli </i>  </th>
-				<th rowspan="5"> RNA </th>
-				<td>IVT_Inosine</td>
-			    <td><a href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190745/IVT_Inosine_fast5.tar.gz.1">IVT_Inosine_fast5.tar.gz.1</a></td>
-            </tr>
-			<tr>
-                <td>IVT_m5C</td>
-			    <td><a href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190747/IVT_m5C_fast5.tar.gz.1">IVT_m5C_fast5.tar.gz.1</a></td>
-		    </tr>
-			<tr>
-                <td>IVT_m6A</td>
-			    <td><a href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190748/IVT_m6A_fast5.tar.gz.1">IVT_m6A_fast5.tar.gz.1</a></td>
-		    </tr>
-			<tr>
-			    <td>IVT_normalA</td>
-			    <td><a href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190750/IVT_normalA_fast5.tar.gz.1">IVT_normalA_fast5.tar.gz.1</a></td>                
-		    </tr>
+<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html" aria-current="page">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper, team &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Datasets</div><h1>Raw data download</h1><p class="lede">Raw fast5 files stay at the original repositories. This page collects the accession for each dataset and a direct link to the raw archive of every sample so you can skip the repository browsers.</p><div class="meta"><span class="badge">44 samples</span><span class="badge">EBI-ENA · NCBI-SRA · AWS Open Data</span></div></div>
 
-			<tr>
-                <td>IVT_normalC</td>
-			    <td><a href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190751/IVT_normalC_fast5.tar.gz.1">IVT_normalC_fast5.tar.gz.1</a></td>
-		    </tr>
-			<tr>
-                <th rowspan="2"> dinopore_ivt </th>
-                <th rowspan="2">2023-01 </th>
-                <th rowspan="2"> <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295"> SRP363295  </a></th>
-			    <th rowspan="2"> <i> Synthetic </i>  </th>
-				<th rowspan="2"> RNA </th>
-                <td>gBlock_pureI</td>
-			    <td><a href="https://sra-pub-src-2.s3.amazonaws.com/SRR22198731/20200322_gBlock2_pureI.fast5.tar.gz.1">20200322_gBlock2_pureI.fast5.tar.gz.1</a></td>
-            </tr>
-			<tr>
-                <td>gBlock_G</td>
-			    <td><a href="https://sra-pub-src-2.s3.amazonaws.com/SRR22198735/20200322_gBlock2_G.fast5.tar.gz.1">20200322_gBlock2_G.fast5.tar.gz.1</a></td>
-		    </tr>
-			<tr>
-                <th rowspan="4"> dinopore_xenopus </th>
-                <th rowspan="4">2022-04 </th>
-                <th rowspan="4"> <a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295"> SRP363295  </a></th>
-				<th rowspan="4"> <i> Xenopus lavies </i>  </th>
-				<th rowspan="4"> RNA </th>
-                <td>rep3_stage1_20200812</td>
-			    <td><a href="https://sra-download.be-md.ncbi.nlm.nih.gov/vast/sra01/SRZ/018314/SRR18314677/20200812_xenopus_rep3_stage1_withRT.tar.gz">20200812_xenopus_rep3_stage1_withRT.tar.gz</a></td>
-            </tr>
-			<tr>
-                <td>rep3_stage1_20201005</td>
-			    <td><a href="https://sra-download.be-md.ncbi.nlm.nih.gov/vast/sra01/SRZ/018314/SRR18314676/20201005_xenopus_rep3_stage1_withRT.tar.gz">20201005_xenopus_rep3_stage1_withRT.tar.gz</a></td>
-            </tr>
-			<tr>
-                <td>rep3_stage9_20200812</td>
-			    <td><a href="https://sra-pub-src-2.s3.amazonaws.com/SRR18310038/20200812_xenopus_rep3_stage9_withRT.tar.gz.2">20200812_xenopus_rep3_stage9_withRT.tar.gz.2</a></td>
-            </tr>
-			<tr>
-                <td>rep3_stage9_20201008</td>
-			    <td><a href="https://sra-pub-src-1.s3.amazonaws.com/SRR18310037/20201008_xenopus_rep3_stage9_withRT.tar.gz.2">20201008_xenopus_rep3_stage9_withRT.tar.gz.2</a></td>
-            </tr>
-			
-			
-        </table>
-		
-		<br/>
-		
-	    </div>
-	   
-	    </div>
-	<script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    </body>
+<p>The <b>accession</b> links lead to the original NCBI/EBI records with full metadata. Accessions starting with <code>PRJEB</code> or <code>PRJNA</code> resolve at the <a href="https://www.ebi.ac.uk/ena/browser/home">EBI European Nucleotide Archive</a>; those starting with <code>SRP</code> at the <a href="https://www.ncbi.nlm.nih.gov/sra">NCBI Sequence Read Archive</a>. The <b>raw data</b> column links straight to the fast5 archive of each sample.</p>
+
+<div class="callout callout-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+<div><p>If a link does not start downloading in the browser, copy the link address and fetch it from a terminal instead. Archives range from a few GB to several hundred GB; use a resumable downloader:</p>
+<div class="code-block" data-lang="bash"><pre><code>curl -L -C - -O "https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764782/10xpolyA.tar.gz"
+# or
+wget -c "https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764782/10xpolyA.tar.gz"</code></pre></div></div></div>
+
+<h2 id="raw-data-by-sample">Raw data by sample</h2>
+<div class="table-toolbar" data-filter-table="tbl-raw" role="search">
+  <input class="input" type="search" placeholder="Search dataset, sample, accession…" aria-label="Search samples">
+  <select class="input" name="species" aria-label="Filter by species"><option value="">All species</option><option value="Escherichia coli">Escherichia coli</option><option value="Homo sapiens">Homo sapiens</option><option value="Mus musculus">Mus musculus</option><option value="Synthetic">Synthetic</option><option value="Xenopus lavies">Xenopus lavies</option><option value="lambda phage">lambda phage</option></select>
+  <select class="input" name="type" aria-label="Filter by molecule type"><option value="">All types</option><option value="DNA">DNA</option><option value="RNA">RNA</option><option value="cDNA">cDNA</option></select>
+  
+  <button type="button" class="chip reset">Reset</button>
+  <span class="count"></span>
+</div><div class="table-wrap"><table id="tbl-raw" data-sortable><thead><tr><th>Dataset</th><th>Published</th><th>Accession</th><th>Species</th><th>Type</th><th>Sample</th><th data-nosort>Raw data (fast5)</th></tr></thead><tbody><tr class="group-start" data-species="Synthetic" data-type="RNA"><td class="group-cell">ont_ployA_standard</td><td class="nowrap">2018-09</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423" class="mono">PRJEB28423</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">10xpolyA</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764782/10xpolyA.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>10xpolyA.tar.gz</a></td></tr><tr class="" data-species="Synthetic" data-type="RNA"><td class="sub">ont_ployA_standard</td><td class="nowrap">2018-09</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423" class="mono">PRJEB28423</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">15xpolyA</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764783/15xpolyA.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>15xpolyA.tar.gz</a></td></tr><tr class="" data-species="Synthetic" data-type="RNA"><td class="sub">ont_ployA_standard</td><td class="nowrap">2018-09</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423" class="mono">PRJEB28423</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">30xpolyA</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764784/30xpolyA.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>30xpolyA.tar.gz</a></td></tr><tr class="" data-species="Synthetic" data-type="RNA"><td class="sub">ont_ployA_standard</td><td class="nowrap">2018-09</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423" class="mono">PRJEB28423</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">60xpolyA</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764787/60xpolyA.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>60xpolyA.tar.gz</a></td></tr><tr class="" data-species="Synthetic" data-type="RNA"><td class="sub">ont_ployA_standard</td><td class="nowrap">2018-09</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423" class="mono">PRJEB28423</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">80xpolyA</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764788/80xpolyA.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>80xpolyA.tar.gz</a></td></tr><tr class="" data-species="Synthetic" data-type="RNA"><td class="sub">ont_ployA_standard</td><td class="nowrap">2018-09</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB28423" class="mono">PRJEB28423</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">100xpolyA</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764789/100xpolyA.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>100xpolyA.tar.gz</a></td></tr><tr class="group-start" data-species="Synthetic" data-type="cDNA"><td class="group-cell">eGFP_polyA_DNA</td><td class="nowrap">2019-06</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB31806" class="mono">PRJEB31806</a></td><td><i>Synthetic</i></td><td>cDNA</td><td class="mono">dna_rep1_sqklsk108_flipflop</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349891/dna_rep1_sqklsk108_flipflop_basecalled.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>dna_rep1_sqklsk108_flipflop.tar.gz</a></td></tr><tr class="" data-species="Synthetic" data-type="cDNA"><td class="sub">eGFP_polyA_DNA</td><td class="nowrap">2019-06</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB31806" class="mono">PRJEB31806</a></td><td><i>Synthetic</i></td><td>cDNA</td><td class="mono">dna_rep2_sqklsk109_flipflop</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349892/dna_rep2_sqklsk109_flipflop_basecalled.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>dna_rep2_sqklsk109_flipflop.tar.gz</a></td></tr><tr class="group-start" data-species="Synthetic" data-type="RNA"><td class="group-cell">eGFP_polyA_RNA</td><td class="nowrap">2019-06</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB31806" class="mono">PRJEB31806</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">rna_rep1_sqkrna001_plus_rt</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349886/rna_rep1_sqkrna001_plus_rt_standard_basecalled.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>rna_rep1_sqkrna001_plus_rt.tar.gz</a></td></tr><tr class="" data-species="Synthetic" data-type="RNA"><td class="sub">eGFP_polyA_RNA</td><td class="nowrap">2019-06</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB31806" class="mono">PRJEB31806</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">rna_rep2_sqkrna001_plus_rt</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349887/rna_rep2_sqkrna001_plus_rt_standard_basecalled.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>rna_rep2_sqkrna001_plus_rt.tar.gz</a></td></tr><tr class="" data-species="Synthetic" data-type="RNA"><td class="sub">eGFP_polyA_RNA</td><td class="nowrap">2019-06</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB31806" class="mono">PRJEB31806</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">rna_rep3_sqkrna002_minus_rt</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349888/rna_rep3_sqkrna002_minus_rt_standard_basecalled.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>rna_rep3_sqkrna002_minus_rt.tar.gz</a></td></tr><tr class="group-start" data-species="lambda phage" data-type="DNA"><td class="group-cell">lambda_phage</td><td class="nowrap">2021-03</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA926802" class="mono">PRJNA926802</a></td><td><i>lambda phage</i></td><td>DNA</td><td class="mono">VER5940</td><td><a class="dl-link" href="https://sra-pub-src-2.s3.amazonaws.com/SRR23197167/single_fast5_lambdaphage.tar.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>single_fast5_lambdaphage.tar.1</a></td></tr><tr class="group-start" data-species="Homo sapiens" data-type="DNA"><td class="group-cell">NA12878</td><td class="nowrap">2019-06</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB23027" class="mono">PRJEB23027</a></td><td><i>Homo sapiens</i></td><td>DNA</td><td class="mono">FAB42828</td><td><a class="dl-link" href="https://s3.amazonaws.com/nanopore-human-wgs/rel6/MultiFast5Tars/FAB42828-288548394_Multi_Fast5.tar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>FAB42828-288548394_Multi_Fast5.tar</a><br><a class="dl-link" href="https://github.com/nanopore-wgs-consortium/NA12878/blob/master/Genome.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Raw fast5 page</a></td></tr><tr class="" data-species="Homo sapiens" data-type="DNA"><td class="sub">NA12878</td><td class="nowrap">2019-06</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB23027" class="mono">PRJEB23027</a></td><td><i>Homo sapiens</i></td><td>DNA</td><td class="mono">FAF04090</td><td><a class="dl-link" href="https://s3.amazonaws.com/nanopore-human-wgs/rel6/MultiFast5Tars/FAF04090-3842965088_Multi_Fast5.tar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>FAF04090-3842965088_Multi_Fast5.tar</a><br><a class="dl-link" href="https://github.com/nanopore-wgs-consortium/NA12878/blob/master/Genome.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Raw fast5 page</a></td></tr><tr class="" data-species="Homo sapiens" data-type="DNA"><td class="sub">NA12878</td><td class="nowrap">2019-06</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB23027" class="mono">PRJEB23027</a></td><td><i>Homo sapiens</i></td><td>DNA</td><td class="mono">FAF09968</td><td><a class="dl-link" href="https://s3.amazonaws.com/nanopore-human-wgs/rel6/MultiFast5Tars/FAF09968-3439856925_Multi_Fast5.tar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>FAF09968-3439856925_Multi_Fast5.tar</a><br><a class="dl-link" href="https://github.com/nanopore-wgs-consortium/NA12878/blob/master/Genome.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Raw fast5 page</a></td></tr><tr class="group-start" data-species="Synthetic" data-type="RNA"><td class="group-cell">curlcake</td><td class="nowrap">2019-07</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA511582" class="mono">PRJNA511582</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">m6A-mod-rep1</td><td><a class="dl-link" href="https://sra-pub-src-1.s3.amazonaws.com/SRR8767351/RNAAB090763.fast5.tar.gz.3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>RNAAB090763.fast5.tar.gz.3</a></td></tr><tr class="" data-species="Synthetic" data-type="RNA"><td class="sub">curlcake</td><td class="nowrap">2019-07</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA511582" class="mono">PRJNA511582</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">m6A-mod-rep2</td><td><a class="dl-link" href="https://sra-pub-src-1.s3.amazonaws.com/SRR8767349/RNA081120182.fast5.tar.gz.2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>RNA081120182.fast5.tar.gz.2</a></td></tr><tr class="" data-species="Synthetic" data-type="RNA"><td class="sub">curlcake</td><td class="nowrap">2019-07</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA511582" class="mono">PRJNA511582</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">non-mod-rep1</td><td><a class="dl-link" href="https://sra-pub-src-1.s3.amazonaws.com/SRR8767350/RNAAB089716.fast5.tar.gz.4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>RNAAB089716.fast5.tar.gz.4</a></td></tr><tr class="" data-species="Synthetic" data-type="RNA"><td class="sub">curlcake</td><td class="nowrap">2019-07</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJNA511582" class="mono">PRJNA511582</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">non-mod-rep2</td><td><a class="dl-link" href="https://sra-pub-src-1.s3.amazonaws.com/SRR8767348/RNA081120181.fast5.tar.gz.2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>RNA081120181.fast5.tar.gz.2</a></td></tr><tr class="group-start" data-species="Synthetic" data-type="RNA"><td class="group-cell">scBY4741_m5C</td><td class="nowrap">2021-06</td><td><a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA563591" class="mono">PRJNA563591</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">m5C_modified</td><td><a class="dl-link" href="https://sra-pub-src-2.s3.amazonaws.com/SRR13570753/RNA010220191_m5C_fast5.tar.gz.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>RNA010220191_m5C_fast5.tar.gz.1</a></td></tr><tr class="group-start" data-species="Synthetic" data-type="RNA"><td class="group-cell">scBY4741_hm5C</td><td class="nowrap">2021-06</td><td><a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA548268" class="mono">PRJNA548268</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">hm5C_modified</td><td><a class="dl-link" href="https://sra-pub-src-2.s3.amazonaws.com/SRR13570800/RNA080420191_5hmC_fast5.tar.gz.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>RNA080420191_5hmC_fast5.tar.gz.1</a></td></tr><tr class="group-start" data-species="Synthetic" data-type="RNA"><td class="group-cell">scBY4741_pU</td><td class="nowrap">2021-02</td><td><a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA549001" class="mono">PRJNA549001</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">pU_modified</td><td><a class="dl-link" href="https://sra-pub-src-2.s3.amazonaws.com/SRR9644012/pU.tar.4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>pU.tar.4</a></td></tr><tr class="group-start" data-species="Homo sapiens" data-type="RNA"><td class="group-cell">hct116</td><td class="nowrap">2021-04</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB44348" class="mono">PRJEB44348</a></td><td><i>Homo sapiens</i></td><td>RNA</td><td class="mono">HCT-WT-rep1</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR928/ERR9286491/SGNex_Hct116_directRNA_replicate3_run1.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>SGNex_Hct116_directRNA_replicate3_run1.tar.gz</a><br><a class="dl-link" href="https://registry.opendata.aws/sgnex/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>AWS</a></td></tr><tr class="" data-species="Homo sapiens" data-type="RNA"><td class="sub">hct116</td><td class="nowrap">2021-04</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB44348" class="mono">PRJEB44348</a></td><td><i>Homo sapiens</i></td><td>RNA</td><td class="mono">HCT-WT-rep2</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR928/ERR9286492/SGNex_Hct116_directRNA_replicate3_run4.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>SGNex_Hct116_directRNA_replicate3_run4.gz</a><br><a class="dl-link" href="https://registry.opendata.aws/sgnex/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>AWS</a></td></tr><tr class="" data-species="Homo sapiens" data-type="RNA"><td class="sub">hct116</td><td class="nowrap">2021-04</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB44348" class="mono">PRJEB44348</a></td><td><i>Homo sapiens</i></td><td>RNA</td><td class="mono">HCT-WT-rep3</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR928/ERR9286493/SGNex_Hct116_directRNA_replicate4_run3.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>SGNex_Hct116_directRNA_replicate4_run3.tar.gz</a><br><a class="dl-link" href="https://registry.opendata.aws/sgnex/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>AWS</a></td></tr><tr class="group-start" data-species="Homo sapiens" data-type="RNA"><td class="group-cell">hek293t_wt</td><td class="nowrap">2021-01</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872" class="mono">PRJEB40872</a></td><td><i>Homo sapiens</i></td><td>RNA</td><td class="mono">HEK293T-WT-rep1</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4706156/HEK293T-WT-rep1.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>HEK293T-WT-rep1.tar.gz</a></td></tr><tr class="" data-species="Homo sapiens" data-type="RNA"><td class="sub">hek293t_wt</td><td class="nowrap">2021-01</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872" class="mono">PRJEB40872</a></td><td><i>Homo sapiens</i></td><td>RNA</td><td class="mono">HEK293T-WT-rep2</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR475/ERR4756709/HEK293T-WT-rep2.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>HEK293T-WT-rep2.tar.gz</a></td></tr><tr class="" data-species="Homo sapiens" data-type="RNA"><td class="sub">hek293t_wt</td><td class="nowrap">2021-01</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872" class="mono">PRJEB40872</a></td><td><i>Homo sapiens</i></td><td>RNA</td><td class="mono">HEK293T-WT-rep3</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4706307/HEK293T-WT-rep3.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>HEK293T-WT-rep3.tar.gz</a></td></tr><tr class="group-start" data-species="Homo sapiens" data-type="RNA"><td class="group-cell">hek293t_ko</td><td class="nowrap">2021-01</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872" class="mono">PRJEB40872</a></td><td><i>Homo sapiens</i></td><td>RNA</td><td class="mono">HEK293T-Mettl3-KO-rep1</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4706254/HEK293T-Mettl3-KO-rep1.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>HEK293T-Mettl3-KO-rep1.tar.gz</a></td></tr><tr class="" data-species="Homo sapiens" data-type="RNA"><td class="sub">hek293t_ko</td><td class="nowrap">2021-01</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872" class="mono">PRJEB40872</a></td><td><i>Homo sapiens</i></td><td>RNA</td><td class="mono">HEK293T-Mettl3-KO-rep2</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4708848/HEK293T-Mettl3-KO-rep2.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>HEK293T-Mettl3-KO-rep2.tar.gz</a></td></tr><tr class="" data-species="Homo sapiens" data-type="RNA"><td class="sub">hek293t_ko</td><td class="nowrap">2021-01</td><td><a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB40872" class="mono">PRJEB40872</a></td><td><i>Homo sapiens</i></td><td>RNA</td><td class="mono">HEK293T-Mettl3-KO-rep3</td><td><a class="dl-link" href="https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4708824/HEK293T-Mettl3-KO-rep3.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>HEK293T-Mettl3-KO-rep3.tar.gz</a></td></tr><tr class="group-start" data-species="Mus musculus" data-type="RNA"><td class="group-cell">mESCs_eligos</td><td class="nowrap">2020-10</td><td><a href="https://www.ncbi.nlm.nih.gov/bioproject/497103" class="mono">PRJNA497103</a> · <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&amp;acc=SRP166020">SRP166020</a></td><td><i>Mus musculus</i></td><td>RNA</td><td class="mono">mESCs_Mettl3_WT</td><td><a class="dl-link" href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190766/mESCs_Mettl3_WT_fast5.tar.gz.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>mESCs_Mettl3_WT_fast5.tar.gz.1</a></td></tr><tr class="" data-species="Mus musculus" data-type="RNA"><td class="sub">mESCs_eligos</td><td class="nowrap">2020-10</td><td><a href="https://www.ncbi.nlm.nih.gov/bioproject/497103" class="mono">PRJNA497103</a> · <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&amp;acc=SRP166020">SRP166020</a></td><td><i>Mus musculus</i></td><td>RNA</td><td class="mono">mESCs_Mettl3_KO</td><td><a class="dl-link" href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190765/mESCs_Mettl3_KO-ref_fast5.tar.gz.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>mESCs_Mettl3_KO-ref_fast5.tar.gz.1</a></td></tr><tr class="group-start" data-species="Escherichia coli" data-type="RNA"><td class="group-cell">ecoli_eligos</td><td class="nowrap">2020-08</td><td><a href="https://www.ncbi.nlm.nih.gov/bioproject/497103" class="mono">PRJNA497103</a> · <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&amp;acc=SRP166020">SRP166020</a></td><td><i>Escherichia coli</i></td><td>RNA</td><td class="mono">IVT_Inosine</td><td><a class="dl-link" href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190745/IVT_Inosine_fast5.tar.gz.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>IVT_Inosine_fast5.tar.gz.1</a></td></tr><tr class="" data-species="Escherichia coli" data-type="RNA"><td class="sub">ecoli_eligos</td><td class="nowrap">2020-08</td><td><a href="https://www.ncbi.nlm.nih.gov/bioproject/497103" class="mono">PRJNA497103</a> · <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&amp;acc=SRP166020">SRP166020</a></td><td><i>Escherichia coli</i></td><td>RNA</td><td class="mono">IVT_m5C</td><td><a class="dl-link" href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190747/IVT_m5C_fast5.tar.gz.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>IVT_m5C_fast5.tar.gz.1</a></td></tr><tr class="" data-species="Escherichia coli" data-type="RNA"><td class="sub">ecoli_eligos</td><td class="nowrap">2020-08</td><td><a href="https://www.ncbi.nlm.nih.gov/bioproject/497103" class="mono">PRJNA497103</a> · <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&amp;acc=SRP166020">SRP166020</a></td><td><i>Escherichia coli</i></td><td>RNA</td><td class="mono">IVT_m6A</td><td><a class="dl-link" href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190748/IVT_m6A_fast5.tar.gz.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>IVT_m6A_fast5.tar.gz.1</a></td></tr><tr class="" data-species="Escherichia coli" data-type="RNA"><td class="sub">ecoli_eligos</td><td class="nowrap">2020-08</td><td><a href="https://www.ncbi.nlm.nih.gov/bioproject/497103" class="mono">PRJNA497103</a> · <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&amp;acc=SRP166020">SRP166020</a></td><td><i>Escherichia coli</i></td><td>RNA</td><td class="mono">IVT_normalA</td><td><a class="dl-link" href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190750/IVT_normalA_fast5.tar.gz.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>IVT_normalA_fast5.tar.gz.1</a></td></tr><tr class="" data-species="Escherichia coli" data-type="RNA"><td class="sub">ecoli_eligos</td><td class="nowrap">2020-08</td><td><a href="https://www.ncbi.nlm.nih.gov/bioproject/497103" class="mono">PRJNA497103</a> · <a href="https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&amp;acc=SRP166020">SRP166020</a></td><td><i>Escherichia coli</i></td><td>RNA</td><td class="mono">IVT_normalC</td><td><a class="dl-link" href="https://sra-pub-src-1.s3.amazonaws.com/SRZ190751/IVT_normalC_fast5.tar.gz.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>IVT_normalC_fast5.tar.gz.1</a></td></tr><tr class="group-start" data-species="Synthetic" data-type="RNA"><td class="group-cell">dinopore_ivt</td><td class="nowrap">2023-01</td><td><a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295" class="mono">SRP363295</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">gBlock_pureI</td><td><a class="dl-link" href="https://sra-pub-src-2.s3.amazonaws.com/SRR22198731/20200322_gBlock2_pureI.fast5.tar.gz.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>20200322_gBlock2_pureI.fast5.tar.gz.1</a></td></tr><tr class="" data-species="Synthetic" data-type="RNA"><td class="sub">dinopore_ivt</td><td class="nowrap">2023-01</td><td><a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295" class="mono">SRP363295</a></td><td><i>Synthetic</i></td><td>RNA</td><td class="mono">gBlock_G</td><td><a class="dl-link" href="https://sra-pub-src-2.s3.amazonaws.com/SRR22198735/20200322_gBlock2_G.fast5.tar.gz.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>20200322_gBlock2_G.fast5.tar.gz.1</a></td></tr><tr class="group-start" data-species="Xenopus lavies" data-type="RNA"><td class="group-cell">dinopore_xenopus</td><td class="nowrap">2022-04</td><td><a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295" class="mono">SRP363295</a></td><td><i>Xenopus lavies</i></td><td>RNA</td><td class="mono">rep3_stage1_20200812</td><td><a class="dl-link" href="https://sra-download.be-md.ncbi.nlm.nih.gov/vast/sra01/SRZ/018314/SRR18314677/20200812_xenopus_rep3_stage1_withRT.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>20200812_xenopus_rep3_stage1_withRT.tar.gz</a></td></tr><tr class="" data-species="Xenopus lavies" data-type="RNA"><td class="sub">dinopore_xenopus</td><td class="nowrap">2022-04</td><td><a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295" class="mono">SRP363295</a></td><td><i>Xenopus lavies</i></td><td>RNA</td><td class="mono">rep3_stage1_20201005</td><td><a class="dl-link" href="https://sra-download.be-md.ncbi.nlm.nih.gov/vast/sra01/SRZ/018314/SRR18314676/20201005_xenopus_rep3_stage1_withRT.tar.gz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>20201005_xenopus_rep3_stage1_withRT.tar.gz</a></td></tr><tr class="" data-species="Xenopus lavies" data-type="RNA"><td class="sub">dinopore_xenopus</td><td class="nowrap">2022-04</td><td><a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295" class="mono">SRP363295</a></td><td><i>Xenopus lavies</i></td><td>RNA</td><td class="mono">rep3_stage9_20200812</td><td><a class="dl-link" href="https://sra-pub-src-2.s3.amazonaws.com/SRR18310038/20200812_xenopus_rep3_stage9_withRT.tar.gz.2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>20200812_xenopus_rep3_stage9_withRT.tar.gz.2</a></td></tr><tr class="" data-species="Xenopus lavies" data-type="RNA"><td class="sub">dinopore_xenopus</td><td class="nowrap">2022-04</td><td><a href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295" class="mono">SRP363295</a></td><td><i>Xenopus lavies</i></td><td>RNA</td><td class="mono">rep3_stage9_20201008</td><td><a class="dl-link" href="https://sra-pub-src-1.s3.amazonaws.com/SRR18310037/20201008_xenopus_rep3_stage9_withRT.tar.gz.2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>20201008_xenopus_rep3_stage9_withRT.tar.gz.2</a></td></tr></tbody></table></div>
+
+<h2 id="after-downloading">After downloading</h2>
+<p>Place the raw archive under <code>1_raw_signal/</code> of the dataset directory and follow the <a href="pipeline.html">preprocessing pipeline</a>. If you only need the processed results, the <a href="dataset.html#processed-dataset-download">processed dataset</a> on Zenodo already contains the outputs of every pipeline step.</p>
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="dataset.html"><span class="dir">← Previous</span>Overview &amp; statistics</a><a class="next" href="pipeline.html"><span class="dir">Next →</span>Preprocessing pipeline</a></nav></main><aside class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ul><li class="depth-2"><a href="#raw-data-by-sample">Raw data by sample</a></li><li class="depth-2"><a href="#after-downloading">After downloading</a></li></ul></aside></div><div class="sidebar-backdrop"></div>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <a class="brand" href="index.html"><span class="brand-name">Nano<span>Base</span>Lib</span></a>
+      <p style="margin-top:.75rem">A multi-task benchmark dataset for Nanopore sequencing. 16 public datasets, 30 million reads, one unified preprocessing pipeline, four benchmark tasks.</p>
+      <p class="small muted">Department of Computer Science, Aalto University · Institute of Biomedicine, University of Eastern Finland</p>
+    </div>
+    <div>
+      <h4>Data</h4>
+      <ul>
+        <li><a href="dataset.html">Dataset overview</a></li>
+        <li><a href="raw.html">Raw data download</a></li>
+        <li><a href="https://zenodo.org/records/10889896">Processed data on Zenodo</a></li>
+        <li><a href="pipeline.html">Preprocessing pipeline</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Benchmarks</h4>
+      <ul>
+        <li><a href="basecall.html">Base calling</a></li>
+        <li><a href="polya.html">PolyA detection</a></li>
+        <li><a href="segment.html">Segmentation &amp; event alignment</a></li>
+        <li><a href="mod.html">Modification detection</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="software.html">Software package</a></li>
+        <li><a href="https://github.com/nanobaselib/NanoBaseLib">GitHub</a></li>
+        <li><a href="https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html">NeurIPS 2024 paper</a></li>
+        <li><a href="about.html">About &amp; citation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2024–2026 NanoBaseLib authors. Dataset: CC BY 4.0 · Software: Apache 2.0.</span>
+    <span>Built 2026-10-07</span>
+  </div>
+</footer>
+<button class="icon-btn to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button>
+<script src="assets/site.js?v=32cf222c" defer></script>
+</body>
 </html>

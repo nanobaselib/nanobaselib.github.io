@@ -1,0 +1,34 @@
+<!--meta {"title": "Modification detection benchmark", "description": "RNA modification detection benchmark of NanoBaseLib: m6A and m5C results (ROC AUC, PR AUC) for Tombo, MINES, Nanom6A, Epinano, SegPore, m6Anet and CHEUI against miCLIP, miCLIP2 and MeRIP-seq ground truths.", "lede": "From the pooled signal segments aligned to one genomic site, decide whether the central base carries a modification. Ground truth comes from orthogonal short-read assays, and the task is still far from solved.", "badges": ["Task 4 · MD", "m6A · m5C", "6 + 3 baselines"]} -->
+
+<figure class="figure-card"><img src="images/mod.png" alt="Four panels: A, adenine versus N6-methyladenosine; B, nanopore sequencing; C, current distributions of unmodified and modified A differ; D, machine-learning models classify the signal segments" loading="lazy" width="1534" height="956"><figcaption>RNA m6A detection. Panel A after Shi et al. (2019); panel D after Pratanwanich et al. (2021) and Hendra et al. (2022).</figcaption></figure>
+<p>Panel A shows the difference between adenine (A) and N6-methyladenosine (m6A). After Nanopore sequencing (B), the current distributions of unmodified and modified A separate (C), and machine-learning or deep-learning models classify the pooled signal segments at each site (D). NanoBaseLib benchmarks two modifications, m6A and m5C.</p>
+
+<h2>m6A results on mESCs_eligos</h2>
+<p>Six baselines against three independent ground truths. m6Anet, a multiple-instance-learning neural network, is best on every ground truth; SegPore and Nanom6A follow. Precision-recall AUCs below 0.5 across the board show how imbalanced and difficult site-level detection remains.</p>
+{{md_m6a_table}}
+<p class="sub">Test dataset: mESCs_eligos (mouse embryonic stem cells, Mettl3 wild type vs knockout). Bars are scaled 0–1; ★ marks the best model per column.</p>
+
+<h2>m5C results on ecoli_eligos</h2>
+<p>In the in-vitro-transcribed E. coli data every cytosine of <code>IVT_m5C</code> is modified and none in <code>IVT_normalC</code>, which gives a clean site-level ground truth. CHEUI-solo clearly outperforms both Tombo modes.</p>
+{{md_m5c_table}}
+
+<h2>Ground truth acquisition</h2>
+<p><b>m6A.</b> Modification sites and rates come from short-read assays in which an antibody against the modification pulls down modified fragments: MeRIP-seq (Meyer et al., 2012), miCLIP (Linder et al., 2015) and miCLIP2 (Körtel et al., 2021). Each assay is used as a separate ground truth because they disagree with one another.</p>
+<p><b>m5C.</b> Synthetic RNA in which every cytosine was replaced with m5C during synthesis, so all C positions are modified; the matching unmodified synthesis provides negatives.</p>
+
+<h2>Evaluation metrics</h2>
+<p>Given the predicted modification state over all test sites and the ground truth, we compute sensitivity, specificity, precision and recall, and summarise with the area under the ROC curve and the area under the precision-recall curve. The benchmark files (site lists, predictions and labels) are in <a href="https://github.com/nanobaselib/NanoBaseLib/tree/main/rna_mod_detection"><code>rna_mod_detection/</code></a> on GitHub, together with the plotting scripts.</p>
+
+<h2>Baseline models</h2>
+{{md_models_table}}
+<p>m6Anet and CHEUI are deep-learning methods; Epinano, MINES and Nanom6A are classical classifiers on hand-crafted features; SegPore fits a Gaussian mixture to segmented signals; Tombo performs a statistical test either de novo (against a canonical model) or with an alternative, modification-aware model.</p>
+
+<h2>References</h2>
+<ol class="refs">
+  <li>Shi, H., Wei, J. &amp; He, C. Where, when, and how: context-dependent functions of RNA methylation writers, readers, and erasers. <i>Molecular Cell</i> 74, 640–650 (2019).</li>
+  <li>Liu, H. et al. Accurate detection of m6A RNA modifications in native RNA sequences. <i>Nature Communications</i> 10, 4079 (2019).</li>
+  <li>Pratanwanich, P.N. et al. Identification of differential RNA modifications from nanopore direct RNA sequencing with xPore. <i>Nature Biotechnology</i> 39, 1394–1402 (2021).</li>
+  <li>Hendra, C. et al. Detection of m6A from direct RNA sequencing using a multiple instance learning framework. <i>Nature Methods</i> 19, 1590–1598 (2022).</li>
+  <li>Acera Mateos, P. et al. Prediction of m6A and m5C at single-molecule resolution reveals a transcriptome-wide co-occurrence of RNA modifications. <i>Nature Communications</i> 15, 3899 (2024).</li>
+  <li>Meyer, K.D. et al. Comprehensive analysis of mRNA methylation reveals enrichment in 3′ UTRs and near stop codons. <i>Cell</i> 149, 1635–1646 (2012). · Linder, B. et al. <i>Nature Methods</i> 12, 767–772 (2015). · Körtel, N. et al. <i>Nucleic Acids Research</i> 49, e92 (2021).</li>
+</ol>

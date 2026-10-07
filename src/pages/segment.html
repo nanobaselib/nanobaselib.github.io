@@ -1,0 +1,43 @@
+<!--meta {"title": "Segmentation & event alignment benchmark", "description": "Segmentation and event alignment benchmark of NanoBaseLib: Nanopolish eventalign, Tombo resquiggle and SegPore compared by average within-event std and log-likelihood against the ONT k-mer model.", "lede": "Split the raw current into segments and align each segment to a k-mer of the reference. An aligned k-mer is an “event”, and events are what every modification-detection method reasons about.", "badges": ["Task 3 · SA", "3 test datasets", "3 baselines"]} -->
+
+<figure class="figure-card"><img src="images/Segmention.png" alt="A raw signal trace segmented into events, each aligned to a 5-mer of the reference sequence" loading="lazy" width="2000" height="379"><figcaption>Segmentation and event alignment: each signal segment is matched to a reference k-mer; red lines are event means, shaded bands the standard deviation.</figcaption></figure>
+<p>After base calling, the read is aligned to the reference. The segmentation and event alignment task then takes the raw signal and the reference sequence, cuts the signal into small fragments, and assigns each fragment to a k-mer at a specific genomic location. For every fragment we obtain its mean and standard deviation; these two statistics drive the evaluation.</p>
+
+<h2>Results</h2>
+{{sa_table}}
+<p>SegPore gives the lowest within-event variation and the highest agreement with ONT's k-mer model on all three human RNA datasets; Tombo's resquiggle is the least consistent.</p>
+
+<h2>Ground truth and metrics</h2>
+<p>Segmentation is unsupervised, so there is no ground truth. Oxford Nanopore has, however, trained models on a large proprietary dataset and released a “standard” k-mer parameter table with the expected mean μ<sup>ref</sup><sub>s</sub> and standard deviation σ<sup>ref</sup><sub>s</sub> of the current for each k-mer <i>s</i>. Two metrics compare each tool's events against it:</p>
+<ol>
+  <li><b>Average std σ̂</b> of the raw-signal segments over all events and reads. A poorly segmented event mixes current levels and has a large standard deviation, so smaller is better.</li>
+  <li><b>Average log-likelihood L̂</b> of the estimated event mean μ<sup>est</sup><sub>s</sub> under the Gaussian with ONT's standard parameters, log N(μ<sup>est</sup><sub>s</sub> | μ<sup>ref</sup><sub>s</sub>, σ<sup>ref</sup><sub>s</sub>). An event aligned to the correct k-mer lands near the reference mean, so larger is better.</li>
+</ol>
+<span class="math">σ̂ = 1/N Σ_n [ 1/K_n Σ_k σ_est(e_{n,k}) ]
+L̂ = 1/N Σ_n [ 1/K_n Σ_k log N( μ_est(e_{n,k}) | μ_ref(s_{n,k}), σ_ref(s_{n,k}) ) ]</span>
+<p>with N reads and K<sub>n</sub> events in read n. Evaluation scripts: <a href="https://github.com/nanobaselib/NanoBaseLib/tree/main/segment_align"><code>segment_align/</code></a>.</p>
+
+<h3>What an eventalign table looks like</h3>
+<div class="code-block" data-lang="tsv"><pre><code>contig        position  reference_kmer  read_index  strand  event_index  event_level_mean  event_stdv  event_length  model_kmer  model_mean  model_stdv  standardized_level  start_idx  end_idx
+b|U00096.3|:  0         ATGTCC          4           t       81           71.02             0.582       0.00075       ATGTCC      81.5        2.83        -2.81               429        432
+b|U00096.3|:  0         ATGTCC          4           t       82           73.30             0.793       0.00075       ATGTCC      81.5        2.83        -2.20               432        435
+b|U00096.3|:  3         TCCGTA          4           t       86           94.26             4.994       0.00175       TCCGTA      91.55       2.13         0.97               447        454
+b|U00096.3|:  4         CCGTAG          4           t       87           76.73             1.508       0.0015        CCGTAG      81.09       2.14        -1.55               454        460</code></pre></div>
+<p>Each line is one event: the mapped contig and position, the reference k-mer, the estimated mean and std of the segment, and the standard <code>model_mean</code> / <code>model_stdv</code> from ONT's table. NanoBaseLib's <code>combine_nanopolish_eventalign</code> merges the rows of one k-mer into a single event.</p>
+
+<h2>Baseline models</h2>
+<h3>Tombo re-squiggle</h3>
+<p>The re-squiggle algorithm takes a read with raw signal and base calls, maps the base calls to the reference, and assigns raw signal to the reference sequence using an expected current-level model with adaptive banded dynamic programming.</p>
+<figure class="figure-card"><img src="images/adaptive_half_z_scores.png" alt="Heatmap of adaptive banded shifted half-normal scores used by Tombo resquiggle across a full read" loading="lazy" width="1600" height="1195"><figcaption>Full-read adaptive banded shifted half-normal scores in Tombo. From the Tombo documentation.</figcaption></figure>
+<h3>Nanopolish eventalign</h3>
+<p>Nanopolish's hidden Markov model was designed for consensus calling with 5-mers of a proposed sequence as the backbone and extra states for skipped and split events. Using the reference genome as the backbone instead aligns events to the reference.</p>
+<h3>SegPore eventalign</h3>
+<p>SegPore extends the k-mer model by estimating distribution parameters for both the unmodified and modified state of each k-mer, and segments the signal with a hierarchical model before alignment.</p>
+<figure class="figure-card figure-narrow"><img src="images/segpore.png" alt="Illustration of SegPore eventalign with modified and unmodified k-mer states" loading="lazy" width="1164" height="534"><figcaption>SegPore eventalign. From Cheng, Vehtari &amp; Cheng (2024).</figcaption></figure>
+
+<h2>References</h2>
+<ol class="refs">
+  <li><a href="https://nanoporetech.github.io/tombo/resquiggle.html">Tombo re-squiggle algorithm documentation.</a></li>
+  <li><a href="https://simpsonlab.github.io/2015/04/08/eventalign">Simpson, J.T. Aligning Nanopore events to a reference (2015).</a></li>
+  <li>Cheng, G., Vehtari, A. &amp; Cheng, L. Raw signal segmentation for estimating RNA modification from nanopore direct RNA sequencing data. <a href="https://www.biorxiv.org/content/10.1101/2024.01.11.575207"><i>bioRxiv</i> (2024)</a>.</li>
+</ol>

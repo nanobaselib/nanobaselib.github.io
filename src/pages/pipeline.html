@@ -1,0 +1,86 @@
+<!--meta {"title": "Preprocessing pipeline", "description": "The unified six-step preprocessing pipeline used for every NanoBaseLib dataset, with the exact commands, tool versions and limitations.", "lede": "Every dataset is re-processed from raw fast5 with the same tools and parameters. The commands below reproduce the pipeline on the 319 MB demo dataset; swap in your own data to extend NanoBaseLib.", "badges": ["6 steps", "19 tools", "Reproducible from raw data"]} -->
+
+<h2>Pipeline workflow</h2>
+<p>Public datasets arrive pre-processed with different basecallers, genome versions and tools, which makes them unfair to compare directly. NanoBaseLib therefore starts from the raw signal and runs one pipeline whose outputs become the inputs of each benchmark task. Each step can be implemented with several tools; the ones we chose follow common practice and double as the baselines in the benchmarks.</p>
+<figure class="workflow-figure">
+  <img src="images/Workflow.svg" alt="Flowchart of the six-step NanoBaseLib pipeline from raw fast5 to modification probabilities" loading="lazy" width="826" height="1115">
+  <figcaption>The unified NanoBaseLib preprocessing workflow. Steps 4 and 6 are optional and RNA-specific.</figcaption>
+</figure>
+
+<h2>Step 0: get the demo dataset</h2>
+<div class="code-block" data-lang="bash"><pre><code>git clone https://github.com/nanobaselib/NanoBaseLib.git
+cd NanoBaseLib
+curl -L -o demo_dataset.tar.gz "https://zenodo.org/records/10889896/files/demo_dataset.tar.gz?download=1"
+tar -xzf demo_dataset.tar.gz        # creates demo_dataset/ with 0_reference and 1_raw_signal
+cd demo_dataset</code></pre></div>
+
+<h2>Step 1: data standardization</h2>
+<p>Raw data come as single-fast5, multi-fast5 or pod5. Everything is converted to <b>multi-fast5</b>, the format all downstream tools accept. If you want to use Dorado, also produce pod5.</p>
+<div class="code-block" data-lang="bash"><pre><code># single-fast5 → multi-fast5 (not needed for the demo dataset)
+single_to_multi_fast5 --input_path 1_raw_signal/single_fast5 \
+    --save_path 1_raw_signal/multi_fast5 \
+    --filename_base demo --batch_size 4000 --recursive
+
+# multi-fast5 → pod5 (only if Dorado is used)
+pod5 convert fast5 1_raw_signal/multi_fast5/*.fast5 \
+    --output 1_raw_signal/multi_pod5 \
+    --one-to-one 1_raw_signal/multi_fast5</code></pre></div>
+
+<h2>Step 2: base calling</h2>
+<p>Guppy 6.0.1 (high-accuracy models) is the reference basecaller for all datasets; Dorado is run in addition. Configuration files per chemistry are listed in the <a href="basecall.html#basecaller-configurations">base calling benchmark</a>.</p>
+<div class="code-block" data-lang="bash"><pre><code>guppy_basecaller -c rna_r9.4.1_70bps_hac.cfg --num_callers 20 --cpu_threads_per_caller 20 \
+    -i 1_raw_signal/multi_fast5 -s 2_base_called/guppy --fast5_out
+
+dorado basecaller rna002_70bps_hac@v3 1_raw_signal/multi_pod5 \
+    --estimate-poly-a &gt; 2_base_called/dorado/dorado.bam</code></pre></div>
+
+<h2>Step 3: mapping to the reference</h2>
+<p>Reads are indexed for Nanopolish, aligned with minimap2 in <code>map-ont</code> mode, then sorted and filtered (<code>-F 2324</code> drops unmapped, secondary, supplementary and reverse-strand records for direct RNA).</p>
+<div class="code-block" data-lang="bash"><pre><code>cd 2_base_called
+find guppy -type f -name "*.fastq" -exec cat {} + &gt; demo_dataset.fastq
+nanopolish index --directory=../1_raw_signal/multi_fast5 demo_dataset.fastq
+minimap2 -ax map-ont --MD -t 8 --secondary=no ../0_reference/ref.fa demo_dataset.fastq \
+    | samtools sort -o reads-ref.sorted.bam -T reads.tmp
+
+samtools view -b -F 2324 reads-ref.sorted.bam &gt; reads-ref.sorted.filter.bam
+samtools index reads-ref.sorted.filter.bam
+samtools quickcheck reads-ref.sorted.filter.bam
+samtools view -h -o reads-ref.sorted.filter.sam reads-ref.sorted.filter.bam</code></pre></div>
+
+<h2>Step 4 (optional): polyA detection</h2>
+<p>RNA only. Reads without a detectable poly(A) tail are low quality and can be filtered out. NanoBaseLib ships results from both Nanopolish polya and Tailfindr.</p>
+<div class="code-block" data-lang="bash"><pre><code>nanopolish polya --threads=32 --reads=demo_dataset.fastq --bam=reads-ref.sorted.filter.bam \
+    --genome=../0_reference/ref.fa &gt; ../4_nanopolish/polya.tsv
+grep -E 'PASS|readname' ../4_nanopolish/polya.tsv &gt; ../4_nanopolish/polya-pass-only-with-head.tsv</code></pre></div>
+<div class="code-block" data-lang="R"><pre><code>library(tailfindr)
+df &lt;- find_tails(fast5_dir = '2_base_called/guppy/workspace',
+                 save_dir = '3_tailfindr',
+                 csv_filename = 'tails.csv',
+                 num_cores = 20)</code></pre></div>
+
+<h2>Step 5: segmentation and event alignment</h2>
+<p>The raw signal is segmented and each segment aligned to a reference k-mer. Three tools are run: Nanopolish eventalign (with <code>--scale-events</code> and <code>--signal-index</code>), Tombo resquiggle (which needs single-fast5 input), and SegPore eventalign.</p>
+<div class="code-block" data-lang="bash"><pre><code>nanopolish eventalign --reads demo_dataset.fastq \
+    --bam reads-ref.sorted.filter.bam \
+    --genome ../0_reference/ref.fa \
+    --signal-index --scale-events \
+    --summary ../4_nanopolish/summary.txt \
+    --threads 32 &gt; ../4_nanopolish/eventalign.txt
+
+cd ..
+mkdir -p 5_tombo/single_reads
+for i in $(ls 2_base_called/guppy/workspace); do
+  multi_to_single_fast5 --input_path 2_base_called/guppy/workspace/${i} \
+      --save_path 5_tombo/single_reads --recursive -t 20
+done
+tombo resquiggle 5_tombo/single_reads 0_reference/ref.fa --overwrite --processes 20</code></pre></div>
+
+<h2>Step 6 (optional): modification detection</h2>
+<p>Estimates the probability that a nucleotide (or k-mer) at a genomic site is modified. Each tool handles one modification type at a time; see the <a href="mod.html">modification detection benchmark</a> for the tools and how to run them on the eventalign output.</p>
+
+<h2>Batch effects and normalization</h2>
+<p>Sequencing devices are an important source of batch effects. The pipeline mitigates them in two ways: device-specific parameters convert the integer signal to picoamperes, and downstream tools further normalize per read (Tombo: median/MAD; Nanopolish: per-read scaling; SegPore: polyA-based standardization). Details are on the <a href="signal.html">signal processing</a> page.</p>
+
+<h2>Processing tools, versions and limitations</h2>
+{{tools_table}}
+<p class="sub">Guppy and Dorado downloads require a free Oxford Nanopore community account.</p>

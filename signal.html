@@ -1,117 +1,147 @@
 <!doctype html>
 <html lang="en">
-  <head>
-  	<title>NanoBaseLib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-			    <div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-					</button>
-                </div>
-				<div class="img bg-wrap text-center py-3" style="background-image: url(images/bg.avif);">
-	  			    <div class="user-logo">
-	  				    <div class="img" style="background-image: url(images/logo_small.svg);"></div>
-	  			     </div>
-	  	        </div>
-                <ul class="list-unstyled components mb-5">
-                    <li>
-                        <a href="index.html"><span class="fa fa-home mr-3"></span> Home </a>
-                    </li>
-                    <li>
-                        <a href="dataset.html"><span class="fa fa-cloud-download mr-3 notif"></span> Dataset </a>
-                    </li>
-					<li>
-                        <a href="pipeline.html"><span class="fa fa-sort-amount-desc mr-3"></span>  Pipeline </a>
-                    </li>
-					<li class="active">
-                        <a href="signal.html"><span class="fa fa-signal mr-3"></span> Signal Process </a>
-                    </li>
-                    <li>
-                        <a href="basecall.html"> <span class="fa fa-line-chart mr-3"></span> Base Calling </a>
-                    </li>
-                    <li>
-                        <a href="ploya.html"><span class="fa fa-scissors mr-3"></span> PolyA Dection </a>
-                    </li>
-                    <li>
-                        <a href="segment.html"><span class="fa fa-align-left mr-3"></span> Segmentation </a>
-                    </li>
-					<li>
-                        <a href="mod.html"><span class="fa fa-hourglass-half mr-3"></span> Modification Dection </a>
-                    </li>
-                    <li>
-                        <a href="software.html"><span class="fa fa-github mr-3"></span> Software </a>
-                    </li>
-                    <li>
-                        <a href="about.html"><span class="fa fa-info-circle mr-3"></span> About </a>
-                    </li>
-                </ul>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nanopore signal processing · NanoBaseLib</title>
+<meta name="description" content="How raw Nanopore current signals are stored in fast5, converted to picoamperes, and standardized by Tombo, Nanopolish and SegPore.">
+<link rel="canonical" href="https://nanobaselib.github.io/signal.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NanoBaseLib">
+<meta property="og:title" content="Nanopore signal processing · NanoBaseLib">
+<meta property="og:description" content="How raw Nanopore current signals are stored in fast5, converted to picoamperes, and standardized by Tombo, Nanopolish and SegPore.">
+<meta property="og:url" content="https://nanobaselib.github.io/signal.html">
+<meta property="og:image" content="https://nanobaselib.github.io/images/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1316" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=32cf222c">
+<script>
+/* apply saved theme before first paint to avoid a flash */
+(function(){try{var t=localStorage.getItem('nbl-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
+</script>
 
-    	</nav>
+</head>
+<body class="layout-docs">
+<a class="skip-link" href="#main">Skip to content</a>
 
-            <!-- Page Content  -->
-            <div id="content" class="p-4 p-md-5 pt-5">
-	         <h2 style="font-family:Georgia">Nanopore signal processing</h2>	
-		        <br/>	
-                <table class="noBorder" style="border: 0; border-collapse: collapse;">
-	                <tr>
-                        <th>  <i class="fa fa-circle-o"> </i>  </th>
-			            <th>  <h3 style="font-family:Georgia"> &nbsp; Raw signal conversion </h3> </th>
-			        </tr>
-		        </table>
-		
-                <figure>
-				    <img src="images/fast5_1.png" width="45%" />
-					&nbsp; &nbsp; &nbsp;
-					<img src="images/fast5_2.png" width="45%" />
-				</figure>					
-		        <p> The illustration above depicts the structure of a single-fast5 file from Nanopore sequencing. In the left figure, the "Signal" data represents the current passing through the pore (type: int16). Oxford Nanopore Technology employs different pores (proteins) in various products. A single flow cell in the sequencing device can contain between 512 and 2675 pores, each referred to as a channel. As shown in the right figure, the fast5 file also includes attributes associated with the channel through which the read passes. These parameters include channel_number (the channel number from which the read was acquired), digitisation (the digitisation is the number of quantisation levels in the Analog to Digital Converter (ADC)), offset (the ADC offset error), range (the full scale measurement range in pico amperes), and sampling_rate (sampling frequency of the ADC).</p>
-				<p> The raw signal can be converted into pico Ampere (pA) values using attributes available in the channel_id group by the equation : </p>
-				<center> <p style="color:red;"> signal_in_pico_ampere = (raw_signal_value + offset) * range / digitisation </p> </center>
-				<p/>After the conversion, the pA current signal will be utilized for downstream tasks. More details about all attributes can be found in [5].<p>
-				<table class="noBorder" style="border: 0; border-collapse: collapse;">
-	                <tr>
-                        <th>  <i class="fa fa-circle-o"> </i>  </th>
-			            <th>  <h3 style="font-family:Georgia"> &nbsp; Signal standardization or normalization </h3> </th>
-			        </tr>
-		        </table>
-				<p>Oxford Nanopore Technologies provides "standard" parameters for each kmer [3], as illustrated in the figure below. To enhance the accuracy of analyses, some tools attempt to further standardize or normalize the signal based on these parameters.  For example, Tombo employs median shift and median absolute deviation (MAD) to normalize the current signal to a 0-1 range. Nanopolish uses scaling parameters to account for per-read variations, while SegPore utilizes the polyA tail to standardize the signal for each read. </p>
-				<center>
-		          <img src="images/kmer_table.png" width="25%" />
-			    </center>
-                <h5 style="font-family:Georgia"> Tombo </h5> 
-				Tombo uses median shift and MAD (median absolute deviation) scale parameters to normalize the signal:
-				<center> <p style="color:red;"> norm_signal = (signal - median) / MAD </p> </center>				
-				<h5 style="font-family:Georgia"> Nanopolish </h5> 
-				<p> For each read, Nanopolish estimates a scale parameter to standardize the signal. You can add the <i>--scale-events</i> option in the <b>nanopolish eventalign</b> command to enable this feature. More details can be found in [6]. </p> 
-                <br/>
-				<h5 style="font-family:Georgia"> SegPore </h5> 
-				SegPore first detects the polyA tail and calculates its mean (polyA_mu) and standard deviation (polyA_sigma). These values are then used to standardize the signal:
-				<center> <p style="color:red;"> stand_signal = [(signal - polyA_mu) / ployA_sigma ] * POLYA_STANDARD_SIGMA + POLYA_STANDARD_MU </p> </center>	
-				In which, the POLYA_STANDARD_MU and POLYA_STANDARD_SIGMA represent the mean and standard deviation of the kmer "AAAAA" from ONT's standard kmer table. 
-				<br/>
-				<br/>
-				<h5 style="font-family:Georgia">Reference</h5>
-				<p> [1] https://github.com/nanoporetech/taiyaki/blob/master/docs/FILE_FORMATS.md </p>
-				<p> [2] Gamaarachchi, H., Samarakoon, H., Jenner, S.P. et al. Fast nanopore sequencing data analysis with SLOW5. Nat Biotechnol 40, 1026–1029 (2022).</p>
-	            <p> [3] https://github.com/nanoporetech/kmer_models </p>
-				<p> [4] https://nanoporetech.github.io/tombo/resquiggle.html </p>
-				<p> [5] https://static-content.springer.com/esm/art%3A10.1038%2Fs41587-021-01147-4/MediaObjects/41587_2021_1147_MOESM1_ESM.pdf </p>
- 				<p> [6] https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.4184/MediaObjects/41592_2017_BFnmeth4184_MOESM258_ESM.pdf </p>
-	        </div>  
-	  
-	</div>
-	<script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+<header class="site-header">
+  <div class="inner">
+    <button class="icon-btn menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <a class="brand" href="index.html" aria-label="NanoBaseLib home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0079cd"/><stop offset="1" stop-color="#19c6b3"/></linearGradient></defs><circle cx="16" cy="16" r="15" fill="url(#bm)"/><path d="M5 18h3l2-7 3 12 3-14 3 10 2-5 2 4h4" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="brand-name">Nano<span>Base</span>Lib</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="dataset.html">Datasets</a>
+      <a href="pipeline.html" aria-current="true">Pipeline</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="software.html">Software</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href="https://github.com/nanobaselib/NanoBaseLib" aria-label="GitHub repository" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://zenodo.org/records/10889896" aria-label="Download from Zenodo" title="Zenodo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html" aria-current="page">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper, team &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Pipeline</div><h1>Nanopore signal processing</h1><p class="lede">What is inside a fast5 file, how the integer signal becomes a current in picoamperes, and how the three event-alignment tools normalize it before any model sees it.</p><div class="meta"><span class="badge">fast5 anatomy</span><span class="badge">pA conversion</span><span class="badge">Normalization</span></div></div>
+
+<h2 id="raw-signal-conversion">Raw signal conversion</h2>
+<div class="two-col">
+  <figure class="figure-card" style="margin:0"><img src="images/fast5_1.png" alt="HDF5 viewer showing the Signal dataset of a single-fast5 file" loading="lazy" width="1462" height="950"><figcaption>The <code>Signal</code> dataset of a single-fast5 file (int16).</figcaption></figure>
+  <figure class="figure-card" style="margin:0"><img src="images/fast5_2.png" alt="HDF5 viewer showing channel_id attributes: channel_number, digitisation, offset, range, sampling_rate" loading="lazy" width="1462" height="950"><figcaption>The <code>channel_id</code> attributes needed to convert the signal.</figcaption></figure>
+</div>
+<p>A fast5 file is an HDF5 container. The <code>Signal</code> array is the raw current passing through the pore, stored as 16-bit integers. Oxford Nanopore uses different pore proteins in different products, and a single flow cell holds between 512 and 2,675 pores, each called a <em>channel</em>. The file also stores channel attributes: <code>channel_number</code>, <code>digitisation</code> (number of quantisation levels of the analog-to-digital converter), <code>offset</code> (ADC offset error), <code>range</code> (full-scale measurement range in picoamperes) and <code>sampling_rate</code> (ADC sampling frequency).</p>
+<p>The raw integers are converted to picoamperes with the attributes of the <code>channel_id</code> group:</p>
+<span class="math">signal_pA = (raw_signal + offset) × range / digitisation</span>
+<p>All downstream tasks work on the pA signal. A full description of the attributes is in the <a href="https://github.com/nanoporetech/taiyaki/blob/master/docs/FILE_FORMATS.md">taiyaki file-format notes</a> and the supplementary material of Wang et al. (2021); SLOW5 (Gamaarachchi et al., 2022) is a faster alternative container with the same content.</p>
+
+<h2 id="signal-standardization-and-normalization">Signal standardization and normalization</h2>
+<p>Oxford Nanopore publishes a “standard” k-mer table for each pore model: the expected mean and standard deviation of the current for every k-mer (1,024 rows for 5-mers). Tools standardize each read against this table in different ways, and the choice matters for every downstream benchmark.</p>
+<figure class="figure-card figure-narrow"><img src="images/kmer_table.png" alt="Excerpt of the ONT standard k-mer table with level_mean and level_stdv columns" loading="lazy" width="411" height="185"><figcaption>Excerpt of the ONT k-mer model (<a href="https://github.com/nanoporetech/kmer_models">nanoporetech/kmer_models</a>).</figcaption></figure>
+
+<h3 id="tombo">Tombo</h3>
+<p>Tombo normalizes with a median shift and a median-absolute-deviation (MAD) scale:</p>
+<span class="math">norm_signal = (signal_pA − median) / MAD</span>
+
+<h3 id="nanopolish">Nanopolish</h3>
+<p>Nanopolish estimates a per-read scale parameter and applies it when <code>--scale-events</code> is passed to <code>nanopolish eventalign</code>. The <code>model_mean</code> and <code>model_stdv</code> columns of its output are the standard k-mer parameters; <code>standardized_level</code> is the z-score of the event against them.</p>
+
+<h3 id="segpore">SegPore</h3>
+<p>SegPore first detects the poly(A) tail of each read and computes its mean μ<sub>polyA</sub> and standard deviation σ<sub>polyA</sub>, then maps the read onto the standard parameters of the k-mer <code>AAAAA</code>:</p>
+<span class="math">stand_signal = (signal_pA − μ_polyA) / σ_polyA × σ_stand_polyA + μ_stand_polyA</span>
+<p>where μ<sub>stand_polyA</sub> and σ<sub>stand_polyA</sub> are the mean and standard deviation of <code>AAAAA</code> in ONT's k-mer table.</p>
+
+<h2 id="references">References</h2>
+<ol class="refs">
+  <li><a href="https://github.com/nanoporetech/taiyaki/blob/master/docs/FILE_FORMATS.md">Oxford Nanopore Technologies. Taiyaki file formats.</a></li>
+  <li>Gamaarachchi, H., Samarakoon, H., Jenner, S.P. et al. Fast nanopore sequencing data analysis with SLOW5. <i>Nature Biotechnology</i> 40, 1026–1029 (2022).</li>
+  <li><a href="https://github.com/nanoporetech/kmer_models">Oxford Nanopore Technologies. K-mer models.</a></li>
+  <li><a href="https://nanoporetech.github.io/tombo/resquiggle.html">Tombo re-squiggle algorithm documentation.</a></li>
+  <li>Wang, Y., Zhao, Y., Bollas, A., Wang, Y. &amp; Au, K.F. Nanopore sequencing technology, bioinformatics and applications. <i>Nature Biotechnology</i> 39, 1348–1365 (2021). <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41587-021-01147-4/MediaObjects/41587_2021_1147_MOESM1_ESM.pdf">Supplementary information</a>.</li>
+  <li>Simpson, J.T. et al. Detecting DNA cytosine methylation using nanopore sequencing. <i>Nature Methods</i> 14, 407–410 (2017). <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.4184/MediaObjects/41592_2017_BFnmeth4184_MOESM258_ESM.pdf">Supplementary note on event scaling</a>.</li>
+</ol>
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="pipeline.html"><span class="dir">← Previous</span>Preprocessing pipeline</a><a class="next" href="benchmarks.html"><span class="dir">Next →</span>Overview</a></nav></main><aside class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ul><li class="depth-2"><a href="#raw-signal-conversion">Raw signal conversion</a></li><li class="depth-2"><a href="#signal-standardization-and-normalization">Signal standardization and normalization</a></li><li class="depth-3"><a href="#tombo">Tombo</a></li><li class="depth-3"><a href="#nanopolish">Nanopolish</a></li><li class="depth-3"><a href="#segpore">SegPore</a></li><li class="depth-2"><a href="#references">References</a></li></ul></aside></div><div class="sidebar-backdrop"></div>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <a class="brand" href="index.html"><span class="brand-name">Nano<span>Base</span>Lib</span></a>
+      <p style="margin-top:.75rem">A multi-task benchmark dataset for Nanopore sequencing. 16 public datasets, 30 million reads, one unified preprocessing pipeline, four benchmark tasks.</p>
+      <p class="small muted">Department of Computer Science, Aalto University · Institute of Biomedicine, University of Eastern Finland</p>
+    </div>
+    <div>
+      <h4>Data</h4>
+      <ul>
+        <li><a href="dataset.html">Dataset overview</a></li>
+        <li><a href="raw.html">Raw data download</a></li>
+        <li><a href="https://zenodo.org/records/10889896">Processed data on Zenodo</a></li>
+        <li><a href="pipeline.html">Preprocessing pipeline</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Benchmarks</h4>
+      <ul>
+        <li><a href="basecall.html">Base calling</a></li>
+        <li><a href="polya.html">PolyA detection</a></li>
+        <li><a href="segment.html">Segmentation &amp; event alignment</a></li>
+        <li><a href="mod.html">Modification detection</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="software.html">Software package</a></li>
+        <li><a href="https://github.com/nanobaselib/NanoBaseLib">GitHub</a></li>
+        <li><a href="https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html">NeurIPS 2024 paper</a></li>
+        <li><a href="about.html">About &amp; citation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2024–2026 NanoBaseLib authors. Dataset: CC BY 4.0 · Software: Apache 2.0.</span>
+    <span>Built 2026-10-07</span>
+  </div>
+</footer>
+<button class="icon-btn to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button>
+<script src="assets/site.js?v=32cf222c" defer></script>
 </body>
 </html>

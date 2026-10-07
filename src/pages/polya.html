@@ -1,0 +1,38 @@
+<!--meta {"title": "PolyA detection benchmark", "description": "PolyA tail detection benchmark of NanoBaseLib: detection rate and tail-length estimation of Nanopolish polya, Tailfindr and Dorado on synthetic datasets with known tail lengths.", "lede": "Polyadenylation adds a poly(A) tail to messenger RNA. Finding that tail in the raw signal is a quality-control step after base calling, and three synthetic datasets with known tail lengths make it a measurable task.", "badges": ["Task 2 · PD", "7 test datasets", "3 baselines"]} -->
+
+<figure class="figure-card"><img src="images/polya.png" alt="Top: polyadenylation of an mRNA transcript. Bottom: the poly(A) tail appears as a long flat segment in the nanopore current between adapter and transcript" loading="lazy" width="1452" height="1019"><figcaption>Polyadenylation and its signature in the Nanopore signal. Top panel adapted from Weil (2015).</figcaption></figure>
+<p>The poly(A) tail is used in library preparation, so a read without a detectable tail is flagged as low quality and removed from downstream analysis. The task outputs a detection flag, the start and end of the tail on the raw signal, and the tail length in nucleotides. Only the tail length has ground truth; the borders cannot be measured independently with current technology.</p>
+
+<h2>Detection rate benchmark</h2>
+<p>Seven test datasets. Tailfindr detects a tail in the largest fraction of reads on every dataset, while Nanopolish polya varies strongly because it relies on alignment to the reference genome; Tailfindr and Dorado are alignment-free.</p>
+<figure class="figure-card"><img src="images/polya_rate.svg" alt="Grouped bar chart of polyA detection rate for Dorado 0.5.3, Nanopolish 0.14.0 and Tailfindr 1.4 across seven test datasets" loading="lazy" width="1440" height="360"><figcaption>PolyA detection rate (fraction of reads with a detected tail) per test dataset.</figcaption></figure>
+
+<h2>Tail length estimation benchmark</h2>
+<p>On <code>ont_ployA_standard</code> the six samples carry synthetic tails of 10, 15, 30, 60, 80 and 100 nucleotides. All three methods give similar distributions; the mean squared error against the known length is the metric.</p>
+<figure class="figure-card"><img src="images/ont_polyA_standard.svg" alt="Box plots of estimated polyA tail length per sample for three tools, with the true lengths 10 to 100 marked" loading="lazy" width="729" height="502"><figcaption>Estimated tail length per sample. Black lines mark the ground truth (10, 15, 30, 60, 80, 100 nt).</figcaption></figure>
+<p><a class="btn" href="https://zenodo.org/records/10889896/files/ont_ployA_standard_benchmark.tar.gz?download=1">Download ont_ployA_standard benchmark</a></p>
+
+<h2>Ground truth</h2>
+<p>Three synthetic datasets use tails of known length: <code>ont_ployA_standard</code> (10–100 nt, six samples) and <code>eGFP_polyA_DNA</code> / <code>eGFP_polyA_RNA</code> (10, 30, 40, 60, 100 and 150 nt, six samples each). For the ONT standard the sample name is the label. For the eGFP datasets samples are organised by kit and replicate, and the label is recovered from a barcode: expected barcode sequences are aligned against the read sequence preceding the eGFP alignment.</p>
+<div class="two-col">
+  <figure class="figure-card" style="margin:0"><img src="images/tailfindr_barcode.png" alt="Table of barcode sequences assigned to each polyA length in the eGFP datasets" loading="lazy" width="1871" height="851"><figcaption>Barcode-to-tail-length assignment in the eGFP datasets.</figcaption></figure>
+  <figure class="figure-card" style="margin:0"><img src="images/tailfindr_lable.png" alt="Example label table mapping read names to barcode and polyA length" loading="lazy" width="985" height="651"><figcaption>Resulting per-read label file.</figcaption></figure>
+</div>
+<p><a class="btn" href="https://drive.google.com/file/d/1Pox89PxnJ5BlRf4_sZAAP0d5w6DAW-rA/view?usp=sharing">Download all label files (tailfindr_label.tar.gz)</a></p>
+
+<h2>Baseline models</h2>
+{{polya_models_table}}
+<h3>Nanopolish polya</h3>
+<p>A hidden Markov model segments each raw signal into five regions: start, leader, adapter, poly(A) tail and transcript, then converts the tail duration into a length estimate.</p>
+<figure class="figure-card figure-narrow"><img src="images/nanopolish_polya.png" alt="A squiggle segmented by the HMM into start, leader, adapter, polyA tail and transcript regions, with two cliffs marked in the tail" loading="lazy" width="1158" height="447"><figcaption>HMM segmentation of a read: start (cyan), leader (yellow), adapter (red), poly(A) tail (green), transcript (purple). From Workman et al. (2019).</figcaption></figure>
+<h3>Tailfindr</h3>
+<p>An R package that estimates poly(A) length from raw fast5 data without alignment, for both RNA and DNA reads including reverse-complement reads with poly(T) stretches.</p>
+<h3>Dorado</h3>
+<p>ONT's current basecaller estimates tail length as part of base calling when run with <code>--estimate-poly-a</code>; it is the only deep-learning method among the baselines.</p>
+
+<h2>References</h2>
+<ol class="refs">
+  <li>Weil, T.T. Post-transcriptional regulation of early embryogenesis. <i>F1000Prime Reports</i> 7 (2015).</li>
+  <li>Workman, R.E., Tang, A.D., Tang, P.S. et al. Nanopore native RNA sequencing of a human poly(A) transcriptome. <i>Nature Methods</i> 16, 1297–1305 (2019).</li>
+  <li>Krause, M., Niazi, A.M., Labun, K. et al. tailfindr: alignment-free poly(A) length measurement for Oxford Nanopore RNA and DNA sequencing. <i>RNA</i> 25, 1229–1241 (2019).</li>
+</ol>

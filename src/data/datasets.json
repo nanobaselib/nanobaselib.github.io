@@ -1,0 +1,1149 @@
+{
+ "version": "1.0.0",
+ "zenodo": "https://zenodo.org/records/10889896",
+ "zenodo_doi": "10.5281/zenodo.10889896",
+ "tasks": {
+  "BC": "Base calling",
+  "PD": "PolyA detection",
+  "SA": "Segmentation & event alignment",
+  "MD": "Modification detection"
+ },
+ "datasets": [
+  {
+   "id": "ont_ployA_standard",
+   "published": "2018-09",
+   "accession": "PRJEB28423",
+   "accession_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB28423",
+   "species": "Synthetic",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "10xpolyA",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": true,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 24,
+     "n_reads": 92428,
+     "avg_signal_len": 59001.85,
+     "avg_base_len": 1207.22,
+     "raw_links": [
+      {
+       "label": "10xpolyA.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764782/10xpolyA.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "15xpolyA",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": true,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 23,
+     "n_reads": 91084,
+     "avg_signal_len": 56518.49,
+     "avg_base_len": 1216.28,
+     "raw_links": [
+      {
+       "label": "15xpolyA.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764783/15xpolyA.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "30xpolyA",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": true,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 16,
+     "n_reads": 63886,
+     "avg_signal_len": 54111.54,
+     "avg_base_len": 1192.65,
+     "raw_links": [
+      {
+       "label": "30xpolyA.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764784/30xpolyA.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "60xpolyA",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": true,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 28,
+     "n_reads": 108314,
+     "avg_signal_len": 57397.07,
+     "avg_base_len": 1172.57,
+     "raw_links": [
+      {
+       "label": "60xpolyA.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764787/60xpolyA.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "80xpolyA",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": true,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 103,
+     "n_reads": 409634,
+     "avg_signal_len": 47166.28,
+     "avg_base_len": 859.32,
+     "raw_links": [
+      {
+       "label": "80xpolyA.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764788/80xpolyA.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "100xpolyA",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": true,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 70,
+     "n_reads": 279895,
+     "avg_signal_len": 61938.01,
+     "avg_base_len": 1173.39,
+     "raw_links": [
+      {
+       "label": "100xpolyA.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764789/100xpolyA.tar.gz"
+      }
+     ]
+    }
+   ],
+   "raw_size": "81 GB"
+  },
+  {
+   "id": "eGFP_polyA_DNA",
+   "published": "2019-06",
+   "accession": "PRJEB31806",
+   "accession_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB31806",
+   "species": "Synthetic",
+   "type": "cDNA",
+   "samples": [
+    {
+     "name": "dna_rep1_sqklsk108_flipflop",
+     "flowcell": "flo-min106",
+     "kit": "sqk-lsk108",
+     "tasks": {
+      "BC": true,
+      "PD": true,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 121,
+     "n_reads": 484000,
+     "avg_signal_len": 8956.69,
+     "avg_base_len": 763.46,
+     "raw_links": [
+      {
+       "label": "dna_rep1_sqklsk108_flipflop.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349891/dna_rep1_sqklsk108_flipflop_basecalled.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "dna_rep2_sqklsk109_flipflop",
+     "flowcell": "flo-min106",
+     "kit": "sqk-lsk109",
+     "tasks": {
+      "BC": true,
+      "PD": true,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 71,
+     "n_reads": 280428,
+     "avg_signal_len": 21619.23,
+     "avg_base_len": 1667.14,
+     "raw_links": [
+      {
+       "label": "dna_rep2_sqklsk109_flipflop.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349892/dna_rep2_sqklsk109_flipflop_basecalled.tar.gz"
+      }
+     ]
+    }
+   ],
+   "raw_size": "43 GB"
+  },
+  {
+   "id": "eGFP_polyA_RNA",
+   "published": "2019-06",
+   "accession": "PRJEB31806",
+   "accession_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB31806",
+   "species": "Synthetic",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "rna_rep1_sqkrna001_plus_rt",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": true,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 231,
+     "n_reads": 922826,
+     "avg_signal_len": 57068.67,
+     "avg_base_len": 1126.53,
+     "raw_links": [
+      {
+       "label": "rna_rep1_sqkrna001_plus_rt.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349886/rna_rep1_sqkrna001_plus_rt_standard_basecalled.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "rna_rep2_sqkrna001_plus_rt",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": true,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 364,
+     "n_reads": 1452042,
+     "avg_signal_len": 50103.37,
+     "avg_base_len": 928.41,
+     "raw_links": [
+      {
+       "label": "rna_rep2_sqkrna001_plus_rt.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349887/rna_rep2_sqkrna001_plus_rt_standard_basecalled.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "rna_rep3_sqkrna002_minus_rt",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": true,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 149,
+     "n_reads": 592571,
+     "avg_signal_len": 30888.61,
+     "avg_base_len": 465.02,
+     "raw_links": [
+      {
+       "label": "rna_rep3_sqkrna002_minus_rt.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR334/ERR3349888/rna_rep3_sqkrna002_minus_rt_standard_basecalled.tar.gz"
+      }
+     ]
+    }
+   ],
+   "raw_size": "529 GB"
+  },
+  {
+   "id": "lambda_phage",
+   "published": "2021-03",
+   "accession": "PRJNA926802",
+   "accession_url": "https://www.ebi.ac.uk/ena/browser/view/PRJNA926802",
+   "species": "lambda phage",
+   "type": "DNA",
+   "samples": [
+    {
+     "name": "VER5940",
+     "flowcell": "flo-flg001",
+     "kit": "sqk-lsk109",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 114,
+     "n_reads": 113514,
+     "avg_signal_len": 116272.62,
+     "avg_base_len": 9561.99,
+     "raw_links": [
+      {
+       "label": "single_fast5_lambdaphage.tar.1",
+       "href": "https://sra-pub-src-2.s3.amazonaws.com/SRR23197167/single_fast5_lambdaphage.tar.1"
+      }
+     ]
+    }
+   ],
+   "raw_size": "19 GB"
+  },
+  {
+   "id": "NA12878",
+   "published": "2019-06",
+   "accession": "PRJEB23027",
+   "accession_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB23027",
+   "species": "Homo sapiens",
+   "type": "DNA",
+   "samples": [
+    {
+     "name": "FAB42828",
+     "flowcell": "flo-min106",
+     "kit": "sqk-lsk108",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 9,
+     "n_reads": 33633,
+     "avg_signal_len": 131148.91,
+     "avg_base_len": 6810.35,
+     "raw_links": [
+      {
+       "label": "FAB42828-288548394_Multi_Fast5.tar",
+       "href": "https://s3.amazonaws.com/nanopore-human-wgs/rel6/MultiFast5Tars/FAB42828-288548394_Multi_Fast5.tar"
+      },
+      {
+       "label": "Raw fast5 page",
+       "href": "https://github.com/nanopore-wgs-consortium/NA12878/blob/master/Genome.md"
+      }
+     ]
+    },
+    {
+     "name": "FAF04090",
+     "flowcell": "flo-min106",
+     "kit": "sqk-lsk108",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 24,
+     "n_reads": 62833,
+     "avg_signal_len": 509826.89,
+     "avg_base_len": 17801.22,
+     "raw_links": [
+      {
+       "label": "FAF04090-3842965088_Multi_Fast5.tar",
+       "href": "https://s3.amazonaws.com/nanopore-human-wgs/rel6/MultiFast5Tars/FAF04090-3842965088_Multi_Fast5.tar"
+      },
+      {
+       "label": "Raw fast5 page",
+       "href": "https://github.com/nanopore-wgs-consortium/NA12878/blob/master/Genome.md"
+      }
+     ]
+    },
+    {
+     "name": "FAF09968",
+     "flowcell": "flo-min106",
+     "kit": "sqk-lsk108",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 6,
+     "n_reads": 21947,
+     "avg_signal_len": 334920.97,
+     "avg_base_len": 53615.01,
+     "raw_links": [
+      {
+       "label": "FAF09968-3439856925_Multi_Fast5.tar",
+       "href": "https://s3.amazonaws.com/nanopore-human-wgs/rel6/MultiFast5Tars/FAF09968-3439856925_Multi_Fast5.tar"
+      },
+      {
+       "label": "Raw fast5 page",
+       "href": "https://github.com/nanopore-wgs-consortium/NA12878/blob/master/Genome.md"
+      }
+     ]
+    }
+   ],
+   "raw_size": "68 GB"
+  },
+  {
+   "id": "curlcake",
+   "published": "2019-07",
+   "accession": "PRJNA511582",
+   "accession_url": "https://www.ebi.ac.uk/ena/browser/view/PRJNA511582",
+   "species": "Synthetic",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "m6A-mod-rep1",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "m6A"
+     },
+     "n_fast5": 34,
+     "n_reads": 134374,
+     "avg_signal_len": 69745.77,
+     "avg_base_len": 850.16,
+     "raw_links": [
+      {
+       "label": "RNAAB090763.fast5.tar.gz.3",
+       "href": "https://sra-pub-src-1.s3.amazonaws.com/SRR8767351/RNAAB090763.fast5.tar.gz.3"
+      }
+     ]
+    },
+    {
+     "name": "m6A-mod-rep2",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "m6A"
+     },
+     "n_fast5": 160,
+     "n_reads": 638860,
+     "avg_signal_len": 58341.88,
+     "avg_base_len": 835.01,
+     "raw_links": [
+      {
+       "label": "RNA081120182.fast5.tar.gz.2",
+       "href": "https://sra-pub-src-1.s3.amazonaws.com/SRR8767349/RNA081120182.fast5.tar.gz.2"
+      }
+     ]
+    },
+    {
+     "name": "non-mod-rep1",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 17,
+     "n_reads": 66736,
+     "avg_signal_len": 57930.6,
+     "avg_base_len": 866.98,
+     "raw_links": [
+      {
+       "label": "RNAAB089716.fast5.tar.gz.4",
+       "href": "https://sra-pub-src-1.s3.amazonaws.com/SRR8767350/RNAAB089716.fast5.tar.gz.4"
+      }
+     ]
+    },
+    {
+     "name": "non-mod-rep2",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 212,
+     "n_reads": 846595,
+     "avg_signal_len": 61719.51,
+     "avg_base_len": 1066.53,
+     "raw_links": [
+      {
+       "label": "RNA081120181.fast5.tar.gz.2",
+       "href": "https://sra-pub-src-1.s3.amazonaws.com/SRR8767348/RNA081120181.fast5.tar.gz.2"
+      }
+     ]
+    }
+   ],
+   "raw_size": "584 GB"
+  },
+  {
+   "id": "scBY4741_m5C",
+   "published": "2021-06",
+   "accession": "PRJNA563591",
+   "accession_url": "https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA563591",
+   "species": "Synthetic",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "m5C_modified",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "m5C"
+     },
+     "n_fast5": 104,
+     "n_reads": 415453,
+     "avg_signal_len": 40792.42,
+     "avg_base_len": 539.89,
+     "raw_links": [
+      {
+       "label": "RNA010220191_m5C_fast5.tar.gz.1",
+       "href": "https://sra-pub-src-2.s3.amazonaws.com/SRR13570753/RNA010220191_m5C_fast5.tar.gz.1"
+      }
+     ]
+    }
+   ],
+   "raw_size": "37 GB"
+  },
+  {
+   "id": "scBY4741_hm5C",
+   "published": "2021-06",
+   "accession": "PRJNA548268",
+   "accession_url": "https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA548268",
+   "species": "Synthetic",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "hm5C_modified",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "hm5C"
+     },
+     "n_fast5": 28,
+     "n_reads": 111015,
+     "avg_signal_len": 81528.2,
+     "avg_base_len": 1022.88,
+     "raw_links": [
+      {
+       "label": "RNA080420191_5hmC_fast5.tar.gz.1",
+       "href": "https://sra-pub-src-2.s3.amazonaws.com/SRR13570800/RNA080420191_5hmC_fast5.tar.gz.1"
+      }
+     ]
+    }
+   ],
+   "raw_size": "17 GB"
+  },
+  {
+   "id": "scBY4741_pU",
+   "published": "2021-02",
+   "accession": "PRJNA549001",
+   "accession_url": "https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA549001",
+   "species": "Synthetic",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "pU_modified",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "Ψ"
+     },
+     "n_fast5": 11,
+     "n_reads": 42386,
+     "avg_signal_len": 46652.89,
+     "avg_base_len": 475.18,
+     "raw_links": [
+      {
+       "label": "pU.tar.4",
+       "href": "https://sra-pub-src-2.s3.amazonaws.com/SRR9644012/pU.tar.4"
+      }
+     ]
+    }
+   ],
+   "raw_size": "4 GB"
+  },
+  {
+   "id": "hct116",
+   "published": "2021-04",
+   "accession": "PRJEB44348",
+   "accession_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB44348",
+   "species": "Homo sapiens",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "HCT-WT-rep1",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "m6A"
+     },
+     "n_fast5": 247,
+     "n_reads": 987488,
+     "avg_signal_len": 66363.12,
+     "avg_base_len": 1217.43,
+     "raw_links": [
+      {
+       "label": "SGNex_Hct116_directRNA_replicate3_run1.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR928/ERR9286491/SGNex_Hct116_directRNA_replicate3_run1.tar.gz"
+      },
+      {
+       "label": "AWS",
+       "href": "https://registry.opendata.aws/sgnex/"
+      }
+     ]
+    },
+    {
+     "name": "HCT-WT-rep2",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "m6A"
+     },
+     "n_fast5": 254,
+     "n_reads": 1015893,
+     "avg_signal_len": 57524.51,
+     "avg_base_len": 1023.03,
+     "raw_links": [
+      {
+       "label": "SGNex_Hct116_directRNA_replicate3_run4.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR928/ERR9286492/SGNex_Hct116_directRNA_replicate3_run4.tar.gz"
+      },
+      {
+       "label": "AWS",
+       "href": "https://registry.opendata.aws/sgnex/"
+      }
+     ]
+    },
+    {
+     "name": "HCT-WT-rep3",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "m6A"
+     },
+     "n_fast5": 419,
+     "n_reads": 1673394,
+     "avg_signal_len": 65628.29,
+     "avg_base_len": 1153.23,
+     "raw_links": [
+      {
+       "label": "SGNex_Hct116_directRNA_replicate4_run3.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR928/ERR9286493/SGNex_Hct116_directRNA_replicate4_run3.tar.gz"
+      },
+      {
+       "label": "AWS",
+       "href": "https://registry.opendata.aws/sgnex/"
+      }
+     ]
+    }
+   ],
+   "raw_size": "346 GB"
+  },
+  {
+   "id": "hek293t_wt",
+   "published": "2021-01",
+   "accession": "PRJEB40872",
+   "accession_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB40872",
+   "species": "Homo sapiens",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "HEK293T-WT-rep1",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "m6A"
+     },
+     "n_fast5": 261,
+     "n_reads": 1040661,
+     "avg_signal_len": 60169.77,
+     "avg_base_len": 939.8,
+     "raw_links": [
+      {
+       "label": "HEK293T-WT-rep1.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4706156/HEK293T-WT-rep1.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "HEK293T-WT-rep2",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "m6A"
+     },
+     "n_fast5": 349,
+     "n_reads": 1396000,
+     "avg_signal_len": 54077.71,
+     "avg_base_len": 1077.61,
+     "raw_links": [
+      {
+       "label": "HEK293T-WT-rep2.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR475/ERR4756709/HEK293T-WT-rep2.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "HEK293T-WT-rep3",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "m6A"
+     },
+     "n_fast5": 133,
+     "n_reads": 513561,
+     "avg_signal_len": 56785.55,
+     "avg_base_len": 1005.06,
+     "raw_links": [
+      {
+       "label": "HEK293T-WT-rep3.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4706307/HEK293T-WT-rep3.tar.gz"
+      }
+     ]
+    }
+   ],
+   "raw_size": "224 GB"
+  },
+  {
+   "id": "hek293t_ko",
+   "published": "2021-01",
+   "accession": "PRJEB40872",
+   "accession_url": "https://www.ebi.ac.uk/ena/browser/view/PRJEB40872",
+   "species": "Homo sapiens",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "HEK293T-Mettl3-KO-rep1",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 373,
+     "n_reads": 1490210,
+     "avg_signal_len": 58140.7,
+     "avg_base_len": 952.63,
+     "raw_links": [
+      {
+       "label": "HEK293T-Mettl3-KO-rep1.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4706254/HEK293T-Mettl3-KO-rep1.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "HEK293T-Mettl3-KO-rep2",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 454,
+     "n_reads": 1815589,
+     "avg_signal_len": 52569.78,
+     "avg_base_len": 993.85,
+     "raw_links": [
+      {
+       "label": "HEK293T-Mettl3-KO-rep2.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4708848/HEK293T-Mettl3-KO-rep2.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "HEK293T-Mettl3-KO-rep3",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 421,
+     "n_reads": 1677075,
+     "avg_signal_len": 50185.96,
+     "avg_base_len": 970.32,
+     "raw_links": [
+      {
+       "label": "HEK293T-Mettl3-KO-rep3.tar.gz",
+       "href": "https://ftp.sra.ebi.ac.uk/vol1/run/ERR470/ERR4708824/HEK293T-Mettl3-KO-rep3.tar.gz"
+      }
+     ]
+    }
+   ],
+   "raw_size": "356 GB"
+  },
+  {
+   "id": "mESCs_eligos",
+   "published": "2020-10",
+   "accession": "PRJNA497103",
+   "accession_url": "https://www.ncbi.nlm.nih.gov/bioproject/497103",
+   "species": "Mus musculus",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "mESCs_Mettl3_WT",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "m6A"
+     },
+     "n_fast5": 791,
+     "n_reads": 3163286,
+     "avg_signal_len": 33202.35,
+     "avg_base_len": 526.23,
+     "raw_links": [
+      {
+       "label": "mESCs_Mettl3_WT_fast5.tar.gz.1",
+       "href": "https://sra-pub-src-1.s3.amazonaws.com/SRZ190766/mESCs_Mettl3_WT_fast5.tar.gz.1"
+      }
+     ]
+    },
+    {
+     "name": "mESCs_Mettl3_KO",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 382,
+     "n_reads": 1527561,
+     "avg_signal_len": 28350.74,
+     "avg_base_len": 437.7,
+     "raw_links": [
+      {
+       "label": "mESCs_Mettl3_KO-ref_fast5.tar.gz.1",
+       "href": "https://sra-pub-src-1.s3.amazonaws.com/SRZ190765/mESCs_Mettl3_KO-ref_fast5.tar.gz.1"
+      }
+     ]
+    }
+   ],
+   "raw_size": "220 GB",
+   "accession_extra": [
+    {
+     "label": "SRP166020",
+     "href": "https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&acc=SRP166020"
+    }
+   ]
+  },
+  {
+   "id": "ecoli_eligos",
+   "published": "2020-08",
+   "accession": "PRJNA497103",
+   "accession_url": "https://www.ncbi.nlm.nih.gov/bioproject/497103",
+   "species": "Escherichia coli",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "IVT_Inosine",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "Inosine"
+     },
+     "n_fast5": 203,
+     "n_reads": 811953,
+     "avg_signal_len": 32978.04,
+     "avg_base_len": 845.43,
+     "raw_links": [
+      {
+       "label": "IVT_Inosine_fast5.tar.gz.1",
+       "href": "https://sra-pub-src-1.s3.amazonaws.com/SRZ190745/IVT_Inosine_fast5.tar.gz.1"
+      }
+     ]
+    },
+    {
+     "name": "IVT_m5C",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "m5C"
+     },
+     "n_fast5": 144,
+     "n_reads": 573674,
+     "avg_signal_len": 45397.06,
+     "avg_base_len": 719.52,
+     "raw_links": [
+      {
+       "label": "IVT_m5C_fast5.tar.gz.1",
+       "href": "https://sra-pub-src-1.s3.amazonaws.com/SRZ190747/IVT_m5C_fast5.tar.gz.1"
+      }
+     ]
+    },
+    {
+     "name": "IVT_m6A",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "m6A"
+     },
+     "n_fast5": 371,
+     "n_reads": 1482437,
+     "avg_signal_len": 41642.13,
+     "avg_base_len": 708.29,
+     "raw_links": [
+      {
+       "label": "IVT_m6A_fast5.tar.gz.1",
+       "href": "https://sra-pub-src-1.s3.amazonaws.com/SRZ190748/IVT_m6A_fast5.tar.gz.1"
+      }
+     ]
+    },
+    {
+     "name": "IVT_normalA",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 96,
+     "n_reads": 383209,
+     "avg_signal_len": 33499.75,
+     "avg_base_len": 620.83,
+     "raw_links": [
+      {
+       "label": "IVT_normalA_fast5.tar.gz.1",
+       "href": "https://sra-pub-src-1.s3.amazonaws.com/SRZ190750/IVT_normalA_fast5.tar.gz.1"
+      }
+     ]
+    },
+    {
+     "name": "IVT_normalC",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 114,
+     "n_reads": 452806,
+     "avg_signal_len": 44566.76,
+     "avg_base_len": 731.75,
+     "raw_links": [
+      {
+       "label": "IVT_normalC_fast5.tar.gz.1",
+       "href": "https://sra-pub-src-1.s3.amazonaws.com/SRZ190751/IVT_normalC_fast5.tar.gz.1"
+      }
+     ]
+    }
+   ],
+   "raw_size": "214 GB",
+   "accession_extra": [
+    {
+     "label": "SRP166020",
+     "href": "https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&acc=SRP166020"
+    }
+   ]
+  },
+  {
+   "id": "dinopore_ivt",
+   "published": "2023-01",
+   "accession": "SRP363295",
+   "accession_url": "https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295",
+   "species": "Synthetic",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "gBlock_pureI",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "Inosine"
+     },
+     "n_fast5": 47,
+     "n_reads": 165628,
+     "avg_signal_len": 29869.74,
+     "avg_base_len": 450.32,
+     "raw_links": [
+      {
+       "label": "20200322_gBlock2_pureI.fast5.tar.gz.1",
+       "href": "https://sra-pub-src-2.s3.amazonaws.com/SRR22198731/20200322_gBlock2_pureI.fast5.tar.gz.1"
+      }
+     ]
+    },
+    {
+     "name": "gBlock_G",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna001",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": false
+     },
+     "n_fast5": 43,
+     "n_reads": 150405,
+     "avg_signal_len": 32047.08,
+     "avg_base_len": 641.17,
+     "raw_links": [
+      {
+       "label": "20200322_gBlock2_G.fast5.tar.gz.1",
+       "href": "https://sra-pub-src-2.s3.amazonaws.com/SRR22198735/20200322_gBlock2_G.fast5.tar.gz.1"
+      }
+     ]
+    }
+   ],
+   "raw_size": "15 GB"
+  },
+  {
+   "id": "dinopore_xenopus",
+   "published": "2022-04",
+   "accession": "SRP363295",
+   "accession_url": "https://www.ncbi.nlm.nih.gov/sra/?term=SRP363295",
+   "species": "Xenopus lavies",
+   "type": "RNA",
+   "samples": [
+    {
+     "name": "rep3_stage1_20200812",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "Inosine"
+     },
+     "n_fast5": 363,
+     "n_reads": 1451289,
+     "avg_signal_len": 46688.45,
+     "avg_base_len": 917.23,
+     "raw_links": [
+      {
+       "label": "20200812_xenopus_rep3_stage1_withRT.tar.gz",
+       "href": "https://sra-download.be-md.ncbi.nlm.nih.gov/vast/sra01/SRZ/018314/SRR18314677/20200812_xenopus_rep3_stage1_withRT.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "rep3_stage1_20201005",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "Inosine"
+     },
+     "n_fast5": 454,
+     "n_reads": 1812200,
+     "avg_signal_len": 27213.72,
+     "avg_base_len": 532.63,
+     "raw_links": [
+      {
+       "label": "20201005_xenopus_rep3_stage1_withRT.tar.gz",
+       "href": "https://sra-download.be-md.ncbi.nlm.nih.gov/vast/sra01/SRZ/018314/SRR18314676/20201005_xenopus_rep3_stage1_withRT.tar.gz"
+      }
+     ]
+    },
+    {
+     "name": "rep3_stage9_20200812",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "Inosine"
+     },
+     "n_fast5": 391,
+     "n_reads": 1560032,
+     "avg_signal_len": 44621.79,
+     "avg_base_len": 894.37,
+     "raw_links": [
+      {
+       "label": "20200812_xenopus_rep3_stage9_withRT.tar.gz.2",
+       "href": "https://sra-pub-src-2.s3.amazonaws.com/SRR18310038/20200812_xenopus_rep3_stage9_withRT.tar.gz.2"
+      }
+     ]
+    },
+    {
+     "name": "rep3_stage9_20201008",
+     "flowcell": "flo-min106",
+     "kit": "sqk-rna002",
+     "tasks": {
+      "BC": true,
+      "PD": false,
+      "SA": true,
+      "MD": "Inosine"
+     },
+     "n_fast5": 313,
+     "n_reads": 1251130,
+     "avg_signal_len": 31185.45,
+     "avg_base_len": 448.15,
+     "raw_links": [
+      {
+       "label": "20201008_xenopus_rep3_stage9_withRT.tar.gz.2",
+       "href": "https://sra-pub-src-1.s3.amazonaws.com/SRR18310037/20201008_xenopus_rep3_stage9_withRT.tar.gz.2"
+      }
+     ]
+    }
+   ],
+   "raw_size": "399 GB"
+  }
+ ]
+}

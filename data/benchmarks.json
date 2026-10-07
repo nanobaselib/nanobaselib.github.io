@@ -1,0 +1,536 @@
+{
+ "base_calling": {
+  "metrics": [
+   "M_align",
+   "I_align",
+   "X_align",
+   "D_align",
+   "M_ref",
+   "I_ref",
+   "X_ref",
+   "D_ref"
+  ],
+  "metric_labels": {
+   "M": "Match",
+   "I": "Insertion",
+   "X": "Mismatch",
+   "D": "Deletion"
+  },
+  "higher_is_better": [
+   "M_align",
+   "M_ref"
+  ],
+  "dna": {
+   "test_dataset": "NA12878",
+   "n_pairs": 34742,
+   "rows": [
+    {
+     "model": "Causalcall",
+     "version": "",
+     "developer": "community",
+     "config": "",
+     "values": [
+      84.3,
+      0.82,
+      4.11,
+      10.77,
+      84.41,
+      0.82,
+      4.12,
+      10.79
+     ]
+    },
+    {
+     "model": "Guppy",
+     "version": "v2.3.1",
+     "developer": "ONT",
+     "config": "dna_r9.4.1_450bps.cfg",
+     "values": [
+      86.63,
+      2.59,
+      4.34,
+      6.44,
+      88.08,
+      2.64,
+      4.36,
+      6.53
+     ]
+    },
+    {
+     "model": "Guppy",
+     "version": "v4.5.4",
+     "developer": "ONT",
+     "config": "dna_r9.4.1_450bps_hac.cfg",
+     "values": [
+      91.93,
+      1.97,
+      2.68,
+      3.42,
+      93.27,
+      2.01,
+      2.71,
+      3.48
+     ]
+    },
+    {
+     "model": "Guppy",
+     "version": "v6.0.1",
+     "developer": "ONT",
+     "config": "dna_r9.4.1_450bps_hac.cfg",
+     "values": [
+      93.6,
+      1.51,
+      2.12,
+      2.77,
+      94.3,
+      1.54,
+      2.14,
+      2.79
+     ]
+    },
+    {
+     "model": "Bonito",
+     "version": "v0.7.3",
+     "developer": "ONT",
+     "config": "dna_r9.4.1_e8_hac@v3.3",
+     "values": [
+      93.35,
+      1.56,
+      2.23,
+      2.86,
+      94.13,
+      1.59,
+      2.25,
+      2.9
+     ]
+    },
+    {
+     "model": "Dorado",
+     "version": "v0.5.3",
+     "developer": "ONT",
+     "config": "dna_r9.4.1_e8_hac@v3.3",
+     "values": [
+      93.35,
+      1.57,
+      2.24,
+      2.85,
+      93.07,
+      1.57,
+      2.23,
+      2.84
+     ]
+    },
+    {
+     "model": "Dorado",
+     "version": "v0.7.0",
+     "developer": "ONT",
+     "config": "dna_r9.4.1_e8_hac@v3.3",
+     "values": [
+      93.47,
+      1.54,
+      2.18,
+      2.81,
+      93.17,
+      1.55,
+      2.17,
+      2.8
+     ]
+    }
+   ]
+  },
+  "rna": {
+   "test_dataset": "hek293t_wt",
+   "n_pairs": 83681,
+   "rows": [
+    {
+     "model": "Rodan",
+     "version": "",
+     "developer": "community",
+     "config": "",
+     "values": [
+      87.72,
+      3.28,
+      4.91,
+      4.08,
+      85.16,
+      3.05,
+      4.17,
+      3.78
+     ]
+    },
+    {
+     "model": "Guppy",
+     "version": "v2.3.1",
+     "developer": "ONT",
+     "config": "rna_r9.4.1_70bps.cfg",
+     "values": [
+      85.67,
+      3.59,
+      4.46,
+      6.29,
+      88.06,
+      3.74,
+      4.54,
+      6.43
+     ]
+    },
+    {
+     "model": "Guppy",
+     "version": "v4.5.4",
+     "developer": "ONT",
+     "config": "rna_r9.4.1_70bps_hac.cfg",
+     "values": [
+      91.78,
+      2.39,
+      2.15,
+      3.67,
+      93.4,
+      2.48,
+      2.19,
+      3.74
+     ]
+    },
+    {
+     "model": "Guppy",
+     "version": "v6.0.1",
+     "developer": "ONT",
+     "config": "rna_r9.4.1_70bps_hac.cfg",
+     "values": [
+      91.78,
+      2.39,
+      2.15,
+      3.67,
+      93.4,
+      2.48,
+      2.19,
+      3.74
+     ]
+    },
+    {
+     "model": "Dorado",
+     "version": "v0.5.3",
+     "developer": "ONT",
+     "config": "rna002_70bps_hac@v3",
+     "values": [
+      93.96,
+      1.89,
+      1.81,
+      2.34,
+      95.22,
+      1.96,
+      1.84,
+      2.37
+     ]
+    },
+    {
+     "model": "Dorado",
+     "version": "v0.7.0",
+     "developer": "ONT",
+     "config": "rna002_70bps_hac@v3",
+     "values": [
+      93.74,
+      1.95,
+      1.92,
+      2.4,
+      95.01,
+      2.02,
+      1.94,
+      2.43
+     ]
+    }
+   ]
+  },
+  "downloads": [
+   {
+    "label": "DNA benchmark (NA12878_benchmark.tar.gz)",
+    "size": "70.6 GB",
+    "href": "https://zenodo.org/records/10889896/files/NA12878_benchmark.tar.gz?download=1"
+   },
+   {
+    "label": "RNA benchmark (hek293t_benchmark.tar.gz)",
+    "size": "81.9 GB",
+    "href": "https://zenodo.org/records/10889896/files/hek293t_benchmark.tar.gz?download=1"
+   }
+  ]
+ },
+ "polya": {
+  "test_datasets": [
+   "ont_ployA_standard",
+   "tailfindr_rna",
+   "curlcake_synth(m6A)",
+   "curlcake_synth(non)",
+   "hek293t_wt",
+   "hek293t_ko",
+   "hct116"
+  ],
+  "models": [
+   {
+    "model": "Nanopolish polya",
+    "version": "v0.14.0",
+    "approach": "Hidden Markov model, alignment-based",
+    "dl": false
+   },
+   {
+    "model": "Tailfindr",
+    "version": "v1.4",
+    "approach": "Signal-based R tool, alignment-free",
+    "dl": false
+   },
+   {
+    "model": "Dorado",
+    "version": "v0.5.3",
+    "approach": "Deep learning basecaller with tail estimation, alignment-free",
+    "dl": true
+   }
+  ],
+  "ground_truth_lengths": {
+   "ont_ployA_standard": [
+    10,
+    15,
+    30,
+    60,
+    80,
+    100
+   ],
+   "eGFP_polyA": [
+    10,
+    30,
+    40,
+    60,
+    100,
+    150
+   ]
+  },
+  "downloads": [
+   {
+    "label": "ont_ployA_standard benchmark",
+    "href": "https://zenodo.org/records/10889896/files/ont_ployA_standard_benchmark.tar.gz?download=1"
+   },
+   {
+    "label": "Tailfindr label files (tailfindr_label.tar.gz)",
+    "href": "https://drive.google.com/file/d/1Pox89PxnJ5BlRf4_sZAAP0d5w6DAW-rA/view?usp=sharing"
+   }
+  ]
+ },
+ "segment_align": {
+  "models": [
+   "Nanopolish",
+   "Tombo",
+   "SegPore"
+  ],
+  "model_versions": {
+   "Nanopolish": "eventalign v0.14.0",
+   "Tombo": "resquiggle v1.5.1",
+   "SegPore": "eventalign v1.0"
+  },
+  "rows": [
+   {
+    "dataset": "hek293t_wt",
+    "avg_std": [
+     3.073,
+     4.187,
+     2.736
+    ],
+    "avg_logp": [
+     -2.871,
+     -3.749,
+     -2.778
+    ]
+   },
+   {
+    "dataset": "hek293t_ko",
+    "avg_std": [
+     2.948,
+     4.204,
+     2.67
+    ],
+    "avg_logp": [
+     -2.856,
+     -3.749,
+     -2.745
+    ]
+   },
+   {
+    "dataset": "hct116",
+    "avg_std": [
+     3.167,
+     4.076,
+     2.872
+    ],
+    "avg_logp": [
+     -2.872,
+     -3.704,
+     -2.746
+    ]
+   }
+  ]
+ },
+ "modification": {
+  "m6a": {
+   "test_dataset": "mESCs_eligos",
+   "ground_truths": [
+    "miCLIP",
+    "miCLIP2",
+    "MeRIP-seq"
+   ],
+   "rows": [
+    {
+     "model": "Tombo (de novo)",
+     "roc": [
+      0.733,
+      0.708,
+      0.639
+     ],
+     "pr": [
+      0.172,
+      0.186,
+      0.241
+     ]
+    },
+    {
+     "model": "MINES",
+     "roc": [
+      0.763,
+      0.68,
+      0.678
+     ],
+     "pr": [
+      0.286,
+      0.281,
+      0.326
+     ]
+    },
+    {
+     "model": "Nanom6A",
+     "roc": [
+      0.823,
+      0.813,
+      0.712
+     ],
+     "pr": [
+      0.355,
+      0.356,
+      0.38
+     ]
+    },
+    {
+     "model": "Epinano",
+     "roc": [
+      0.81,
+      0.81,
+      0.706
+     ],
+     "pr": [
+      0.324,
+      0.372,
+      0.385
+     ]
+    },
+    {
+     "model": "SegPore",
+     "roc": [
+      0.844,
+      0.831,
+      0.72
+     ],
+     "pr": [
+      0.39,
+      0.374,
+      0.4
+     ]
+    },
+    {
+     "model": "m6Anet",
+     "roc": [
+      0.868,
+      0.891,
+      0.758
+     ],
+     "pr": [
+      0.417,
+      0.472,
+      0.462
+     ]
+    }
+   ]
+  },
+  "m5c": {
+   "test_dataset": "ecoli_eligos (IVT_m5C vs IVT_normalC)",
+   "rows": [
+    {
+     "model": "Tombo (de novo)",
+     "roc": 0.561,
+     "pr": 0.583
+    },
+    {
+     "model": "Tombo (alternative)",
+     "roc": 0.715,
+     "pr": 0.662
+    },
+    {
+     "model": "CHEUI-solo",
+     "roc": 0.842,
+     "pr": 0.704
+    }
+   ]
+  },
+  "models": [
+   {
+    "model": "m6Anet",
+    "version": "1.0",
+    "url": "https://github.com/GoekeLab/m6anet",
+    "paper": "https://www.nature.com/articles/s41592-022-01666-1",
+    "method": "Multiple-instance learning, MLP",
+    "scope": "m6A only"
+   },
+   {
+    "model": "CHEUI",
+    "version": "-",
+    "url": "https://github.com/comprna/CHEUI",
+    "paper": "https://www.nature.com/articles/s41467-024-47953-7",
+    "method": "CNN",
+    "scope": "m6A and m5C"
+   },
+   {
+    "model": "Epinano",
+    "version": "1.2.0",
+    "url": "https://github.com/novoalab/EpiNano",
+    "paper": "https://www.nature.com/articles/s41467-019-11713-9",
+    "method": "SVM on base-calling error features",
+    "scope": "-"
+   },
+   {
+    "model": "MINES",
+    "version": "-",
+    "url": "https://github.com/YeoLab/MINES",
+    "paper": "https://rnajournal.cshlp.org/content/26/1/19.full",
+    "method": "Random forest",
+    "scope": "m6A only"
+   },
+   {
+    "model": "Nanom6A",
+    "version": "2.0",
+    "url": "https://github.com/gaoyubang/nanom6A",
+    "paper": "https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02241-7",
+    "method": "XGBoost",
+    "scope": "m6A only"
+   },
+   {
+    "model": "SegPore",
+    "version": "1.0",
+    "url": "https://github.com/guangzhaocs/SegPore",
+    "paper": "https://www.biorxiv.org/content/10.1101/2024.01.11.575207",
+    "method": "Gaussian mixture model on segmented signal",
+    "scope": "-"
+   },
+   {
+    "model": "Tombo",
+    "version": "1.5.1",
+    "url": "https://nanoporetech.github.io/tombo",
+    "paper": "",
+    "method": "Statistical test (de novo / alternative model)",
+    "scope": "-"
+   }
+  ]
+ }
+}

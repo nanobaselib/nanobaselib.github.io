@@ -1,0 +1,57 @@
+<!--meta {"title": "About NanoBaseLib", "description": "The NanoBaseLib paper (NeurIPS 2024 Datasets and Benchmarks Track), authors, citation, licenses, update log and contact.", "lede": "NanoBaseLib was accepted at the NeurIPS 2024 Datasets and Benchmarks Track. It is developed at Aalto University and the University of Eastern Finland.", "badges": ["NeurIPS 2024", "CC BY 4.0 data", "Apache 2.0 code"]} -->
+
+<h2>Publication</h2>
+<div class="two-col">
+<div>
+<p><b>NanoBaseLib: A Multi-Task Benchmark Dataset for Nanopore Sequencing</b><br>Guangzhao Cheng, Chengbo Fu, Lu Cheng<br><i>Advances in Neural Information Processing Systems</i> 37 (NeurIPS 2024), Datasets and Benchmarks Track, pp. 76319–76331. DOI 10.52202/079017-2430.</p>
+<div class="btn-group">
+  <a class="btn btn-primary" href="https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html">Paper page</a>
+  <a class="btn" href="https://proceedings.neurips.cc/paper_files/paper/2024/file/8bce223b376f52fb86a148097eebb10d-Paper-Datasets_and_Benchmarks_Track.pdf">PDF</a>
+  <a class="btn" href="https://papers.nips.cc/paper_files/paper/2024/file/8bce223b376f52fb86a148097eebb10d-Supplemental-Datasets_and_Benchmarks_Track.pdf">Supplement</a>
+  <a class="btn" href="https://openreview.net/forum?id=3ZjaXTPWiE">OpenReview</a>
+</div>
+<p style="margin-top:1.5rem"><b>Abstract.</b> Nanopore sequencing is the third-generation sequencing technology with capabilities of generating long-read sequences and directly measuring modifications on DNA/RNA molecules, which makes it ideal for biological applications such as human Telomere-to-Telomere (T2T) genome assembly, Ebola virus surveillance and COVID-19 mRNA vaccine development. However, accuracies of computational methods in various tasks of Nanopore sequencing data analysis are far from satisfactory. For instance, the base calling accuracy of Nanopore RNA sequencing is ~90%, while the aim is ~99.9%. This highlights an urgent need of contributions from the machine learning community. A bottleneck that prevents machine learning researchers from entering this field is the lack of a large integrated benchmark dataset. To this end, we present NanoBaseLib, a comprehensive multi-task benchmark dataset. It integrates 16 public datasets with over 30 million reads for four critical tasks in Nanopore data analysis. To facilitate method development, we have preprocessed all the raw data using a uniform workflow, stored all the intermediate results in uniform formats, analysed test datasets with various baseline methods for four benchmark tasks, and developed a software package to easily access these results.</p>
+</div>
+<div class="code-block" data-lang="bibtex"><pre><code>@inproceedings{cheng2024nanobaselib,
+  title     = {NanoBaseLib: A Multi-Task Benchmark Dataset for Nanopore Sequencing},
+  author    = {Cheng, Guangzhao and Fu, Chengbo and Cheng, Lu},
+  booktitle = {Advances in Neural Information Processing Systems},
+  editor    = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+  volume    = {37},
+  pages     = {76319--76331},
+  year      = {2024},
+  publisher = {Curran Associates, Inc.},
+  doi       = {10.52202/079017-2430},
+  url       = {https://nanobaselib.github.io}
+}</code></pre></div>
+</div>
+
+<h2>Team</h2>
+<div class="people">
+  <div class="person"><div class="name"><a href="https://github.com/guangzhaocs">Guangzhao Cheng</a></div><div class="role">Developer and maintainer · Department of Computer Science, Aalto University</div></div>
+  <div class="person"><div class="name">Chengbo Fu</div><div class="role">Co-author · Department of Computer Science, Aalto University</div></div>
+  <div class="person"><div class="name">Lu Cheng</div><div class="role">Corresponding author · Aalto University and Institute of Biomedicine, University of Eastern Finland</div></div>
+</div>
+<p style="margin-top:1rem">Questions and contributions: open an issue on <a href="https://github.com/nanobaselib/NanoBaseLib/issues">GitHub</a>. Correspondence about the paper: lu.cheng.ac@gmail.com.</p>
+
+<h2>Acknowledgements</h2>
+<p>We acknowledge the computational resources provided by the Aalto Science-IT project and CSC – IT Center for Science, Finland, and thank Aki Vehtari, Bo Zhao, Ville Hyvönen and Yue Jiang (Aalto University) and Jie Tan (The Chinese University of Hong Kong) for comments on the manuscript. Supported by Research Council of Finland grants 335858 and 358086.</p>
+
+<h2>Update log</h2>
+<ul class="timeline">
+  <li><time datetime="2025-10">Oct 2025</time>Website redesigned: responsive layout, dark mode, filterable and sortable dataset tables, inline benchmark charts, machine-readable <a href="data/datasets.json">dataset metadata</a>.</li>
+  <li><time datetime="2024-12">Dec 2024</time>NanoBaseLib presented at NeurIPS 2024, Datasets and Benchmarks Track.</li>
+  <li><time datetime="2024-08-16">16 Aug 2024</time>New pages: <a href="signal.html">Nanopore signal processing</a> and <a href="raw.html">raw data download</a>. Added dataset statistics, tool overview and baseline introductions.</li>
+  <li><time datetime="2024-06-12">12 Jun 2024</time>Release of the initial dataset and benchmarks, NanoBaseLib v1.0.</li>
+  <li><time datetime="2024-04-30">30 Apr 2024</time>Launch of the website.</li>
+</ul>
+
+<h2>Licenses</h2>
+<p>The processed dataset is released under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a> license. The software is released under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>. Raw data remain under the terms of their original repositories, cited on the <a href="raw.html">raw data page</a>.</p>
+
+<h2>Limitations</h2>
+<ul>
+  <li>Modified bases change the current but are labelled as the canonical nucleotide, so base calling ground truth is an approximation with an inherent accuracy ceiling.</li>
+  <li>All datasets use R9.4 / R9.4.1 chemistry; performance on R10 chemistry still needs to be assessed. NanoBaseLib will be updated as new public data appear, and the current release is designated v1.0.</li>
+  <li>The paper's benchmarks use a subset of the 16 datasets; the remaining datasets support broader evaluations.</li>
+</ul>

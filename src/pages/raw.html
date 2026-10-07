@@ -1,0 +1,15 @@
+<!--meta {"title": "Raw data download", "description": "Direct download links (fast5) and repository accessions for every sample of the 16 public Nanopore datasets in NanoBaseLib.", "lede": "Raw fast5 files stay at the original repositories. This page collects the accession for each dataset and a direct link to the raw archive of every sample so you can skip the repository browsers.", "badges": ["44 samples", "EBI-ENA · NCBI-SRA · AWS Open Data"]} -->
+
+<p>The <b>accession</b> links lead to the original NCBI/EBI records with full metadata. Accessions starting with <code>PRJEB</code> or <code>PRJNA</code> resolve at the <a href="https://www.ebi.ac.uk/ena/browser/home">EBI European Nucleotide Archive</a>; those starting with <code>SRP</code> at the <a href="https://www.ncbi.nlm.nih.gov/sra">NCBI Sequence Read Archive</a>. The <b>raw data</b> column links straight to the fast5 archive of each sample.</p>
+
+<div class="callout callout-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+<div><p>If a link does not start downloading in the browser, copy the link address and fetch it from a terminal instead. Archives range from a few GB to several hundred GB; use a resumable downloader:</p>
+<div class="code-block" data-lang="bash"><pre><code>curl -L -C - -O "https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764782/10xpolyA.tar.gz"
+# or
+wget -c "https://ftp.sra.ebi.ac.uk/vol1/run/ERR276/ERR2764782/10xpolyA.tar.gz"</code></pre></div></div></div>
+
+<h2>Raw data by sample</h2>
+{{raw_table}}
+
+<h2>After downloading</h2>
+<p>Place the raw archive under <code>1_raw_signal/</code> of the dataset directory and follow the <a href="pipeline.html">preprocessing pipeline</a>. If you only need the processed results, the <a href="dataset.html#processed-dataset-download">processed dataset</a> on Zenodo already contains the outputs of every pipeline step.</p>

@@ -1,120 +1,261 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>NanoBaseLib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NanoBaseLib · A Multi-Task Benchmark Dataset for Nanopore Sequencing</title>
+<meta name="description" content="NanoBaseLib integrates 16 public Nanopore sequencing datasets with over 30 million reads, re-processed with one unified pipeline, and benchmarks four tasks: base calling, polyA detection, segmentation &amp; event alignment, and RNA modification detection. NeurIPS 2024 Datasets and Benchmarks Track.">
+<link rel="canonical" href="https://nanobaselib.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NanoBaseLib">
+<meta property="og:title" content="NanoBaseLib · A Multi-Task Benchmark Dataset for Nanopore Sequencing">
+<meta property="og:description" content="NanoBaseLib integrates 16 public Nanopore sequencing datasets with over 30 million reads, re-processed with one unified pipeline, and benchmarks four tasks: base calling, polyA detection, segmentation &amp; event alignment, and RNA modification detection. NeurIPS 2024 Datasets and Benchmarks Track.">
+<meta property="og:url" content="https://nanobaselib.github.io/">
+<meta property="og:image" content="https://nanobaselib.github.io/images/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1316" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=32cf222c">
+<script>
+/* apply saved theme before first paint to avoid a flash */
+(function(){try{var t=localStorage.getItem('nbl-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
+</script>
+
 </head>
-<body>	
-	<div class="wrapper d-flex align-items-stretch">
-		<nav id="sidebar">
-		        <div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary"></button>
-                </div>
-	  	        <div class="img bg-wrap text-center py-3" style="background-image: url(images/bg.avif);">
-	  			    <div class="user-logo">
-	  				    <div class="img" style="background-image: url(images/logo_small.svg);"></div>
-	  			     </div>
-	  	        </div>
-                <ul class="list-unstyled components mb-5">
-                    <li class="active">
-                        <a href="index.html"><span class="fa fa-home mr-3"></span> Home </a>
-                    </li>
-                    <li>
-                        <a href="dataset.html"><span class="fa fa-cloud-download mr-3 notif"></span> Dataset </a>
-                    </li>
-					<li>
-                        <a href="pipeline.html"><span class="fa fa-sort-amount-desc mr-3"></span>  Pipeline </a>
-                    </li>
-					<li>
-                        <a href="signal.html"><span class="fa fa-signal mr-3"></span> Signal Process </a>
-                    </li>
-                    <li>
-                        <a href="basecall.html"> <span class="fa fa-line-chart mr-3"></span> Base Calling </a>
-                    </li>
-                    <li>
-                        <a href="ploya.html"><span class="fa fa-scissors mr-3"></span> PolyA Dection </a>
-                    </li>
-                    <li>
-                        <a href="segment.html"><span class="fa fa-align-left mr-3"></span> Segmentation </a>
-                    </li>
-					<li>
-                        <a href="mod.html"><span class="fa fa-hourglass-half mr-3"></span> Modification Dection </a>
-                    </li>
-                    <li>
-                        <a href="software.html"><span class="fa fa-github mr-3"></span> Software </a>
-                    </li>
-                    <li>
-                        <a href="about.html"><span class="fa fa-info-circle mr-3"></span> About </a>
-                    </li>
-                </ul>
+<body class="layout-home">
+<a class="skip-link" href="#main">Skip to content</a>
 
-    	</nav>
+<header class="site-header">
+  <div class="inner">
+    <button class="icon-btn menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <a class="brand" href="index.html" aria-label="NanoBaseLib home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0079cd"/><stop offset="1" stop-color="#19c6b3"/></linearGradient></defs><circle cx="16" cy="16" r="15" fill="url(#bm)"/><path d="M5 18h3l2-7 3 12 3-14 3 10 2-5 2 4h4" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="brand-name">Nano<span>Base</span>Lib</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html" aria-current="true">Home</a>
+      <a href="dataset.html">Datasets</a>
+      <a href="pipeline.html">Pipeline</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="software.html">Software</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href="https://github.com/nanobaselib/NanoBaseLib" aria-label="GitHub repository" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://zenodo.org/records/10889896" aria-label="Download from Zenodo" title="Zenodo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-        <!-- Page Content Start  -->
-        <div id="content" class="p-4 p-md-5 pt-5" style="font-family:Georgia">
-		<center>
-		    <img src="images/logo_small.svg" width="60%" alt="Nanopore Sequencing" />
-            <h1 class="mb-4" style="font-family:Georgia">A Multi-task Benchmark Dataset for Nanopore Sequencing</h1>
-		</center>
-		<table class="noBorder" style="border: 0; border-collapse: collapse;">
-	        <tr>
-			    <th>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  </th>
-                <th>  <i class="fa fa-hand-o-right fa-2x"> </i>  </th>
-			    <th>  <h5 style="font-family:Georgia" > &nbsp; <i> NanoBaseLib </i> is a <span style="color: red;">comprehensive dataset</span> integrating 16 public datasets with over 30 million reads. </h5> </th>
-			</tr>
-			<tr>
-			    <th>  </th>
-                <th>  <i class="fa fa-hand-o-right fa-2x"> </i>  </th>
-			    <th>  <h5 style="font-family:Georgia"> &nbsp; <i> NanoBaseLib </i> is a <span style="color: red;">benchmark platform</span> covering 4 critical tasks. </h5> </th>
-			</tr>
-			<tr>
-			    <th> </th>
-                <th>  <i class="fa fa-hand-o-right fa-2x"> </i>  </th>
-			    <th>  <h5 style="font-family:Georgia"> &nbsp; <i> NanoBaseLib </i> is a <span style="color: red;">software package</span> designed to incorporate new datasets efficiently. </h5> </th>
-			</tr>
-		</table>
 
-		<br/>
-		<br/>
-		<h2 style="font-family:Georgia">Principle of Nanopore sequencing</h2>
-		<br/>
-		<center>
-        <figure>
-            <img src="images/nano1.jpg" width="45%">
-            <figcaption>Figure 1: Principle of Nanopore sequencing (Wang, Yunhao, et al. 2021)</figcaption>
-        </figure>
-		</center>
-   
-		<div class="justify">
-            <p style="font-family:Georgia"> Nanopore sequencing technology measures the current signal by translocating a DNA/RNA molecule through a nanoscale pore anchored on a lipid membrane. The shape, size, and chemical properties of nucleotides in the pore jointly determine the current signals, which are collected and utilized to infer the nucleotide sequence using computational methods (e.g., seq2seq deep learning models). There are multiple nucleotides (usually 5) in the pore, which we term as kmer (e.g., 5mer). The inferred kmers are assembled into a DNA/RNA sequence computationally, which completes the sequencing process. </p>
-		</div>
-		<br/>
-		<h2 style="font-family:Georgia">Beyond sequencing: machine learning powers biological discovery</h2>	
-		<br/>
-		<center>
-		<figure>
-		    <img src="images/intro.png" width="85%" alt="Nanopore Sequencing" />
-			 <figcaption>Figure 2: Nanopore sequencing and data analysis</figcaption>
-		</figure>
-		</center>
-		<p>NanoBaseLib consists of four benchmark tasks: (1) Base Calling (BC), (2) PolyA Detection (PD), (3) Segmentation and Event Alignment (SA), and (4) Modification Detection (MD).</p>
+<main id="main">
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="glow"></div>
+    <svg class="signal" viewBox="0 0 1440 400" preserveAspectRatio="none" fill="none">
+      <defs><linearGradient id="sg" x1="0" x2="1"><stop offset="0" stop-color="#0079cd" stop-opacity="0"/><stop offset=".5" stop-color="#0b7f8a" stop-opacity=".45"/><stop offset="1" stop-color="#19c6b3" stop-opacity="0"/></linearGradient></defs>
+      <path d="M0 300h60v-40h40v55h50v-90h35v70h60v-20h45v45h55v-110h30v85h70v-30h40v60h50v-75h45v40h60v-15h40v50h55v-95h35v70h60v-25h45v45h55v-120h30v95h70v-35h40v60h50v-70h45v40h60v-20h40v50h55v-90h35v70h60v-25h45v45h55v-110h30v85h70v-30h40v60h50v-75h45v40h60v-15h40v50h55v-95h35v70h60v-25h45v45h55v-120h30v95h70v-35h40v60h50v-70h45v40h60v-20h40" stroke="url(#sg)" stroke-width="2" vector-effect="non-scaling-stroke"/>
+    </svg>
+  </div>
+  <div class="inner">
+    <div>
+      <div class="eyebrow">NeurIPS 2024 · Datasets and Benchmarks Track</div>
+      <h1>One dataset,<br><em>multiple tasks</em> for Nanopore sequencing.</h1>
+      <p class="lede">NanoBaseLib integrates 16 public Nanopore datasets with over 30 million reads, re-processed with a single unified pipeline and stored in uniform formats, so machine-learning researchers can work on base calling, polyA detection, signal segmentation and RNA modification detection without months of bioinformatics preprocessing.</p>
+      <div class="btn-group">
+        <a class="btn btn-primary btn-lg" href="dataset.html">Explore the datasets</a>
+        <a class="btn btn-lg" href="benchmarks.html">See benchmark results</a>
+        <a class="btn btn-lg" href="https://github.com/nanobaselib/NanoBaseLib"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg> GitHub</a>
+      </div>
+    </div>
+    <div>
+      <img class="hero-logo" src="images/logo_small.svg" alt="NanoBaseLib logo" width="440" height="190">
+      <div class="hero-card" style="margin-top:1.5rem">
+        <div class="label">Get started</div>
+        <div class="code-block" data-lang="bash"><pre><code>git clone https://github.com/nanobaselib/NanoBaseLib.git
+cd NanoBaseLib
+# 319 MB demo dataset with every intermediate result
+curl -L -o demo_dataset.tar.gz \
+  "https://zenodo.org/records/10889896/files/demo_dataset.tar.gz?download=1"
+tar -xzf demo_dataset.tar.gz</code></pre></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-		</br>
-		<h5 style="font-family:Georgia">Reference</h5>
-		<p> [1] Wang, Yunhao, et al. "Nanopore sequencing technology, bioinformatics and applications." Nature biotechnology 39.11 (2021): 1348-1365. </p>
+<section class="section" style="padding-top:0">
+  <div class="page">
+    <div class="stats"><div class="stat"><div class="value">16</div><div class="label">public datasets, re-processed with one pipeline</div></div><div class="stat"><div class="value">33.7M</div><div class="label">reads with raw signal and base calls</div></div><div class="stat"><div class="value">4</div><div class="label">benchmark tasks with baselines</div></div><div class="stat"><div class="value">6</div><div class="label">species, DNA and RNA</div></div><div class="stat"><div class="value">3.2 TB</div><div class="label">raw fast5 data indexed</div></div><div class="stat"><div class="value">5</div><div class="label">RNA modification types (m6A, m5C, hm5C, inosine, Ψ)</div></div></div>
+  </div>
+</section>
 
-		<!-- Page Content End -->
-	    </div>
-	
-	</div>
-	<script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+<section class="section section-alt">
+  <div class="page">
+    <div class="section-head">
+      <div class="eyebrow">Four benchmark tasks</div>
+      <h2 id="the-transcriptome-analysis-workflow-task-by-task">The transcriptome analysis workflow, task by task</h2>
+      <p class="lede">Each task takes the output of the previous one as input. NanoBaseLib stores every intermediate result, so you can start at any step with ground truth, baselines and evaluation code already in place.</p>
+    </div>
+    <div class="cards">
+      <article class="card task-card task-bc">
+        <span class="task-num">Task 1 · BC</span>
+        <h3 id="base-calling">Base calling</h3>
+        <p>A seq2seq problem analogous to speech recognition: translate the raw current signal into a nucleotide sequence. Best baseline reaches ~94% match rate; Illumina reaches 99.9%.</p>
+        <div class="task-io"><b>Input</b><span>raw current signal</span><b>Output</b><span>nucleotide sequence</span><b>Metric</b><span>match / mismatch / indel rates</span></div>
+        <a class="card-link stretched" href="basecall.html">Base calling benchmark</a>
+      </article>
+      <article class="card task-card task-pd">
+        <span class="task-num">Task 2 · PD</span>
+        <h3 id="polya-detection">PolyA detection</h3>
+        <p>Locate the poly(A) tail segment in the signal and estimate its length. Doubles as a quality-control filter: reads without a tail are discarded downstream.</p>
+        <div class="task-io"><b>Input</b><span>raw current signal</span><b>Output</b><span>tail flag, borders, length</span><b>Metric</b><span>detection rate, length MSE</span></div>
+        <a class="card-link stretched" href="polya.html">PolyA detection benchmark</a>
+      </article>
+      <article class="card task-card task-sa">
+        <span class="task-num">Task 3 · SA</span>
+        <h3 id="segmentation-event-alignment">Segmentation &amp; event alignment</h3>
+        <p>Split the signal into segments and align each to a k-mer of the reference sequence. An aligned k-mer is an “event”, the unit every downstream method reasons about.</p>
+        <div class="task-io"><b>Input</b><span>raw signal + reference</span><b>Output</b><span>event alignment table</span><b>Metric</b><span>avg. std, avg. log-likelihood</span></div>
+        <a class="card-link stretched" href="segment.html">Segmentation benchmark</a>
+      </article>
+      <article class="card task-card task-md">
+        <span class="task-num">Task 4 · MD</span>
+        <h3 id="modification-detection">Modification detection</h3>
+        <p>Decide whether the central base of a k-mer at a genomic site is modified (m6A, m5C, …) from the pooled signal segments aligned to it. Ground truth comes from orthogonal short-read assays.</p>
+        <div class="task-io"><b>Input</b><span>event alignment results</span><b>Output</b><span>modification probability per site</span><b>Metric</b><span>ROC AUC, PR AUC</span></div>
+        <a class="card-link stretched" href="mod.html">Modification detection benchmark</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="page">
+    <div class="section-head">
+      <div class="eyebrow">Unified preprocessing</div>
+      <h2 id="six-steps-one-pipeline-every-intermediate-file-kept">Six steps, one pipeline, every intermediate file kept</h2>
+      <p class="lede">All 16 datasets start from raw fast5 files and run through the same tools with the same parameters, so benchmark comparisons are fair and no task depends on a dataset's original, heterogeneous processing.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3 id="standardize-raw-data">Standardize raw data</h3><p>Convert single-fast5 and pod5 into multi-fast5.</p><span class="tool">ont-fast5-api · pod5</span></div>
+      <div class="step"><h3 id="base-call">Base call</h3><p>Raw signal → FASTQ reads.</p><span class="tool">Guppy 6.0.1 · Dorado</span></div>
+      <div class="step"><h3 id="map-to-reference">Map to reference</h3><p>Align reads, sort and filter the BAM.</p><span class="tool">minimap2 · samtools</span></div>
+      <div class="step optional"><h3 id="detect-polya-rna">Detect polyA <span class="sub">(RNA)</span></h3><p>Tail flag, borders and length per read.</p><span class="tool">Nanopolish polya · Tailfindr</span></div>
+      <div class="step"><h3 id="segment-align-events">Segment &amp; align events</h3><p>Match signal segments to reference k-mers.</p><span class="tool">Nanopolish · Tombo · SegPore</span></div>
+      <div class="step optional"><h3 id="detect-modifications">Detect modifications</h3><p>Per-site modification probability.</p><span class="tool">m6Anet · CHEUI · Epinano · …</span></div>
+    </div>
+    <p style="margin-top:1.5rem"><a class="btn" href="pipeline.html">Read the full pipeline with commands →</a></p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="page">
+    <div class="section-head">
+      <div class="eyebrow">Why Nanopore, why now</div>
+      <h2 id="long-reads-direct-modification-readout-and-a-10-point-accuracy-gap">Long reads, direct modification readout, and a 10-point accuracy gap</h2>
+    </div>
+    <div class="two-col">
+      <div class="prose">
+        <p>Nanopore sequencing measures the ionic current as a DNA or RNA molecule translocates through a protein pore in a membrane. The shape, size and chemistry of the roughly five nucleotides inside the pore (a <em>k-mer</em>) determine the current level, and computational methods decode those levels back into sequence.</p>
+        <p>Compared with second-generation sequencing this yields ultra-long reads (10–100 kb), simpler library preparation, and direct access to epigenetic marks on native molecules. It powered the Telomere-to-Telomere human genome, rapid SARS-CoV-2 and Ebola surveillance, and direct RNA sequencing for mRNA vaccine development.</p>
+        <p>The cost is accuracy: RNA base calling sits near 90–94% while Illumina reaches 99.9%, and raw-signal alignment remains unsolved. The full training data of the vendor is proprietary and public data are scattered across repositories in incompatible forms. NanoBaseLib removes that barrier for the machine-learning community.</p>
+      </div>
+      <figure class="figure-card" style="margin:0">
+        <img src="images/nano1.jpg" alt="Schematic of nanopore sequencing: a motor protein feeds a DNA/RNA strand through a nanopore in a membrane while ionic current is measured" loading="lazy" width="1432" height="804">
+        <figcaption>Principle of Nanopore sequencing. Adapted from Wang et al., <i>Nature Biotechnology</i> 39, 1348–1365 (2021).</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="page">
+    <div class="section-head">
+      <div class="eyebrow">Cite</div>
+      <h2 id="nanobaselib-at-neurips-2024">NanoBaseLib at NeurIPS 2024</h2>
+      <p class="lede">If NanoBaseLib helps your research, please cite the paper. The processed dataset is released under CC BY 4.0 and the software under Apache 2.0.</p>
+    </div>
+    <div class="cite-box">
+      <div>
+        <p><b>NanoBaseLib: A Multi-Task Benchmark Dataset for Nanopore Sequencing.</b><br>Guangzhao Cheng, Chengbo Fu, Lu Cheng.<br><i>Advances in Neural Information Processing Systems</i> 37 (NeurIPS 2024), Datasets and Benchmarks Track, pp. 76319–76331.</p>
+        <div class="btn-group">
+          <a class="btn" href="https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html">Paper page</a>
+          <a class="btn" href="https://proceedings.neurips.cc/paper_files/paper/2024/file/8bce223b376f52fb86a148097eebb10d-Paper-Datasets_and_Benchmarks_Track.pdf">PDF</a>
+          <a class="btn" href="https://openreview.net/forum?id=3ZjaXTPWiE">OpenReview</a>
+          <a class="btn" href="https://doi.org/10.5281/zenodo.10889896">Zenodo DOI</a>
+        </div>
+      </div>
+      <div class="code-block" data-lang="bibtex"><pre><code>@inproceedings{cheng2024nanobaselib,
+  title     = {NanoBaseLib: A Multi-Task Benchmark Dataset for Nanopore Sequencing},
+  author    = {Cheng, Guangzhao and Fu, Chengbo and Cheng, Lu},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {37},
+  pages     = {76319--76331},
+  year      = {2024},
+  doi       = {10.52202/079017-2430}
+}</code></pre></div>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <a class="brand" href="index.html"><span class="brand-name">Nano<span>Base</span>Lib</span></a>
+      <p style="margin-top:.75rem">A multi-task benchmark dataset for Nanopore sequencing. 16 public datasets, 30 million reads, one unified preprocessing pipeline, four benchmark tasks.</p>
+      <p class="small muted">Department of Computer Science, Aalto University · Institute of Biomedicine, University of Eastern Finland</p>
+    </div>
+    <div>
+      <h4>Data</h4>
+      <ul>
+        <li><a href="dataset.html">Dataset overview</a></li>
+        <li><a href="raw.html">Raw data download</a></li>
+        <li><a href="https://zenodo.org/records/10889896">Processed data on Zenodo</a></li>
+        <li><a href="pipeline.html">Preprocessing pipeline</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Benchmarks</h4>
+      <ul>
+        <li><a href="basecall.html">Base calling</a></li>
+        <li><a href="polya.html">PolyA detection</a></li>
+        <li><a href="segment.html">Segmentation &amp; event alignment</a></li>
+        <li><a href="mod.html">Modification detection</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="software.html">Software package</a></li>
+        <li><a href="https://github.com/nanobaselib/NanoBaseLib">GitHub</a></li>
+        <li><a href="https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html">NeurIPS 2024 paper</a></li>
+        <li><a href="about.html">About &amp; citation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2024–2026 NanoBaseLib authors. Dataset: CC BY 4.0 · Software: Apache 2.0.</span>
+    <span>Built 2026-10-07</span>
+  </div>
+</footer>
+<button class="icon-btn to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button>
+<script src="assets/site.js?v=32cf222c" defer></script>
 </body>
 </html>

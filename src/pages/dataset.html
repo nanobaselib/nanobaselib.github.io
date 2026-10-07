@@ -1,0 +1,55 @@
+<!--meta {"title": "Dataset overview & statistics", "description": "Overview, per-sample statistics, task coverage and download links for the 16 public Nanopore sequencing datasets integrated in NanoBaseLib v1.0.", "lede": "Sixteen public datasets from six species, all based on R9.4 chemistry, re-processed from raw fast5 with the unified pipeline. Filter by species, molecule type or task; click a column to sort.", "badges": ["{{dataset_count_sentence}}", "Version 1.0.0", "CC BY 4.0"], "jsonld": "dataset"} -->
+
+<div class="callout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+<div><p><b>Two kinds of data.</b> <em>Raw data</em> (fast5) stays at the original repositories and is indexed on the <a href="raw.html">raw data download</a> page. <em>Processed data</em> and benchmark results produced by the unified pipeline are hosted on <a href="https://zenodo.org/records/10889896">Zenodo</a> (DOI 10.5281/zenodo.10889896).</p></div></div>
+
+<h2>Dataset overview</h2>
+<p>Task columns: <span class="badge badge-task task-bc"><span class="dot"></span>BC</span> base calling · <span class="badge badge-task task-pd"><span class="dot"></span>PD</span> polyA detection · <span class="badge badge-task task-sa"><span class="dot"></span>SA</span> segmentation &amp; event alignment · <span class="badge badge-task task-md"><span class="dot"></span>MD</span> modification detection. For MD the cell shows which modification the sample carries ground truth for.</p>
+{{dataset_overview_table}}
+
+<h2>Dataset statistics</h2>
+<p>Read counts and average lengths come from the unified pipeline. <span class="sub">* Base-called sequence lengths are from Guppy 6.0.1.</span></p>
+{{dataset_stats_table}}
+
+<h2>Processed dataset download</h2>
+<p>All processed data can be downloaded from <a href="https://zenodo.org/records/10889896">Zenodo record 10889896</a>. The dataset is dynamic: the current version is <b>1.0.0</b>, and processed results for additional software are added over time. A small demo dataset is the fastest way to see every intermediate format.</p>
+<ul class="dl-list">
+  <li><span>Demo dataset, clean (raw fast5 + reference)</span><span class="size">319.1 MB</span><a class="btn" href="https://zenodo.org/records/10889896/files/demo_dataset.tar.gz?download=1">Download</a></li>
+  <li><span>Demo dataset, fully processed (all six pipeline steps)</span><span class="size">1.1 GB</span><a class="btn" href="https://zenodo.org/records/10889896/files/demo_dataset_processed.tar.gz?download=1">Download</a></li>
+  <li><span>DNA base calling benchmark (NA12878)</span><span class="size">70.6 GB</span><a class="btn" href="https://zenodo.org/records/10889896/files/NA12878_benchmark.tar.gz?download=1">Download</a></li>
+  <li><span>RNA base calling benchmark (hek293t)</span><span class="size">81.9 GB</span><a class="btn" href="https://zenodo.org/records/10889896/files/hek293t_benchmark.tar.gz?download=1">Download</a></li>
+  <li><span>PolyA benchmark (ont_ployA_standard)</span><span class="size"></span><a class="btn" href="https://zenodo.org/records/10889896/files/ont_ployA_standard_benchmark.tar.gz?download=1">Download</a></li>
+  <li><span>All files and versions</span><span class="size">Zenodo</span><a class="btn btn-primary" href="https://zenodo.org/records/10889896">Browse record</a></li>
+</ul>
+
+<h2>Processed dataset structure</h2>
+<p>Every dataset follows the same directory layout, numbered by pipeline step. Not all datasets contain all modules: Tailfindr and SegPore cannot process DNA, so DNA datasets usually lack <code>3_tailfindr</code> and <code>6_segpore</code>. The example below has two samples.</p>
+<div class="two-col">
+<pre class="tree"><code>&lt;dataset&gt;/
+├── 0_reference/
+│   └── ref.fa                      <span class="c"># reference genome / transcriptome</span>
+├── 1_raw_signal/
+│   ├── single_fast5/               <span class="c"># as downloaded (if applicable)</span>
+│   ├── multi_fast5/                <span class="c"># standardized input for all tools</span>
+│   └── multi_pod5/                 <span class="c"># for Dorado</span>
+├── 2_base_called/
+│   ├── guppy/{pass,fail,workspace}/
+│   ├── dorado/dorado.bam
+│   ├── &lt;dataset&gt;.fastq
+│   └── reads-ref.sorted.filter.bam <span class="c"># minimap2 + samtools</span>
+├── 3_tailfindr/
+│   └── tails.csv
+├── 4_nanopolish/
+│   ├── polya.tsv, polya-pass-only-with-head.tsv
+│   ├── eventalign.txt, eventalign_combined.txt
+│   └── summary.txt
+├── 5_tombo/
+│   └── single_reads/{tombo_resquiggle.txt, tombo_summary.txt}
+└── 6_segpore/</code></pre>
+<figure class="figure-card" style="margin:0"><img src="images/dataset_tree.jpg" alt="Directory tree of a processed NanoBaseLib dataset with two samples" loading="lazy" width="806" height="953"><figcaption>Processed dataset layout as shipped on Zenodo (two samples: sample_0, sample_1).</figcaption></figure>
+</div>
+
+<h2>Dataset documentation</h2>
+<p><b>Collection criteria.</b> Raw fast5/pod5 must be freely downloadable from a public repository; datasets should span diverse species; common RNA modifications (m6A, m5C, hm5C, inosine, pseudouridine) should be covered; and ground truth should be available for several tasks. All collected datasets use R9.4 or R9.4.1 chemistry.</p>
+<p><b>Intended use.</b> Developing and benchmarking machine-learning methods for the four tasks. Uses that re-identify individuals or contradict the original data providers' intent are out of scope; see the paper's discussion of societal impact.</p>
+<p><b>Licensing and maintenance.</b> Processed data: CC BY 4.0. Software: Apache 2.0. Data are hosted on Zenodo for long-term preservation; this website and the <a href="https://github.com/nanobaselib/NanoBaseLib">GitHub repository</a> are maintained by the authors. A machine-readable <a href="data/datasets.json">datasets.json</a> and schema.org Dataset metadata (embedded in this page) describe the collection.</p>
