@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=32cf222c">
+<link rel="stylesheet" href="assets/site.css?v=81d43578">
 <script>
 /* apply saved theme before first paint to avoid a flash */
 (function(){try{var t=localStorage.getItem('nbl-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
@@ -62,7 +62,7 @@
   </div>
 </header>
 
-<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html" aria-current="page">Paper, team &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">About</div><h1>About NanoBaseLib</h1><p class="lede">NanoBaseLib was accepted at the NeurIPS 2024 Datasets and Benchmarks Track. It is developed at Aalto University and the University of Eastern Finland.</p><div class="meta"><span class="badge">NeurIPS 2024</span><span class="badge">CC BY 4.0 data</span><span class="badge">Apache 2.0 code</span></div></div>
+<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html" aria-current="page">Paper &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">About</div><h1>About NanoBaseLib</h1><p class="lede">NanoBaseLib was accepted at the NeurIPS 2024 Datasets and Benchmarks Track. It is developed and maintained at Aalto University.</p><div class="meta"><span class="badge">NeurIPS 2024</span><span class="badge">CC BY 4.0 data</span><span class="badge">Apache 2.0 code</span></div></div>
 
 <h2 id="publication">Publication</h2>
 <div class="two-col">
@@ -90,13 +90,11 @@
 }</code></pre></div>
 </div>
 
-<h2 id="team">Team</h2>
+<h2 id="developer-maintainer">Developer &amp; maintainer</h2>
 <div class="people">
-  <div class="person"><div class="name"><a href="https://github.com/guangzhaocs">Guangzhao Cheng</a></div><div class="role">Developer and maintainer · Department of Computer Science, Aalto University</div></div>
-  <div class="person"><div class="name">Chengbo Fu</div><div class="role">Co-author · Department of Computer Science, Aalto University</div></div>
-  <div class="person"><div class="name">Lu Cheng</div><div class="role">Corresponding author · Aalto University and Institute of Biomedicine, University of Eastern Finland</div></div>
+  <div class="person"><div class="name"><a href="https://github.com/guangzhaocs">Guangzhao Cheng</a></div><div class="role">Department of Computer Science, Aalto University</div></div>
 </div>
-<p style="margin-top:1rem">Questions and contributions: open an issue on <a href="https://github.com/nanobaselib/NanoBaseLib/issues">GitHub</a>. Correspondence about the paper: lu.cheng.ac@gmail.com.</p>
+<p style="margin-top:1rem">Questions and contributions: open an issue on <a href="https://github.com/nanobaselib/NanoBaseLib/issues">GitHub</a>.</p>
 
 <h2 id="acknowledgements">Acknowledgements</h2>
 <p>We acknowledge the computational resources provided by the Aalto Science-IT project and CSC – IT Center for Science, Finland, and thank Aki Vehtari, Bo Zhao, Ville Hyvönen and Yue Jiang (Aalto University) and Jie Tan (The Chinese University of Hong Kong) for comments on the manuscript. Supported by Research Council of Finland grants 335858 and 358086.</p>
@@ -119,14 +117,15 @@
   <li>All datasets use R9.4 / R9.4.1 chemistry; performance on R10 chemistry still needs to be assessed. NanoBaseLib will be updated as new public data appear, and the current release is designated v1.0.</li>
   <li>The paper's benchmarks use a subset of the 16 datasets; the remaining datasets support broader evaluations.</li>
 </ul>
-<nav class="pager" aria-label="Previous and next page"><a class="prev" href="software.html"><span class="dir">← Previous</span>Package &amp; tutorials</a></nav></main><aside class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ul><li class="depth-2"><a href="#publication">Publication</a></li><li class="depth-2"><a href="#team">Team</a></li><li class="depth-2"><a href="#acknowledgements">Acknowledgements</a></li><li class="depth-2"><a href="#update-log">Update log</a></li><li class="depth-2"><a href="#licenses">Licenses</a></li><li class="depth-2"><a href="#limitations">Limitations</a></li></ul></aside></div><div class="sidebar-backdrop"></div>
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="software.html"><span class="dir">← Previous</span>Package &amp; tutorials</a></nav></main><aside class="toc" aria-label="On this page"><div class="toc-title">On this page</div><ul><li class="depth-2"><a href="#publication">Publication</a></li><li class="depth-2"><a href="#developer-maintainer">Developer &amp; maintainer</a></li><li class="depth-2"><a href="#acknowledgements">Acknowledgements</a></li><li class="depth-2"><a href="#update-log">Update log</a></li><li class="depth-2"><a href="#licenses">Licenses</a></li><li class="depth-2"><a href="#limitations">Limitations</a></li></ul></aside></div><div class="sidebar-backdrop"></div>
 
 <footer class="site-footer">
   <div class="inner">
     <div>
       <a class="brand" href="index.html"><span class="brand-name">Nano<span>Base</span>Lib</span></a>
       <p style="margin-top:.75rem">A multi-task benchmark dataset for Nanopore sequencing. 16 public datasets, 30 million reads, one unified preprocessing pipeline, four benchmark tasks.</p>
-      <p class="small muted">Department of Computer Science, Aalto University · Institute of Biomedicine, University of Eastern Finland</p>
+      <a class="footer-logo" href="https://www.aalto.fi/en"><img src="images/aalto-logo.svg" alt="Aalto University" height="60"></a>
+      <p class="small muted">Department of Computer Science, Aalto University</p>
     </div>
     <div>
       <h4>Data</h4>
@@ -162,6 +161,6 @@
   </div>
 </footer>
 <button class="icon-btn to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button>
-<script src="assets/site.js?v=32cf222c" defer></script>
+<script src="assets/site.js?v=81d43578" defer></script>
 </body>
 </html>

@@ -288,6 +288,15 @@ figcaption { font-size: var(--fs-1); color: var(--ink-3); margin-top: var(--sp-3
 .workflow-figure { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-l); padding: var(--sp-4); }
 .workflow-figure img { display: block; margin: 0 auto; max-height: 34rem; }
 
+.logo-strip { display: flex; align-items: center; gap: var(--sp-6); margin-top: var(--sp-6); }
+.logo-strip img, .footer-logo img { height: 56px; width: auto; display: block; filter: grayscale(1) opacity(.75); transition: filter .2s; }
+.logo-strip a:hover img, .footer-logo:hover img { filter: grayscale(0) opacity(1); }
+.footer-logo { display: inline-block; margin-top: var(--sp-3); }
+.footer-logo img { height: 60px; }
+.logo-strip img.lg { height: 68px; }
+:root[data-theme="dark"] .logo-strip img, :root[data-theme="dark"] .footer-logo img { filter: brightness(0) invert(1) opacity(.8); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-strip img, :root:not([data-theme="light"]) .footer-logo img { filter: brightness(0) invert(1) opacity(.8); } }
+
 /* ---------- 7. Tables ---------- */
 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-m); background: var(--bg-elev); margin-bottom: var(--sp-5); }
 table { width: 100%; border-collapse: collapse; font-size: var(--fs-1); }

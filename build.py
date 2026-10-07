@@ -37,7 +37,7 @@ NAV = [
     ("Benchmarks", [("benchmarks.html", "Overview"), ("basecall.html", "Base calling"), ("polya.html", "PolyA detection"),
                     ("segment.html", "Segmentation & event alignment"), ("mod.html", "Modification detection")]),
     ("Software", [("software.html", "Package & tutorials")]),
-    ("About", [("about.html", "Paper, team & changelog")]),
+    ("About", [("about.html", "Paper & changelog")]),
 ]
 FLAT = [(f, t, sec) for sec, pages in NAV for f, t in pages]
 TASK_CLASS = {"BC": "task-bc", "PD": "task-pd", "SA": "task-sa", "MD": "task-md"}
@@ -299,7 +299,7 @@ def c_dataset_jsonld() -> str:
         "keywords": ["nanopore sequencing", "benchmark", "base calling", "polyA", "RNA modification", "m6A", "event alignment", "fast5"],
         "creator": [{"@type": "Person", "name": "Guangzhao Cheng", "affiliation": "Aalto University"},
                     {"@type": "Person", "name": "Chengbo Fu", "affiliation": "Aalto University"},
-                    {"@type": "Person", "name": "Lu Cheng", "affiliation": "Aalto University; University of Eastern Finland"}],
+                    {"@type": "Person", "name": "Lu Cheng", "affiliation": "Aalto University"}],
         "citation": "Cheng, G., Fu, C., & Cheng, L. (2024). NanoBaseLib: A Multi-Task Benchmark Dataset for Nanopore Sequencing. NeurIPS 37, 76319-76331.",
         "distribution": [{"@type": "DataDownload", "encodingFormat": "application/gzip", "contentUrl": DS["zenodo"]}],
         "hasPart": [{"@type": "Dataset", "name": d["id"], "identifier": d["accession"], "url": d["accession_url"]} for d in DS["datasets"]],
@@ -351,7 +351,7 @@ def add_ids_and_toc(content: str):
             while hid in seen: hid = f"{base}-{n}"; n += 1
             attrs += f' id="{hid}"'
         seen.add(hid)
-        toc.append((int(level), hid, re.sub(r"<[^>]+>", "", inner).strip()))
+        toc.append((int(level), hid, html.unescape(re.sub(r"<[^>]+>", "", inner)).strip()))
         return f"<h{level}{attrs}>{inner}</h{level}>"
     content = HEADING_RE.sub(sub, content)
     return content, toc

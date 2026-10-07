@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=32cf222c">
+<link rel="stylesheet" href="assets/site.css?v=81d43578">
 <script>
 /* apply saved theme before first paint to avoid a flash */
 (function(){try{var t=localStorage.getItem('nbl-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
@@ -62,7 +62,7 @@
   </div>
 </header>
 
-<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html" aria-current="page">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper, team &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Benchmarks</div><h1>PolyA detection benchmark</h1><p class="lede">Polyadenylation adds a poly(A) tail to messenger RNA. Finding that tail in the raw signal is a quality-control step after base calling, and three synthetic datasets with known tail lengths make it a measurable task.</p><div class="meta"><span class="badge">Task 2 · PD</span><span class="badge">7 test datasets</span><span class="badge">3 baselines</span></div></div>
+<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html" aria-current="page">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Benchmarks</div><h1>PolyA detection benchmark</h1><p class="lede">Polyadenylation adds a poly(A) tail to messenger RNA. Finding that tail in the raw signal is a quality-control step after base calling, and three synthetic datasets with known tail lengths make it a measurable task.</p><div class="meta"><span class="badge">Task 2 · PD</span><span class="badge">7 test datasets</span><span class="badge">3 baselines</span></div></div>
 
 <figure class="figure-card"><img src="images/polya.png" alt="Top: polyadenylation of an mRNA transcript. Bottom: the poly(A) tail appears as a long flat segment in the nanopore current between adapter and transcript" loading="lazy" width="1452" height="1019"><figcaption>Polyadenylation and its signature in the Nanopore signal. Top panel adapted from Weil (2015).</figcaption></figure>
 <p>The poly(A) tail is used in library preparation, so a read without a detectable tail is flagged as low quality and removed from downstream analysis. The task outputs a detection flag, the start and end of the tail on the raw signal, and the tail length in nucleotides. Only the tail length has ground truth; the borders cannot be measured independently with current technology.</p>
@@ -107,7 +107,8 @@
     <div>
       <a class="brand" href="index.html"><span class="brand-name">Nano<span>Base</span>Lib</span></a>
       <p style="margin-top:.75rem">A multi-task benchmark dataset for Nanopore sequencing. 16 public datasets, 30 million reads, one unified preprocessing pipeline, four benchmark tasks.</p>
-      <p class="small muted">Department of Computer Science, Aalto University · Institute of Biomedicine, University of Eastern Finland</p>
+      <a class="footer-logo" href="https://www.aalto.fi/en"><img src="images/aalto-logo.svg" alt="Aalto University" height="60"></a>
+      <p class="small muted">Department of Computer Science, Aalto University</p>
     </div>
     <div>
       <h4>Data</h4>
@@ -143,6 +144,6 @@
   </div>
 </footer>
 <button class="icon-btn to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button>
-<script src="assets/site.js?v=32cf222c" defer></script>
+<script src="assets/site.js?v=81d43578" defer></script>
 </body>
 </html>
