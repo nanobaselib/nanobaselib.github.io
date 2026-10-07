@@ -299,14 +299,16 @@ figcaption { font-size: var(--fs-1); color: var(--ink-3); margin-top: var(--sp-3
 .affil { display: inline-flex; align-items: center; gap: var(--sp-4); color: var(--ink-2); }
 .affil:hover { text-decoration: none; }
 .affil-label { font-size: var(--fs-0); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); white-space: nowrap; }
-.affil img, .footer-logo img { height: 44px; width: auto; display: block; filter: grayscale(1) opacity(.72); transition: filter .3s var(--ease); }
+.affil img { height: 44px; width: auto; display: block; }
 .affil img.lg { height: 52px; }
-.affil:hover img, .footer-logo:hover img { filter: grayscale(0) opacity(1); }
+/* keep the venue/affiliation logos in their original colours; on the dark theme they sit on a white plate so the colours survive */
+.affil .plate { display: inline-flex; align-items: center; padding: 0.4rem 0.7rem; border-radius: var(--radius-s); background: #fff; }
 .affil-sep { width: 1px; height: 36px; background: var(--line-strong); }
 .footer-logo { display: inline-block; margin-top: var(--sp-3); }
-.footer-logo img { height: 60px; }
-:root[data-theme="dark"] .affil img, :root[data-theme="dark"] .footer-logo img { filter: brightness(0) invert(1) opacity(.78); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .affil img, :root:not([data-theme="light"]) .footer-logo img { filter: brightness(0) invert(1) opacity(.78); } }
+.footer-logo img { height: 60px; width: auto; display: block; filter: grayscale(1) opacity(.72); transition: filter .3s var(--ease); }
+.footer-logo:hover img { filter: grayscale(0) opacity(1); }
+:root[data-theme="dark"] .footer-logo img { filter: brightness(0) invert(1) opacity(.78); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .footer-logo img { filter: brightness(0) invert(1) opacity(.78); } }
 @media (max-width: 560px) { .affil-band .inner { gap: var(--sp-4); } .affil-sep { display: none; } .affil { flex-direction: column; gap: var(--sp-2); } }
 
 /* ---------- 7. Tables ---------- */
