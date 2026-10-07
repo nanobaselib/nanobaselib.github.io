@@ -245,7 +245,8 @@ figcaption { font-size: var(--fs-1); color: var(--ink-3); margin-top: var(--sp-3
 
 /* ---------- 6. Home ---------- */
 .hero { position: relative; overflow: hidden; padding: var(--sp-9) 0 var(--sp-8); }
-.hero .inner { max-width: var(--page-w); margin: 0 auto; padding: 0 var(--sp-5); display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: var(--sp-7); align-items: center; }
+.hero .inner { max-width: var(--page-w); margin: 0 auto; padding: 0 var(--sp-5); display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: var(--sp-7); align-items: start; }
+.hero .btn-group .btn { white-space: nowrap; }
 .hero h1 { font-size: var(--fs-7); margin: var(--sp-3) 0 var(--sp-4); }
 .hero h1 em { font-style: normal; background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero .lede { margin-bottom: var(--sp-6); }
