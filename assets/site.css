@@ -182,7 +182,7 @@ figcaption { font-size: var(--fs-1); color: var(--ink-3); margin-top: var(--sp-3
   border-bottom: 1px solid var(--line);
 }
 .site-header .inner { max-width: var(--page-w); margin: 0 auto; height: 100%; padding: 0 var(--sp-5); display: flex; align-items: center; gap: var(--sp-4); }
-.brand { display: flex; align-items: center; gap: var(--sp-3); color: var(--ink); font-weight: 700; letter-spacing: -0.015em; font-size: var(--fs-4); }
+.brand { display: flex; align-items: center; gap: var(--sp-3); color: var(--ink); font-weight: 700; letter-spacing: -0.015em; font-size: 1.25rem; }
 .brand:hover { text-decoration: none; }
 .brand-name span { color: var(--accent); }
 .site-nav { display: flex; align-items: center; gap: var(--sp-1); margin-left: var(--sp-3); }
