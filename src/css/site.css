@@ -184,7 +184,7 @@ figcaption { font-size: var(--fs-1); color: var(--ink-3); margin-top: var(--sp-3
 .site-header .inner { max-width: var(--page-w); margin: 0 auto; height: 100%; padding: 0 var(--sp-5); display: flex; align-items: center; gap: var(--sp-4); }
 .brand { display: flex; align-items: center; gap: var(--sp-3); color: var(--ink); font-weight: 700; letter-spacing: -0.01em; font-size: var(--fs-3); }
 .brand:hover { text-decoration: none; }
-.brand-mark { width: 30px; height: 30px; flex: none; }
+.brand-mark { width: 34px; height: 34px; flex: none; }
 .brand-name span { color: var(--accent); }
 .site-nav { display: flex; align-items: center; gap: var(--sp-1); margin-left: var(--sp-3); }
 .site-nav a { color: var(--ink-2); font-weight: 500; font-size: var(--fs-1); padding: 0.4rem 0.7rem; border-radius: var(--radius-s); }
