@@ -307,7 +307,7 @@ figcaption { font-size: var(--fs-1); color: var(--ink-3); margin-top: var(--sp-3
 .footer-logo { display: inline-block; margin-top: var(--sp-3); color: var(--ink); }
 .footer-logo .footer-marks { height: 26px; width: auto; display: block; filter: grayscale(1) opacity(.72); transition: filter .3s var(--ease); }
 .footer-logo:hover .footer-marks { filter: grayscale(0) opacity(1); }
-.footer-logo:hover { text-decoration: none; }
+.footer-logo:hover { text-decoration: none; color: var(--ink); }
 @media (max-width: 560px) { .affil-band .inner { gap: var(--sp-4); } .affil-sep { display: none; } .affil { flex-direction: column; gap: var(--sp-2); } }
 
 /* ---------- 7. Tables ---------- */
