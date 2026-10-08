@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=8434f800">
+<link rel="stylesheet" href="assets/site.css?v=1d9fef21">
 <script>
 /* apply saved theme before first paint to avoid a flash */
 (function(){try{var t=localStorage.getItem('nbl-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
@@ -42,6 +42,7 @@
       <a href="pipeline.html">Pipeline</a>
       <a href="benchmarks.html" aria-current="true">Benchmarks</a>
       <a href="software.html">Software</a>
+      <a href="links.html">Resources</a>
       <a href="about.html">About</a>
     </nav>
     <div class="header-actions">
@@ -59,7 +60,7 @@
   </div>
 </header>
 
-<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html" aria-current="page">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Benchmarks</div><h1>Segmentation &amp; event alignment benchmark</h1><p class="lede">Split the raw current into segments and align each segment to a k-mer of the reference. An aligned k-mer is an “event”, and events are what every modification-detection method reasons about.</p><div class="meta"><span class="badge">Task 3 · SA</span><span class="badge">3 test datasets</span><span class="badge">3 baselines</span></div></div>
+<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html" aria-current="page">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">Resources</div><ul><li><a href="links.html">Nanopore links</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Benchmarks</div><h1>Segmentation &amp; event alignment benchmark</h1><p class="lede">Split the raw current into segments and align each segment to a k-mer of the reference. An aligned k-mer is an “event”, and events are what every modification-detection method reasons about.</p><div class="meta"><span class="badge">Task 3 · SA</span><span class="badge">3 test datasets</span><span class="badge">3 baselines</span></div></div>
 
 <figure class="figure-card"><img src="images/Segmention.png" alt="A raw signal trace segmented into events, each aligned to a 5-mer of the reference sequence" loading="lazy" width="2000" height="379"><figcaption>Segmentation and event alignment: each signal segment is matched to a reference k-mer; red lines are event means, shaded bands the standard deviation.</figcaption></figure>
 <p>After base calling, the read is aligned to the reference. The segmentation and event alignment task then takes the raw signal and the reference sequence, cuts the signal into small fragments, and assigns each fragment to a k-mer at a specific genomic location. For every fragment we obtain its mean and standard deviation; these two statistics drive the evaluation.</p>
@@ -134,6 +135,7 @@ b|U00096.3|:  4         CCGTAG          4           t       87           76.73  
       <h4>Project</h4>
       <ul>
         <li><a href="software.html">Software package</a></li>
+        <li><a href="links.html">Nanopore links</a></li>
         <li><a href="https://github.com/nanobaselib/NanoBaseLib">GitHub</a></li>
         <li><a href="https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html">NeurIPS 2024 paper</a></li>
         <li><a href="about.html">About &amp; citation</a></li>
@@ -146,6 +148,6 @@ b|U00096.3|:  4         CCGTAG          4           t       87           76.73  
   </div>
 </footer>
 <button class="icon-btn to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button>
-<script src="assets/site.js?v=8434f800" defer></script>
+<script src="assets/site.js?v=1d9fef21" defer></script>
 </body>
 </html>

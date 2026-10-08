@@ -1,0 +1,350 @@
+[
+ {
+  "group": "Community & curated lists",
+  "blurb": "Where the Nanopore community gathers, and lists maintained by others that go deeper than this page.",
+  "items": [
+   {
+    "name": "awesome-nanopore",
+    "url": "https://github.com/GoekeLab/awesome-nanopore",
+    "desc": "Curated list of Nanopore tools, datasets and papers maintained by the Göke lab.",
+    "tag": "list"
+   },
+   {
+    "name": "Nanopore Community",
+    "url": "https://community.nanoporetech.com/",
+    "desc": "Oxford Nanopore's official forum, software downloads (Guppy, MinKNOW) and protocols. Free account required.",
+    "tag": "forum"
+   },
+   {
+    "name": "EPI2ME",
+    "url": "https://epi2me.nanoporetech.com/",
+    "desc": "Oxford Nanopore's analysis platform and workflow catalogue, with example datasets.",
+    "tag": "platform"
+   },
+   {
+    "name": "EPI2ME Labs data index",
+    "url": "https://labs.epi2me.io/dataindex/",
+    "desc": "Index of Oxford Nanopore Open Data releases: public example runs across applications and chemistries.",
+    "tag": "data"
+   },
+   {
+    "name": "Oxford Nanopore Open Data on AWS",
+    "url": "https://registry.opendata.aws/ont-open-data/",
+    "desc": "Raw and basecalled Open Data hosted in the AWS Open Data registry.",
+    "tag": "data"
+   },
+   {
+    "name": "Biostars",
+    "url": "https://www.biostars.org/",
+    "desc": "Bioinformatics question-and-answer site with an active Nanopore community.",
+    "tag": "forum"
+   }
+  ]
+ },
+ {
+  "group": "Raw data formats & signal models",
+  "blurb": "Containers for the raw current signal and the reference k-mer models that most tools build on.",
+  "items": [
+   {
+    "name": "POD5 file format",
+    "url": "https://github.com/nanoporetech/pod5-file-format",
+    "desc": "Current Oxford Nanopore raw-signal format and Python/C++ API; replaces fast5.",
+    "tag": "format"
+   },
+   {
+    "name": "ont_fast5_api",
+    "url": "https://github.com/nanoporetech/ont_fast5_api",
+    "desc": "Read, write and convert single- and multi-read fast5 files.",
+    "tag": "format"
+   },
+   {
+    "name": "SLOW5 / slow5tools",
+    "url": "https://github.com/hasindu2008/slow5tools",
+    "desc": "Community-designed compact signal format with fast random access, plus conversion tools.",
+    "tag": "format"
+   },
+   {
+    "name": "ONT k-mer models",
+    "url": "https://github.com/nanoporetech/kmer_models",
+    "desc": "Expected current level and spread per k-mer for each pore chemistry; used for event alignment and evaluation.",
+    "tag": "model"
+   },
+   {
+    "name": "Taiyaki file formats",
+    "url": "https://github.com/nanoporetech/taiyaki/blob/master/docs/FILE_FORMATS.md",
+    "desc": "Documentation of fast5 attributes and the raw-to-picoampere conversion.",
+    "tag": "docs"
+   }
+  ]
+ },
+ {
+  "group": "Base calling",
+  "blurb": "Production basecallers from Oxford Nanopore and research models from the community.",
+  "items": [
+   {
+    "name": "Dorado",
+    "url": "https://github.com/nanoporetech/dorado",
+    "desc": "Oxford Nanopore's current basecaller: DNA/RNA models, modified-base calling, polyA estimation, duplex.",
+    "tag": "ONT"
+   },
+   {
+    "name": "Bonito",
+    "url": "https://github.com/nanoporetech/bonito",
+    "desc": "PyTorch research basecaller from Oxford Nanopore; the reference for training your own models.",
+    "tag": "ONT"
+   },
+   {
+    "name": "Rerio",
+    "url": "https://github.com/nanoporetech/rerio",
+    "desc": "Research release models for Dorado and Bonito, including modified-base models.",
+    "tag": "ONT"
+   },
+   {
+    "name": "Remora",
+    "url": "https://github.com/nanoporetech/remora",
+    "desc": "Training and inference framework for modified-base detection on top of basecalling.",
+    "tag": "ONT"
+   },
+   {
+    "name": "RODAN",
+    "url": "https://github.com/biodlab/RODAN",
+    "desc": "Fully convolutional RNA basecaller from the research community.",
+    "tag": "research"
+   },
+   {
+    "name": "Causalcall",
+    "url": "https://github.com/scutbioinformatic/causalcall",
+    "desc": "Temporal convolutional network basecaller for DNA.",
+    "tag": "research"
+   }
+  ]
+ },
+ {
+  "group": "Alignment, segmentation & event alignment",
+  "blurb": "Mapping reads to a reference and aligning the raw signal to k-mers, the inputs to every downstream task.",
+  "items": [
+   {
+    "name": "minimap2",
+    "url": "https://github.com/lh3/minimap2",
+    "desc": "Standard long-read aligner; map-ont and splice presets for Nanopore DNA and RNA.",
+    "tag": "alignment"
+   },
+   {
+    "name": "Nanopolish",
+    "url": "https://github.com/jts/nanopolish",
+    "desc": "Signal-level toolkit: eventalign, polya, methylation calling.",
+    "tag": "signal"
+   },
+   {
+    "name": "f5c",
+    "url": "https://github.com/hasindu2008/f5c",
+    "desc": "GPU-accelerated re-implementation of Nanopolish eventalign and call-methylation.",
+    "tag": "signal"
+   },
+   {
+    "name": "Tombo",
+    "url": "https://nanoporetech.github.io/tombo/",
+    "desc": "Re-squiggle algorithm and modified-base detection on raw signal (legacy, still widely used).",
+    "tag": "signal"
+   },
+   {
+    "name": "Uncalled4",
+    "url": "https://github.com/skovaka/uncalled4",
+    "desc": "Signal alignment and visualisation toolkit with DTW-based event alignment and k-mer model training.",
+    "tag": "signal"
+   },
+   {
+    "name": "SegPore",
+    "url": "https://github.com/guangzhaocs/SegPore",
+    "desc": "Raw signal segmentation and event alignment for direct RNA, with modification state estimation.",
+    "tag": "signal"
+   },
+   {
+    "name": "squigulator",
+    "url": "https://github.com/hasindu2008/squigulator",
+    "desc": "Simulate raw Nanopore signal from a reference, useful for testing segmentation and basecalling.",
+    "tag": "simulation"
+   }
+  ]
+ },
+ {
+  "group": "RNA modification detection",
+  "blurb": "Tools that call m6A, m5C, pseudouridine and other marks from direct RNA signal or basecalling errors.",
+  "items": [
+   {
+    "name": "m6Anet",
+    "url": "https://github.com/GoekeLab/m6anet",
+    "desc": "Multiple-instance learning m6A detector on Nanopolish eventalign output.",
+    "tag": "m6A"
+   },
+   {
+    "name": "xPore",
+    "url": "https://github.com/GoekeLab/xpore",
+    "desc": "Differential modification detection between conditions from signal distributions.",
+    "tag": "differential"
+   },
+   {
+    "name": "CHEUI",
+    "url": "https://github.com/comprna/CHEUI",
+    "desc": "m6A and m5C detection at single-molecule resolution with CNNs.",
+    "tag": "m6A · m5C"
+   },
+   {
+    "name": "EpiNano",
+    "url": "https://github.com/novoalab/EpiNano",
+    "desc": "Modification detection from basecalling error features.",
+    "tag": "error-based"
+   },
+   {
+    "name": "Nanocompore",
+    "url": "https://github.com/tleonardi/nanocompore",
+    "desc": "Comparative signal analysis between two samples to find modified sites.",
+    "tag": "differential"
+   },
+   {
+    "name": "ELIGOS",
+    "url": "https://gitlab.com/piroonj/eligos2",
+    "desc": "Error-of-specific-bases method; source of the eligos datasets in NanoBaseLib.",
+    "tag": "error-based"
+   },
+   {
+    "name": "modkit",
+    "url": "https://github.com/nanoporetech/modkit",
+    "desc": "Oxford Nanopore's toolkit for summarising modified-base calls (MM/ML tags) from Dorado BAMs.",
+    "tag": "ONT"
+   }
+  ]
+ },
+ {
+  "group": "PolyA tails, QC & utilities",
+  "blurb": "Quality control, read statistics and small utilities you will reach for in every project.",
+  "items": [
+   {
+    "name": "tailfindr",
+    "url": "https://github.com/adnaniazi/tailfindr",
+    "desc": "Alignment-free poly(A) tail length estimation from raw fast5 for RNA and DNA.",
+    "tag": "polyA"
+   },
+   {
+    "name": "NanoPlot / NanoPack",
+    "url": "https://github.com/wdecoster/NanoPlot",
+    "desc": "Read-length and quality plots for sequencing summaries, FASTQ and BAM.",
+    "tag": "QC"
+   },
+   {
+    "name": "pycoQC",
+    "url": "https://github.com/a-slide/pycoQC",
+    "desc": "Interactive QC reports from Guppy/Dorado sequencing summaries.",
+    "tag": "QC"
+   },
+   {
+    "name": "samtools / htslib",
+    "url": "https://www.htslib.org/",
+    "desc": "Sort, filter and index BAM files; the glue between every pipeline step.",
+    "tag": "utility"
+   },
+   {
+    "name": "seqkit",
+    "url": "https://bioinf.shenwei.me/seqkit/",
+    "desc": "Fast FASTA/FASTQ manipulation toolkit.",
+    "tag": "utility"
+   }
+  ]
+ },
+ {
+  "group": "Workflows",
+  "blurb": "End-to-end pipelines that chain the tools above.",
+  "items": [
+   {
+    "name": "nf-core/nanoseq",
+    "url": "https://nf-co.re/nanoseq",
+    "desc": "Nextflow pipeline for Nanopore DNA/RNA: basecalling, alignment, quantification, modification calling.",
+    "tag": "Nextflow"
+   },
+   {
+    "name": "EPI2ME Labs workflows",
+    "url": "https://github.com/epi2me-labs",
+    "desc": "Oxford Nanopore's open-source wf-* Nextflow workflows (e.g. wf-transcriptomes, wf-human-variation).",
+    "tag": "Nextflow"
+   },
+   {
+    "name": "Master of Pores",
+    "url": "https://github.com/biocorecrg/master_of_pores",
+    "desc": "Nextflow workflow for direct RNA preprocessing, modification and polyA analysis.",
+    "tag": "Nextflow"
+   },
+   {
+    "name": "NanoBaseLib pipeline",
+    "url": "pipeline.html",
+    "desc": "The unified six-step preprocessing pipeline used for every dataset on this site.",
+    "tag": "this site"
+   }
+  ]
+ },
+ {
+  "group": "Public datasets & repositories",
+  "blurb": "Where raw Nanopore data lives, and other benchmark collections.",
+  "items": [
+   {
+    "name": "NanoBaseLib raw data index",
+    "url": "raw.html",
+    "desc": "Direct fast5 download links and accessions for all 44 samples in NanoBaseLib.",
+    "tag": "this site"
+   },
+   {
+    "name": "NanoBaseLib on Zenodo",
+    "url": "https://zenodo.org/records/10889896",
+    "desc": "Processed data and benchmark archives, DOI 10.5281/zenodo.10889896.",
+    "tag": "this site"
+   },
+   {
+    "name": "European Nucleotide Archive (ENA)",
+    "url": "https://www.ebi.ac.uk/ena/browser/home",
+    "desc": "Primary archive for PRJEB/PRJNA projects; raw Nanopore submissions include fast5/pod5 tarballs.",
+    "tag": "archive"
+   },
+   {
+    "name": "NCBI Sequence Read Archive (SRA)",
+    "url": "https://www.ncbi.nlm.nih.gov/sra",
+    "desc": "Raw sequencing data archive; mirrors ENA submissions.",
+    "tag": "archive"
+   },
+   {
+    "name": "SG-NEx",
+    "url": "https://github.com/GoekeLab/sg-nex-data",
+    "desc": "Singapore Nanopore Expression project: matched direct RNA, cDNA and short-read data for human cell lines.",
+    "tag": "dataset"
+   },
+   {
+    "name": "NA12878 Nanopore WGS Consortium",
+    "url": "https://github.com/nanopore-wgs-consortium/NA12878",
+    "desc": "Human genome and native RNA reference datasets with raw fast5.",
+    "tag": "dataset"
+   }
+  ]
+ },
+ {
+  "group": "Reading",
+  "blurb": "Reviews and benchmarks that give the big picture.",
+  "items": [
+   {
+    "name": "Nanopore sequencing technology, bioinformatics and applications",
+    "url": "https://doi.org/10.1038/s41587-021-01108-x",
+    "desc": "Wang et al., Nature Biotechnology 39, 1348–1365 (2021). The standard review of the technology and its analysis landscape.",
+    "tag": "review"
+   },
+   {
+    "name": "NanoBaseLib paper",
+    "url": "https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html",
+    "desc": "Cheng, Fu & Cheng, NeurIPS 2024 Datasets and Benchmarks Track.",
+    "tag": "this site"
+   },
+   {
+    "name": "Oxford Nanopore publications",
+    "url": "https://nanoporetech.com/resource-centre",
+    "desc": "Oxford Nanopore's resource centre: application notes, posters, talks and the publication database.",
+    "tag": "ONT"
+   }
+  ]
+ }
+]

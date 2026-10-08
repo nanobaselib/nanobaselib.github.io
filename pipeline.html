@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=8434f800">
+<link rel="stylesheet" href="assets/site.css?v=1d9fef21">
 <script>
 /* apply saved theme before first paint to avoid a flash */
 (function(){try{var t=localStorage.getItem('nbl-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
@@ -42,6 +42,7 @@
       <a href="pipeline.html" aria-current="true">Pipeline</a>
       <a href="benchmarks.html">Benchmarks</a>
       <a href="software.html">Software</a>
+      <a href="links.html">Resources</a>
       <a href="about.html">About</a>
     </nav>
     <div class="header-actions">
@@ -59,7 +60,7 @@
   </div>
 </header>
 
-<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html" aria-current="page">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Pipeline</div><h1>Preprocessing pipeline</h1><p class="lede">Every dataset is re-processed from raw fast5 with the same tools and parameters. The commands below reproduce the pipeline on the 319 MB demo dataset; swap in your own data to extend NanoBaseLib.</p><div class="meta"><span class="badge">6 steps</span><span class="badge">19 tools</span><span class="badge">Reproducible from raw data</span></div></div>
+<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html" aria-current="page">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">Resources</div><ul><li><a href="links.html">Nanopore links</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Pipeline</div><h1>Preprocessing pipeline</h1><p class="lede">Every dataset is re-processed from raw fast5 with the same tools and parameters. The commands below reproduce the pipeline on the 319 MB demo dataset; swap in your own data to extend NanoBaseLib.</p><div class="meta"><span class="badge">6 steps</span><span class="badge">19 tools</span><span class="badge">Reproducible from raw data</span></div></div>
 
 <h2 id="pipeline-workflow">Pipeline workflow</h2>
 <p>Public datasets arrive pre-processed with different basecallers, genome versions and tools, which makes them unfair to compare directly. NanoBaseLib therefore starts from the raw signal and runs one pipeline whose outputs become the inputs of each benchmark task. Each step can be implemented with several tools; the ones we chose follow common practice and double as the baselines in the benchmarks.</p>
@@ -177,6 +178,7 @@ tombo resquiggle 5_tombo/single_reads 0_reference/ref.fa --overwrite --processes
       <h4>Project</h4>
       <ul>
         <li><a href="software.html">Software package</a></li>
+        <li><a href="links.html">Nanopore links</a></li>
         <li><a href="https://github.com/nanobaselib/NanoBaseLib">GitHub</a></li>
         <li><a href="https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html">NeurIPS 2024 paper</a></li>
         <li><a href="about.html">About &amp; citation</a></li>
@@ -189,6 +191,6 @@ tombo resquiggle 5_tombo/single_reads 0_reference/ref.fa --overwrite --processes
   </div>
 </footer>
 <button class="icon-btn to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button>
-<script src="assets/site.js?v=8434f800" defer></script>
+<script src="assets/site.js?v=1d9fef21" defer></script>
 </body>
 </html>

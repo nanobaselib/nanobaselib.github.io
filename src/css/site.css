@@ -313,6 +313,16 @@ figcaption { font-size: var(--fs-1); color: var(--ink-3); margin-top: var(--sp-3
 .site-footer .footer-logo:hover .mark-s { fill: var(--mark); opacity: 1; }
 @media (max-width: 560px) { .affil-band .inner { gap: var(--sp-4); } .affil-sep { display: none; } .affil { flex-direction: column; gap: var(--sp-2); } }
 
+/* links directory */
+.cards-links { grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); margin-bottom: var(--sp-6); }
+.link-card { padding: var(--sp-4) var(--sp-5); gap: var(--sp-2); }
+.link-card .link-head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-3); }
+.link-card h3 { font-size: var(--fs-2); margin: 0; }
+.link-card h3 a { color: var(--ink); }
+.link-card:hover h3 a { color: var(--accent); text-decoration: none; }
+.link-card .badge { flex: none; }
+.link-card .link-host { font-size: var(--fs-0); color: var(--ink-3); }
+
 /* ---------- 7. Tables ---------- */
 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-m); background: var(--bg-elev); margin-bottom: var(--sp-5); }
 table { width: 100%; border-collapse: collapse; font-size: var(--fs-1); }

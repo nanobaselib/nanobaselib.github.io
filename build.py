@@ -37,6 +37,7 @@ NAV = [
     ("Benchmarks", [("benchmarks.html", "Overview"), ("basecall.html", "Base calling"), ("polya.html", "PolyA detection"),
                     ("segment.html", "Segmentation & event alignment"), ("mod.html", "Modification detection")]),
     ("Software", [("software.html", "Package & tutorials")]),
+    ("Resources", [("links.html", "Nanopore links")]),
     ("About", [("about.html", "Paper & changelog")]),
 ]
 FLAT = [(f, t, sec) for sec, pages in NAV for f, t in pages]
@@ -310,6 +311,19 @@ def c_dataset_count_sentence() -> str:
     st = site_stats()
     return f"{st['datasets']} datasets · {st['samples']} samples · {st['reads']:,} reads · {st['size_tb']:.1f} TB raw fast5"
 
+def c_links_sections() -> str:
+    out = []
+    for g in DATA["links"]:
+        cards = []
+        for it in g["items"]:
+            ext = it["url"].startswith("http")
+            host = re.sub(r"^https?://(www\.)?", "", it["url"]).split("/")[0] if ext else "nanobaselib.github.io"
+            cards.append(
+                f'<article class="card link-card"><div class="link-head"><h3 data-toc="skip"><a class="stretched" href="{esc(it["url"])}">{esc(it["name"])}</a></h3>'
+                f'<span class="badge">{esc(it["tag"])}</span></div><p>{esc(it["desc"])}</p><span class="link-host mono">{esc(host)}</span></article>')
+        out.append(f'<h2>{esc(g["group"])}</h2><p class="muted">{esc(g["blurb"])}</p><div class="cards cards-links">{"".join(cards)}</div>')
+    return "".join(out)
+
 COMPONENTS = {
     "stats_tiles": c_stats_tiles,
     "dataset_overview_table": c_dataset_overview_table,
@@ -323,6 +337,8 @@ COMPONENTS = {
     "md_m6a_table": c_md_m6a_table, "md_m5c_table": c_md_m5c_table, "md_models_table": c_md_models_table,
     "polya_models_table": c_polya_models_table,
     "dataset_count_sentence": c_dataset_count_sentence,
+    "links_sections": c_links_sections,
+    "links_count": lambda: str(sum(len(g["items"]) for g in DATA["links"])),
 }
 
 # ---------------------------------------------------------------------------
@@ -343,6 +359,8 @@ def add_ids_and_toc(content: str):
     toc, seen = [], set()
     def sub(m):
         level, attrs, inner = m.group(1), m.group(2), m.group(3)
+        if 'data-toc="skip"' in attrs:
+            return m.group(0)
         idm = re.search(r'id="([^"]+)"', attrs)
         if idm:
             hid = idm.group(1)

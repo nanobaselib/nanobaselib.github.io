@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=8434f800">
+<link rel="stylesheet" href="assets/site.css?v=1d9fef21">
 <script>
 /* apply saved theme before first paint to avoid a flash */
 (function(){try{var t=localStorage.getItem('nbl-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
@@ -42,6 +42,7 @@
       <a href="pipeline.html">Pipeline</a>
       <a href="benchmarks.html" aria-current="true">Benchmarks</a>
       <a href="software.html">Software</a>
+      <a href="links.html">Resources</a>
       <a href="about.html">About</a>
     </nav>
     <div class="header-actions">
@@ -59,7 +60,7 @@
   </div>
 </header>
 
-<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html" aria-current="page">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Benchmarks</div><h1>Base calling benchmark</h1><p class="lede">Base calling converts a chunk of raw current into a DNA or RNA sequence, exactly as speech recognition converts audio into text. It is the foundation every other task builds on, and its accuracy is still far from the 99.9% of short-read sequencing.</p><div class="meta"><span class="badge">Task 1 · BC</span><span class="badge">DNA: NA12878 · RNA: hek293t_wt</span><span class="badge">7 + 6 baselines</span></div></div>
+<div class="page docs"><aside class="sidebar" id="sidebar" aria-label="Section navigation"><nav><div class="group"><div class="group-title">Datasets</div><ul><li><a href="dataset.html">Overview &amp; statistics</a></li><li><a href="raw.html">Raw data download</a></li></ul></div><div class="group"><div class="group-title">Pipeline</div><ul><li><a href="pipeline.html">Preprocessing pipeline</a></li><li><a href="signal.html">Signal processing</a></li></ul></div><div class="group"><div class="group-title">Benchmarks</div><ul><li><a href="benchmarks.html">Overview</a></li><li><a href="basecall.html" aria-current="page">Base calling</a></li><li><a href="polya.html">PolyA detection</a></li><li><a href="segment.html">Segmentation &amp; event alignment</a></li><li><a href="mod.html">Modification detection</a></li></ul></div><div class="group"><div class="group-title">Software</div><ul><li><a href="software.html">Package &amp; tutorials</a></li></ul></div><div class="group"><div class="group-title">Resources</div><ul><li><a href="links.html">Nanopore links</a></li></ul></div><div class="group"><div class="group-title">About</div><ul><li><a href="about.html">Paper &amp; changelog</a></li></ul></div></nav></aside><main id="main"><div class="page-header"><div class="eyebrow">Benchmarks</div><h1>Base calling benchmark</h1><p class="lede">Base calling converts a chunk of raw current into a DNA or RNA sequence, exactly as speech recognition converts audio into text. It is the foundation every other task builds on, and its accuracy is still far from the 99.9% of short-read sequencing.</p><div class="meta"><span class="badge">Task 1 · BC</span><span class="badge">DNA: NA12878 · RNA: hek293t_wt</span><span class="badge">7 + 6 baselines</span></div></div>
 
 <figure class="figure-card"><img src="images/basecalling_seq2seq.png" alt="Analogy between automatic speech recognition and base calling: a current signal is decoded into a nucleotide sequence by a seq2seq model" loading="lazy" width="2400" height="670"><figcaption>Base calling as a sequence-to-sequence problem: the input is the nanopore current, the output a sequence over {A, C, G, T/U}.</figcaption></figure>
 
@@ -141,6 +142,7 @@ rate_ref   = M | X | I | D  /  (number of reference bases) × 100%</span>
       <h4>Project</h4>
       <ul>
         <li><a href="software.html">Software package</a></li>
+        <li><a href="links.html">Nanopore links</a></li>
         <li><a href="https://github.com/nanobaselib/NanoBaseLib">GitHub</a></li>
         <li><a href="https://papers.nips.cc/paper_files/paper/2024/hash/8bce223b376f52fb86a148097eebb10d-Abstract-Datasets_and_Benchmarks_Track.html">NeurIPS 2024 paper</a></li>
         <li><a href="about.html">About &amp; citation</a></li>
@@ -153,6 +155,6 @@ rate_ref   = M | X | I | D  /  (number of reference bases) × 100%</span>
   </div>
 </footer>
 <button class="icon-btn to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button>
-<script src="assets/site.js?v=8434f800" defer></script>
+<script src="assets/site.js?v=1d9fef21" defer></script>
 </body>
 </html>
